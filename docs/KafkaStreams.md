@@ -1,0 +1,79 @@
+# KafkaStreams
+
+`KafkaStreams` is the developer API to Kafka Streams.
+
+`KafkaStreams` is a Kafka client for continuous stream processing (on input coming from one or more input topics and sending output to zero, one, or more output topics).
+
+## Creating Instance
+
+`KafkaStreams` takes the following to be created:
+
+* <span id="internalTopologyBuilder"><span id="topology"> `InternalTopologyBuilder` (or [Topology](Topology.md))
+* <span id="config"> [StreamsConfig](StreamsConfig.md)
+* <span id="clientSupplier"> `KafkaClientSupplier` (default: `DefaultKafkaClientSupplier`)
+* <span id="time"> `Time`
+
+### <span id="defaultStreamsUncaughtExceptionHandler"> defaultStreamsUncaughtExceptionHandler
+
+```java
+void defaultStreamsUncaughtExceptionHandler(
+  Throwable throwable)
+```
+
+`defaultStreamsUncaughtExceptionHandler`...FIXME
+
+## <span id="setUncaughtExceptionHandler"> setUncaughtExceptionHandler
+
+```java
+void setUncaughtExceptionHandler(
+  StreamsUncaughtExceptionHandler streamsUncaughtExceptionHandler)
+```
+
+`setUncaughtExceptionHandler`...FIXME
+
+`setUncaughtExceptionHandler` is part of the public API.
+
+## <span id="handleStreamsUncaughtException"> handleStreamsUncaughtException
+
+```java
+void handleStreamsUncaughtException(
+  Throwable throwable,
+  StreamsUncaughtExceptionHandler streamsUncaughtExceptionHandler)
+```
+
+`handleStreamsUncaughtException`...FIXME
+
+`handleStreamsUncaughtException` is used when:
+
+* `KafkaStreams` is requested to [setUncaughtExceptionHandler](#setUncaughtExceptionHandler) and [defaultStreamsUncaughtExceptionHandler](#defaultStreamsUncaughtExceptionHandler)
+
+### <span id="replaceStreamThread"> replaceStreamThread
+
+```java
+void replaceStreamThread(
+  Throwable throwable)
+```
+
+`replaceStreamThread`...FIXME
+
+### <span id="addStreamThread"> addStreamThread
+
+```java
+Optional<String> addStreamThread()
+```
+
+`addStreamThread`...FIXME
+
+## <span id="createAndAddStreamThread"> createAndAddStreamThread
+
+```java
+StreamThread createAndAddStreamThread(
+  long cacheSizePerThread,
+  int threadIdx)
+```
+
+`createAndAddStreamThread`...FIXME
+
+`createAndAddStreamThread` is used when:
+
+* `KafkaStreams` is [created](#creating-instance) and requested to [addStreamThread](#addStreamThread)

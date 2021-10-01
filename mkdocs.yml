@@ -106,3 +106,14 @@ nav:
   - Home: index.md
   - Internals:
     - Overview: overview.md
+    - AbstractTask: AbstractTask.md
+    - ActiveTaskCreator: ActiveTaskCreator.md
+    - KafkaStreams: KafkaStreams.md
+    - StandbyTaskCreator: StandbyTaskCreator.md
+    - StreamsConfig: StreamsConfig.md
+    - StreamsPartitionAssignor: StreamsPartitionAssignor.md
+    - StreamTask: StreamTask.md
+    - StreamThread: StreamThread.md
+    - TaskManager: TaskManager.md
+    - Tasks: Tasks.md
+    - Topology: Topology.md

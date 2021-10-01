@@ -1,0 +1,3 @@
+# StreamsPartitionAssignor
+
+`StreamsPartitionAssignor` is...FIXME
