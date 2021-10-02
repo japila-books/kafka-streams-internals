@@ -51,6 +51,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/NodeFactory/</loc>
+         <lastmod>2021-10-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorTopology/</loc>
+         <lastmod>2021-10-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StandbyTaskCreator/</loc>
          <lastmod>2021-10-02</lastmod>
          <changefreq>daily</changefreq>
