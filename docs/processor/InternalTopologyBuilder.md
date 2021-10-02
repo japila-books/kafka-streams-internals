@@ -7,11 +7,55 @@ ProcessorTopology build(
   Set<String> nodeGroup)
 ```
 
-`build`...FIXME
+`build` creates a new [ProcessorTopology](ProcessorTopology.md).
+
+For every [NodeFactory](NodeFactory.md) (in the [nodeFactories](#nodeFactories) internal registry), if the name of the factory is in the given node group if defined or simply all node factories go through, `build` does the following:
+
+1. Requests the `NodeFactory` to [build a ProcessorNode](NodeFactory.md#build) (and registers it in a local registry of processors by name)
+1. For `ProcessorNodeFactory`s, [buildProcessorNode](#buildProcessorNode)
+1. For `SourceNodeFactory`s, [buildSourceNode](#buildSourceNode)
+1. For `SinkNodeFactory`s, [buildSinkNode](#buildSinkNode)
 
 `build` is used when:
 
 * `InternalTopologyBuilder` is requested to build a [topology](#buildTopology), a [subtopology](#buildSubtopology) and a [global state topology](#buildGlobalStateTopology)
+
+### <span id="buildProcessorNode"> buildProcessorNode
+
+```java
+void buildProcessorNode(
+  Map<String, ProcessorNode<?, ?, ?, ?>> processorMap,
+  Map<String, StateStore> stateStoreMap,
+  ProcessorNodeFactory<?, ?, ?, ?> factory,
+  ProcessorNode<Object, Object, Object, Object> node)
+```
+
+`buildProcessorNode`...FIXME
+
+### <span id="buildSourceNode"> buildSourceNode
+
+```java
+void buildSourceNode(
+  Map<String, SourceNode<?, ?>> topicSourceMap,
+  Set<String> repartitionTopics,
+  SourceNodeFactory<?, ?> sourceNodeFactory,
+  SourceNode<?, ?> node)
+```
+
+`buildSourceNode`...FIXME
+
+### <span id="buildSinkNode"> buildSinkNode
+
+```java
+void buildSinkNode(
+  Map<String, ProcessorNode<?, ?, ?, ?>> processorMap,
+  Map<String, SinkNode<?, ?>> topicSinkMap,
+  Set<String> repartitionTopics,
+  SinkNodeFactory<?, ?> sinkNodeFactory,
+  SinkNode<?, ?> node)
+```
+
+`buildSinkNode`...FIXME
 
 ## <span id="buildTopology"> Building (Local) Processor Topology
 
@@ -26,7 +70,7 @@ ProcessorTopology buildTopology()
 * `KafkaStreams` is [created](../KafkaStreams.md#creating-instance)
 * `TopologyTestDriver` is requested to [setupTopology](../TopologyTestDriver.md#setupTopology)
 
-## <span id="buildSubtopology"> Building Processor Subtopology
+## <span id="buildSubtopology"> Building Processor SubTopology
 
 ```java
 ProcessorTopology buildSubtopology(
@@ -40,7 +84,7 @@ ProcessorTopology buildSubtopology(
 * `ActiveTaskCreator` is requested to [createTasks](ActiveTaskCreator.md#createTasks) and [createActiveTaskFromStandby](ActiveTaskCreator.md#createActiveTaskFromStandby)
 * `StandbyTaskCreator` is requested to [createTasks](StandbyTaskCreator.md#createTasks) and [createStandbyTaskFromActive](StandbyTaskCreator.md#createStandbyTaskFromActive)
 
-## <span id="buildGlobalStateTopology"> Building Global State (Processor) Topology
+## <span id="buildGlobalStateTopology"> Building Global State Processor Topology
 
 ```java
 ProcessorTopology buildGlobalStateTopology()

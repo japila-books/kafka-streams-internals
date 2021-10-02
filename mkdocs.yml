@@ -115,6 +115,8 @@ nav:
     - AbstractTask: processor/AbstractTask.md
     - ActiveTaskCreator: processor/ActiveTaskCreator.md
     - InternalTopologyBuilder: processor/InternalTopologyBuilder.md
+    - NodeFactory: processor/NodeFactory.md
+    - ProcessorTopology: processor/ProcessorTopology.md
     - StandbyTaskCreator: processor/StandbyTaskCreator.md
     - StreamTask: processor/StreamTask.md
     - StreamThread: processor/StreamThread.md

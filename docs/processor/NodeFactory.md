@@ -1,0 +1,3 @@
+# NodeFactory
+
+`NodeFactory` is...FIXME
