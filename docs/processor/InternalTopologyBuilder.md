@@ -7,14 +7,14 @@ ProcessorTopology build(
   Set<String> nodeGroup)
 ```
 
-`build` creates a new [ProcessorTopology](ProcessorTopology.md).
-
 For every [NodeFactory](NodeFactory.md) (in the [nodeFactories](#nodeFactories) internal registry), if the name of the factory is in the given node group if defined or simply all node factories go through, `build` does the following:
 
 1. Requests the `NodeFactory` to [build a ProcessorNode](NodeFactory.md#build) (and registers it in a local registry of processors by name)
 1. For `ProcessorNodeFactory`s, [buildProcessorNode](#buildProcessorNode)
 1. For `SourceNodeFactory`s, [buildSourceNode](#buildSourceNode)
 1. For `SinkNodeFactory`s, [buildSinkNode](#buildSinkNode)
+
+In the end, `build` creates a new [ProcessorTopology](ProcessorTopology.md).
 
 `build` is used when:
 
@@ -32,7 +32,7 @@ void buildProcessorNode(
 
 `buildProcessorNode`...FIXME
 
-### <span id="buildSourceNode"> buildSourceNode
+### <span id="buildSourceNode"> Building Source Node
 
 ```java
 void buildSourceNode(
@@ -42,7 +42,15 @@ void buildSourceNode(
   SourceNode<?, ?> node)
 ```
 
-`buildSourceNode`...FIXME
+`buildSourceNode` mutates (_changes_) the given `SourceNode` by topic name (`topicSourceMap`) and repartition topic names (`repartitionTopics`) collections.
+
+---
+
+When the [pattern](SourceNodeFactory.md#pattern) (of the given [SourceNodeFactory](SourceNodeFactory.md)) is defined, `buildSourceNode` [subscriptionUpdates](#subscriptionUpdates) and requests the `SourceNodeFactory` to [get the topics](SourceNodeFactory.md#getTopics). Otherwise, `buildSourceNode` requests the `SourceNodeFactory` for the [topics](SourceNodeFactory.md#topics).
+
+`buildSourceNode` adds the topic to the given `topicSourceMap` collection.
+
+For internal topics (in [internalTopicNamesWithProperties](#internalTopicNamesWithProperties) registry), `buildSourceNode` [decorates the name](#decorateTopic) before adding to the given `topicSourceMap` collection and adds them to the given `repartitionTopics` collection.
 
 ### <span id="buildSinkNode"> buildSinkNode
 

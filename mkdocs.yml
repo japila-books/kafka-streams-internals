@@ -117,6 +117,7 @@ nav:
     - InternalTopologyBuilder: processor/InternalTopologyBuilder.md
     - NodeFactory: processor/NodeFactory.md
     - ProcessorTopology: processor/ProcessorTopology.md
+    - SourceNodeFactory: processor/SourceNodeFactory.md
     - StandbyTaskCreator: processor/StandbyTaskCreator.md
     - StreamTask: processor/StreamTask.md
     - StreamThread: processor/StreamThread.md
