@@ -72,7 +72,11 @@ StreamThread createAndAddStreamThread(
   int threadIdx)
 ```
 
-`createAndAddStreamThread`...FIXME
+`createAndAddStreamThread` [creates a StreamThread](processor/StreamThread.md#create) and requests it to [setStateListener](processor/StreamThread.md#setStateListener) with the [StreamStateListener](#streamStateListener).
+
+`createAndAddStreamThread` registers the `StreamThread` in the [threads](#threads) and the [threadState](#threadState) internal registries.
+
+`createAndAddStreamThread` requests the [QueryableStoreProvider](#queryableStoreProvider) to [addStoreProviderForThread](state/QueryableStoreProvider.md#addStoreProviderForThread) (with the name of the `StreamThread` and a new `StreamThreadStateStoreProvider`).
 
 `createAndAddStreamThread` is used when:
 

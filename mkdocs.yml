@@ -106,14 +106,20 @@ nav:
   - Home: index.md
   - Internals:
     - Overview: overview.md
-    - AbstractTask: AbstractTask.md
-    - ActiveTaskCreator: ActiveTaskCreator.md
     - KafkaStreams: KafkaStreams.md
-    - StandbyTaskCreator: StandbyTaskCreator.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
-    - StreamTask: StreamTask.md
-    - StreamThread: StreamThread.md
-    - TaskManager: TaskManager.md
-    - Tasks: Tasks.md
     - Topology: Topology.md
+    - TopologyTestDriver: TopologyTestDriver.md
+  - Processor API:
+    - AbstractTask: processor/AbstractTask.md
+    - ActiveTaskCreator: processor/ActiveTaskCreator.md
+    - InternalTopologyBuilder: processor/InternalTopologyBuilder.md
+    - StandbyTaskCreator: processor/StandbyTaskCreator.md
+    - StreamTask: processor/StreamTask.md
+    - StreamThread: processor/StreamThread.md
+    - TaskManager: processor/TaskManager.md
+    - Tasks: processor/Tasks.md
+  - State:
+    - QueryableStoreProvider: state/QueryableStoreProvider.md
+    - StoreBuilder: state/StoreBuilder.md

@@ -32,7 +32,7 @@ void handleAssignment(
 
 `handleAssignment` is used when:
 
-* `StreamsPartitionAssignor` is requested to [onAssignment](StreamsPartitionAssignor.md#onAssignment)
+* `StreamsPartitionAssignor` is requested to [onAssignment](../StreamsPartitionAssignor.md#onAssignment)
 
 ### <span id="handleCloseAndRecycle"> handleCloseAndRecycle
 

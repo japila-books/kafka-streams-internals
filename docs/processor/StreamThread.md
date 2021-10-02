@@ -7,7 +7,7 @@
 `StreamThread` takes the following to be created:
 
 * <span id="time"> `Time`
-* <span id="config"> [StreamsConfig](StreamsConfig.md)
+* <span id="config"> [StreamsConfig](../StreamsConfig.md)
 * <span id="adminClient"> `Admin`
 * <span id="mainConsumer"> Main `Consumer<byte[], byte[]>`
 * <span id="restoreConsumer"> Restore `Consumer<byte[], byte[]>`
@@ -51,4 +51,4 @@ StreamThread create(
 
 `create` is used when:
 
-* `KafkaStreams` is requested to [createAndAddStreamThread](KafkaStreams.md#createAndAddStreamThread)
+* `KafkaStreams` is requested to [createAndAddStreamThread](../KafkaStreams.md#createAndAddStreamThread)
