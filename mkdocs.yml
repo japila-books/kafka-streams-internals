@@ -116,13 +116,18 @@ nav:
     - ActiveTaskCreator: processor/ActiveTaskCreator.md
     - InternalTopologyBuilder: processor/InternalTopologyBuilder.md
     - NodeFactory: processor/NodeFactory.md
+    - ProcessorStateManager: processor/ProcessorStateManager.md
     - ProcessorTopology: processor/ProcessorTopology.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
+    - StandbyTask: processor/StandbyTask.md
     - StandbyTaskCreator: processor/StandbyTaskCreator.md
+    - StateDirectory: processor/StateDirectory.md
     - StreamTask: processor/StreamTask.md
     - StreamThread: processor/StreamThread.md
+    - Task: processor/Task.md
     - TaskManager: processor/TaskManager.md
     - Tasks: processor/Tasks.md
   - State:
     - QueryableStoreProvider: state/QueryableStoreProvider.md
     - StoreBuilder: state/StoreBuilder.md
+    - StreamThreadStateStoreProvider: state/StreamThreadStateStoreProvider.md
