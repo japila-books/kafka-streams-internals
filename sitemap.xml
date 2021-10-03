@@ -6,7 +6,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/KafkaClientSupplier/</loc>
+         <lastmod>2021-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaStreams/</loc>
+         <lastmod>2021-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/StreamsBuilder/</loc>
          <lastmod>2021-10-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -31,7 +41,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/logging/</loc>
+         <lastmod>2021-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/overview/</loc>
+         <lastmod>2021-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/demo/developing-kafka-streams-application/</loc>
          <lastmod>2021-10-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -86,6 +106,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/StoreChangelogReader/</loc>
+         <lastmod>2021-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StreamTask/</loc>
          <lastmod>2021-10-03</lastmod>
          <changefreq>daily</changefreq>
@@ -122,6 +147,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/StreamThreadStateStoreProvider/</loc>
+         <lastmod>2021-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/state/ThreadCache/</loc>
          <lastmod>2021-10-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
