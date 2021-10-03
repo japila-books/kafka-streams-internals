@@ -47,8 +47,40 @@ StreamThread create(
   java.util.function.Consumer<Throwable> streamsUncaughtExceptionHandler)
 ```
 
+`create` prints out the following INFO message to the logs:
+
+```text
+Creating restore consumer client
+```
+
+`create` requests the given `StreamsConfig` for the [restore consumer configs](../StreamsConfig.md#getRestoreConsumerConfigs) (with [getRestoreConsumerClientId](#getRestoreConsumerClientId)) and requests the given [KafkaClientSupplier](../KafkaClientSupplier.md) for a [restore consumer](../KafkaClientSupplier.md#getRestoreConsumer).
+
+`create` creates a [StoreChangelogReader](StoreChangelogReader.md).
+
+`create` creates a [ThreadCache](../state/ThreadCache.md).
+
+`create` creates a [ActiveTaskCreator](ActiveTaskCreator.md), a [StandbyTaskCreator](StandbyTaskCreator.md) and a [TaskManager](TaskManager.md).
+
+`create` prints out the following INFO message to the logs:
+
+```text
+Creating consumer client
+```
+
 `create`...FIXME
 
 `create` is used when:
 
 * `KafkaStreams` is requested to [createAndAddStreamThread](../KafkaStreams.md#createAndAddStreamThread)
+
+## Logging
+
+Enable `ALL` logging level for `org.apache.kafka.streams.processor.internals.StreamThread` logger to see what happens inside.
+
+Add the following line to `conf/log4j.properties`:
+
+```text
+log4j.logger.org.apache.kafka.streams.processor.internals.StreamThread=ALL
+```
+
+Refer to [Logging](../logging.md).

@@ -1,0 +1,3 @@
+# StoreChangelogReader
+
+`StoreChangelogReader` is...FIXME

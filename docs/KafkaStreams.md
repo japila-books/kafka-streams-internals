@@ -1,6 +1,6 @@
 # KafkaStreams
 
-`KafkaStreams` is the developer API to Kafka Streams.
+`KafkaStreams` is the execution environment of a Kafka Streams application.
 
 `KafkaStreams` is a Kafka client for continuous stream processing (on input coming from one or more input topics and sending output to zero, one, or more output topics).
 
@@ -10,7 +10,7 @@
 
 * <span id="internalTopologyBuilder"><span id="topology"> `InternalTopologyBuilder` (or [Topology](Topology.md))
 * <span id="config"> [StreamsConfig](StreamsConfig.md)
-* <span id="clientSupplier"> `KafkaClientSupplier` (default: `DefaultKafkaClientSupplier`)
+* <span id="clientSupplier"> [KafkaClientSupplier](KafkaClientSupplier.md) (default: `DefaultKafkaClientSupplier`)
 * <span id="time"> `Time`
 
 ### <span id="defaultStreamsUncaughtExceptionHandler"> defaultStreamsUncaughtExceptionHandler

@@ -106,7 +106,9 @@ nav:
   - Home: index.md
   - Internals:
     - Overview: overview.md
+    - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
+    - StreamsBuilder: StreamsBuilder.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
     - Topology: Topology.md
@@ -118,6 +120,7 @@ nav:
     - NodeFactory: processor/NodeFactory.md
     - ProcessorStateManager: processor/ProcessorStateManager.md
     - ProcessorTopology: processor/ProcessorTopology.md
+    - StoreChangelogReader: processor/StoreChangelogReader.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
     - StandbyTask: processor/StandbyTask.md
     - StandbyTaskCreator: processor/StandbyTaskCreator.md
@@ -131,3 +134,8 @@ nav:
     - QueryableStoreProvider: state/QueryableStoreProvider.md
     - StoreBuilder: state/StoreBuilder.md
     - StreamThreadStateStoreProvider: state/StreamThreadStateStoreProvider.md
+    - ThreadCache: state/ThreadCache.md
+  - Misc:
+    - Logging: logging.md
+  - Demos:
+    - Developing Kafka Streams Application: demo/developing-kafka-streams-application.md
