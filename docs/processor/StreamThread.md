@@ -77,7 +77,7 @@ Creating consumer client
 
 Enable `ALL` logging level for `org.apache.kafka.streams.processor.internals.StreamThread` logger to see what happens inside.
 
-Add the following line to `conf/log4j.properties`:
+Add the following line to `log4j.properties`:
 
 ```text
 log4j.logger.org.apache.kafka.streams.processor.internals.StreamThread=ALL

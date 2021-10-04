@@ -116,6 +116,7 @@ nav:
   - Processor API:
     - AbstractTask: processor/AbstractTask.md
     - ActiveTaskCreator: processor/ActiveTaskCreator.md
+    - GlobalStreamThread: processor/GlobalStreamThread.md
     - InternalTopologyBuilder: processor/InternalTopologyBuilder.md
     - NodeFactory: processor/NodeFactory.md
     - ProcessorStateManager: processor/ProcessorStateManager.md

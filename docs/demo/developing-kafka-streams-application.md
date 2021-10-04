@@ -79,14 +79,14 @@ val config = new StreamsConfig(props)
 
 The execution environment of a Kafka Stream application is [KafkaStreams](../KafkaStreams.md).
 
-```text
+```scala
 import org.apache.kafka.streams.KafkaStreams
 val streams = new KafkaStreams(topology, config)
 ```
 
 Eventually, `KafkaStreams` should be started for the stream processing to be executed.
 
-```text
+```scala
 streams.start()
 ```
 

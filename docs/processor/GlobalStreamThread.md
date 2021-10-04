@@ -1,0 +1,3 @@
+# GlobalStreamThread
+
+`GlobalStreamThread` is...FIXME
