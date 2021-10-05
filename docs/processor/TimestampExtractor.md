@@ -1,0 +1,3 @@
+# TimestampExtractor
+
+`TimestampExtractor` is...FIXME

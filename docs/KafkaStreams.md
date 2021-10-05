@@ -8,7 +8,7 @@
 
 `KafkaStreams` takes the following to be created:
 
-* <span id="internalTopologyBuilder"><span id="topology"> `InternalTopologyBuilder` (or [Topology](Topology.md))
+* <span id="internalTopologyBuilder"><span id="topology"> [InternalTopologyBuilder](processor/InternalTopologyBuilder.md) (or [Topology](Topology.md))
 * <span id="config"> [StreamsConfig](StreamsConfig.md)
 * <span id="clientSupplier"> [KafkaClientSupplier](KafkaClientSupplier.md) (default: `DefaultKafkaClientSupplier`)
 * <span id="time"> `Time`
@@ -34,7 +34,7 @@ The [ProcessorTopology](processor/ProcessorTopology.md) can have [persistent loc
 
 ## <span id="globalTaskTopology"> Global Task Topology
 
-`KafkaStreams` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [build a global task topology](processor/InternalTopologyBuilder.md#buildGlobalStateTopology) when [created](#creating-instance).
+When [created](#creating-instance) `KafkaStreams` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [build a global task topology](processor/InternalTopologyBuilder.md#buildGlobalStateTopology).
 
 ## <span id="threads"> StreamThreads
 

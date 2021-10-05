@@ -112,7 +112,6 @@ nav:
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
     - Topology: Topology.md
-    - TopologyTestDriver: TopologyTestDriver.md
   - Processor API:
     - AbstractTask: processor/AbstractTask.md
     - ActiveTaskCreator: processor/ActiveTaskCreator.md
@@ -131,11 +130,14 @@ nav:
     - Task: processor/Task.md
     - TaskManager: processor/TaskManager.md
     - Tasks: processor/Tasks.md
+    - TimestampExtractor: processor/TimestampExtractor.md
   - State:
     - QueryableStoreProvider: state/QueryableStoreProvider.md
     - StoreBuilder: state/StoreBuilder.md
     - StreamThreadStateStoreProvider: state/StreamThreadStateStoreProvider.md
     - ThreadCache: state/ThreadCache.md
+  - Testing:
+    - TopologyTestDriver: TopologyTestDriver.md
   - Misc:
     - Logging: logging.md
   - Demos:

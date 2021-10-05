@@ -1,5 +1,15 @@
 # InternalTopologyBuilder
 
+## <span id="globalTopics"> Global Topics
+
+```java
+Set<String> globalTopics
+```
+
+`InternalTopologyBuilder` tracks global topics (names) in a `globalTopics` internal registry.
+
+A new topic name is added in [addGlobalStore](#addGlobalStore).
+
 ## <span id="build"> Building Processor Topology
 
 ```java
@@ -111,7 +121,7 @@ topology has not completed optimization
 * `KafkaStreams` is [created](../KafkaStreams.md#creating-instance)
 * `TopologyTestDriver` is requested to [setupTopology](../TopologyTestDriver.md#setupTopology)
 
-## <span id="rewriteTopology"> rewriteTopology
+## <span id="rewriteTopology"> Rewriting Topology
 
 ```java
 InternalTopologyBuilder rewriteTopology(
@@ -122,7 +132,7 @@ InternalTopologyBuilder rewriteTopology(
 
 With [cache.max.bytes.buffering](../StreamsConfig.md#CACHE_MAX_BYTES_BUFFERING_CONFIG) enabled, `rewriteTopology`...FIXME
 
-`rewriteTopology` requests the [global StoreBuilders](#globalStateBuilders) to [build a StateStore](../state/StoreBuilder.md#build).
+`rewriteTopology` requests the [global StoreBuilders](#globalStateBuilders) to [build StateStores](../state/StoreBuilder.md#build).
 
 In the end, `rewriteTopology` [saves the StreamsConfig](#setStreamsConfig) (and returns itself).
 
@@ -130,3 +140,52 @@ In the end, `rewriteTopology` [saves the StreamsConfig](#setStreamsConfig) (and 
 
 * `KafkaStreams` is [created](../KafkaStreams.md#creating-instance)
 * `TopologyTestDriver` is requested to [setupTopology](../TopologyTestDriver.md#setupTopology)
+
+## <span id="globalNodeGroups"> globalNodeGroups
+
+```java
+Set<String> globalNodeGroups()
+```
+
+`globalNodeGroups` collects [global source nodes](#isGlobalSource) from all the [node groups](#nodeGroups).
+
+`globalNodeGroups` is used when:
+
+* `InternalTopologyBuilder` is requested to build a [local](#buildTopology) (excluding global state nodes) and [global state](#buildGlobalStateTopology) topologies
+
+## <span id="isGlobalSource"> isGlobalSource
+
+```java
+boolean isGlobalSource(
+  String nodeName)
+```
+
+`isGlobalSource` finds a [NodeFactory](NodeFactory.md) (by given `nodeName`) in [nodeFactories](#nodeFactories) registry.
+
+`isGlobalSource` is positive (`true`) when the `NodeFactory` is a [SourceNodeFactory](SourceNodeFactory.md) with one [topic](SourceNodeFactory.md#topics) only that is [global](#globalTopics). Otherwise, `isGlobalSource` is negative (`false`).
+
+`isGlobalSource` is used when:
+
+* `InternalTopologyBuilder` is requested to [globalNodeGroups](#globalNodeGroups), [describeGlobalStore](#describeGlobalStore) and [nodeGroupContainsGlobalSourceNode](#nodeGroupContainsGlobalSourceNode)
+
+## <span id="addGlobalStore"> Registering Global Store
+
+```java
+<KIn, VIn> void addGlobalStore(
+  StoreBuilder<?> storeBuilder,
+  String sourceName,
+  TimestampExtractor timestampExtractor,
+  Deserializer<KIn> keyDeserializer,
+  Deserializer<VIn> valueDeserializer,
+  String topic,
+  String processorName,
+  ProcessorSupplier<KIn, VIn, Void, Void> stateUpdateSupplier)
+```
+
+`addGlobalStore`...FIXME
+
+`addGlobalStore` is used when:
+
+* `Topology` is requested to [addGlobalStore](../Topology.md#addGlobalStore)
+* `GlobalStoreNode` is requested to `writeToTopology`
+* `TableSourceNode` is requested to `writeToTopology`
