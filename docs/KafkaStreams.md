@@ -133,13 +133,15 @@ void replaceStreamThread(
 
 `replaceStreamThread`...FIXME
 
-### <span id="addStreamThread"> addStreamThread
+## <span id="addStreamThread"> addStreamThread
 
 ```java
 Optional<String> addStreamThread()
 ```
 
 `addStreamThread`...FIXME
+
+`addStreamThread` is part of the public API.
 
 ## <span id="createAndAddStreamThread"> createAndAddStreamThread
 

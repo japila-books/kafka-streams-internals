@@ -1,8 +1,8 @@
 # Demo: Developing Kafka Streams Application
 
-## <span id="Topology"> Processing Topology
+## <span id="Topology"> Build Topology using StreamsBuilder
 
-A Kafka Streams application requires a [processing topology](../Topology.md) that is described (_built_) using [StreamsBuilder](../StreamsBuilder.md).
+A Kafka Streams application requires a [Topology](../Topology.md) that can be created directly or described (and built) indirectly using [StreamsBuilder](../StreamsBuilder.md).
 
 ```scala
 import org.apache.kafka.streams.scala.StreamsBuilder
@@ -69,9 +69,13 @@ An execution environment of a Kafka Streams application is configured using [Str
 import org.apache.kafka.streams.StreamsConfig
 import scala.jdk.CollectionConverters._
 // Only required configuration properties
+// And one more for demo purposes to slow processing to 15 secs
+// import java.util.concurrent.TimeUnit
+import scala.concurrent.duration._
 val props = Map(
   StreamsConfig.APPLICATION_ID_CONFIG -> "kafka-streams-demo",
-  StreamsConfig.BOOTSTRAP_SERVERS_CONFIG -> ":9092").asJava
+  StreamsConfig.BOOTSTRAP_SERVERS_CONFIG -> ":9092",
+  StreamsConfig.POLL_MS_CONFIG -> 15.seconds.toMillis).asJava
 val config = new StreamsConfig(props)
 ```
 
@@ -87,7 +91,7 @@ val streams = new KafkaStreams(topology, config)
 Eventually, `KafkaStreams` should be started for the stream processing to be executed.
 
 ```scala
-streams.start()
+streams.start
 ```
 
 ## kcat

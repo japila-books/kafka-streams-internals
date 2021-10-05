@@ -1,0 +1,3 @@
+# GlobalStateManagerImpl
+
+`GlobalStateManagerImpl` is...FIXME
