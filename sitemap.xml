@@ -141,6 +141,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/TimestampExtractor/</loc>
+         <lastmod>2021-10-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/QueryableStoreProvider/</loc>
          <lastmod>2021-10-05</lastmod>
          <changefreq>daily</changefreq>
