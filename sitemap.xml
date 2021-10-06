@@ -6,12 +6,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/GraphNode/</loc>
+         <lastmod>2021-10-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/InternalStreamsBuilder/</loc>
+         <lastmod>2021-10-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaClientSupplier/</loc>
          <lastmod>2021-10-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaStreams/</loc>
+         <lastmod>2021-10-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/StateStoreNode/</loc>
          <lastmod>2021-10-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -131,6 +146,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/StateStoreFactory/</loc>
+         <lastmod>2021-10-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StoreChangelogReader/</loc>
          <lastmod>2021-10-06</lastmod>
          <changefreq>daily</changefreq>
@@ -162,6 +182,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/TimestampExtractor/</loc>
+         <lastmod>2021-10-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/state/AbstractStoreBuilder/</loc>
          <lastmod>2021-10-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
