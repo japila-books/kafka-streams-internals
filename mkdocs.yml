@@ -123,9 +123,11 @@ nav:
     - ProcessorTopology: processor/ProcessorTopology.md
     - StoreChangelogReader: processor/StoreChangelogReader.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
+    - SourceNode: processor/SourceNode.md
     - StandbyTask: processor/StandbyTask.md
     - StandbyTaskCreator: processor/StandbyTaskCreator.md
     - StateDirectory: processor/StateDirectory.md
+    - StateStore: processor/StateStore.md
     - StreamTask: processor/StreamTask.md
     - StreamThread: processor/StreamThread.md
     - Task: processor/Task.md
@@ -133,12 +135,19 @@ nav:
     - Tasks: processor/Tasks.md
     - TimestampExtractor: processor/TimestampExtractor.md
   - State:
+    - InMemoryWindowBytesStoreSupplier: state/InMemoryWindowBytesStoreSupplier.md
     - QueryableStoreProvider: state/QueryableStoreProvider.md
     - StoreBuilder: state/StoreBuilder.md
+    - Stores: state/Stores.md
+    - StoreSupplier: state/StoreSupplier.md
     - StreamThreadStateStoreProvider: state/StreamThreadStateStoreProvider.md
     - ThreadCache: state/ThreadCache.md
+    - WindowBytesStoreSupplier: state/WindowBytesStoreSupplier.md
+    - WindowStore: state/WindowStore.md
   - Testing:
     - TopologyTestDriver: TopologyTestDriver.md
+  - Features:
+    - Global Stores: global-stores.md
   - Misc:
     - Logging: logging.md
   - Demos:

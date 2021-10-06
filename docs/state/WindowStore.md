@@ -1,0 +1,3 @@
+# WindowStore
+
+`WindowStore` is...FIXME
