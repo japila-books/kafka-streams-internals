@@ -106,8 +106,11 @@ nav:
   - Home: index.md
   - Internals:
     - Overview: overview.md
+    - GraphNode: GraphNode.md
+    - InternalStreamsBuilder: InternalStreamsBuilder.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
+    - StateStoreNode: StateStoreNode.md
     - StreamsBuilder: StreamsBuilder.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
@@ -128,6 +131,7 @@ nav:
     - StandbyTaskCreator: processor/StandbyTaskCreator.md
     - StateDirectory: processor/StateDirectory.md
     - StateStore: processor/StateStore.md
+    - StateStoreFactory: processor/StateStoreFactory.md
     - StreamTask: processor/StreamTask.md
     - StreamThread: processor/StreamThread.md
     - Task: processor/Task.md
@@ -135,6 +139,7 @@ nav:
     - Tasks: processor/Tasks.md
     - TimestampExtractor: processor/TimestampExtractor.md
   - State:
+    - AbstractStoreBuilder: state/AbstractStoreBuilder.md
     - InMemoryWindowBytesStoreSupplier: state/InMemoryWindowBytesStoreSupplier.md
     - QueryableStoreProvider: state/QueryableStoreProvider.md
     - StoreBuilder: state/StoreBuilder.md

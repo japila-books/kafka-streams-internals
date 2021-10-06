@@ -189,3 +189,30 @@ boolean isGlobalSource(
 * `Topology` is requested to [addGlobalStore](../Topology.md#addGlobalStore)
 * `GlobalStoreNode` is requested to `writeToTopology`
 * `TableSourceNode` is requested to `writeToTopology`
+
+## <span id="addStateStore"> addStateStore
+
+```java
+void addStateStore(
+  StoreBuilder<?> storeBuilder,
+  String... processorNames) // (1)
+void addStateStore(
+  StoreBuilder<?> storeBuilder,
+  boolean allowOverride,
+  String... processorNames)
+```
+
+1. Uses `allowOverride` flag disabled (`false`)
+
+`addStateStore`...FIXME
+
+`addStateStore` is used when:
+
+* `Topology` is requested to [addProcessor](../Topology.md#addProcessor) and [addStateStore](../Topology.md#addStateStore)
+* `KTableKTableJoinNode` is requested to `writeToTopology`
+* `StatefulProcessorNode` is requested to `writeToTopology`
+* `StateStoreNode` is requested to `writeToTopology`
+* `StreamStreamJoinNode` is requested to `writeToTopology`
+* `StreamToTableNode` is requested to `writeToTopology`
+* `TableProcessorNode` is requested to `writeToTopology`
+* `TableSourceNode` is requested to `writeToTopology`
