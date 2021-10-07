@@ -82,6 +82,7 @@ extra:
     property: !ENV GOOGLE_ANALYTICS_KEY
   book:
     title: Kafka Streams
+    kafka: https://books.japila.pl/kafka-internals
   java:
     api: https://docs.oracle.com/en/java/javase/11/docs/api/java.base
   kafka:
@@ -115,6 +116,15 @@ nav:
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
     - Topology: Topology.md
+  - KStream DSL:
+    - kstream/index.md
+    - Consumed: kstream/Consumed.md
+    - GlobalKTable: kstream/GlobalKTable.md
+    - KStream: kstream/KStream.md
+    - KTable: kstream/KTable.md
+    - Materialized: kstream/Materialized.md
+    - NamedOperation: kstream/NamedOperation.md
+    - Produced: kstream/Produced.md
   - Processor API:
     - AbstractTask: processor/AbstractTask.md
     - ActiveTaskCreator: processor/ActiveTaskCreator.md
@@ -153,6 +163,7 @@ nav:
     - TopologyTestDriver: TopologyTestDriver.md
   - Features:
     - Global Stores: global-stores.md
+    - Scala API: scala.md
   - Misc:
     - Logging: logging.md
   - Demos:
