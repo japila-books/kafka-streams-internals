@@ -6,27 +6,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/GraphNode/</loc>
-         <lastmod>2021-10-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/InternalStreamsBuilder/</loc>
-         <lastmod>2021-10-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaClientSupplier/</loc>
          <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaStreams/</loc>
-         <lastmod>2021-10-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/StateStoreNode/</loc>
          <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -96,7 +81,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/GraphNode/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/InternalStreamsBuilder/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStream/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStreamImpl/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStreamImplJoin/</loc>
          <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -117,6 +122,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/Produced/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/StateStoreNode/</loc>
          <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
