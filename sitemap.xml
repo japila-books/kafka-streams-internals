@@ -2,237 +2,282 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/GraphNode/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/InternalStreamsBuilder/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaClientSupplier/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaStreams/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/StateStoreNode/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/StreamsBuilder/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/StreamsConfig/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/StreamsPartitionAssignor/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/Topology/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/TopologyTestDriver/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/global-stores/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/logging/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/overview/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/scala/</loc>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/demo/developing-kafka-streams-application/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/Consumed/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/GlobalKTable/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStream/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KTable/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/Materialized/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/NamedOperation/</loc>
+         <lastmod>2021-10-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/Produced/</loc>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/AbstractTask/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/ActiveTaskCreator/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/GlobalStateManagerImpl/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/GlobalStreamThread/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/InternalTopologyBuilder/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/NodeFactory/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorStateManager/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorTopology/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/SourceNode/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/SourceNodeFactory/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StandbyTask/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StandbyTaskCreator/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StateDirectory/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StateStore/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StateStoreFactory/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StoreChangelogReader/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StreamTask/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StreamThread/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/Task/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/TaskManager/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/Tasks/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/TimestampExtractor/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/AbstractStoreBuilder/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/InMemoryWindowBytesStoreSupplier/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/QueryableStoreProvider/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/StoreBuilder/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/StoreSupplier/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/Stores/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/StreamThreadStateStoreProvider/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/ThreadCache/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/WindowBytesStoreSupplier/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/WindowStore/</loc>
-         <lastmod>2021-10-06</lastmod>
+         <lastmod>2021-10-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
