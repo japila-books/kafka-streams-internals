@@ -107,11 +107,8 @@ nav:
   - Home: index.md
   - Internals:
     - Overview: overview.md
-    - GraphNode: GraphNode.md
-    - InternalStreamsBuilder: InternalStreamsBuilder.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
-    - StateStoreNode: StateStoreNode.md
     - StreamsBuilder: StreamsBuilder.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
@@ -120,11 +117,16 @@ nav:
     - kstream/index.md
     - Consumed: kstream/Consumed.md
     - GlobalKTable: kstream/GlobalKTable.md
+    - GraphNode: kstream/GraphNode.md
+    - InternalStreamsBuilder: kstream/InternalStreamsBuilder.md
     - KStream: kstream/KStream.md
+    - KStreamImpl: kstream/KStreamImpl.md
+    - KStreamImplJoin: kstream/KStreamImplJoin.md
     - KTable: kstream/KTable.md
     - Materialized: kstream/Materialized.md
     - NamedOperation: kstream/NamedOperation.md
     - Produced: kstream/Produced.md
+    - StateStoreNode: kstream/StateStoreNode.md
   - Processor API:
     - AbstractTask: processor/AbstractTask.md
     - ActiveTaskCreator: processor/ActiveTaskCreator.md

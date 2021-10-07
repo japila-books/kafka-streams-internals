@@ -6,7 +6,7 @@
 
 `StateStoreNode` takes the following to be created:
 
-* <span id="storeBuilder"> [StoreBuilder](state/StoreBuilder.md)
+* <span id="storeBuilder"> [StoreBuilder](../state/StoreBuilder.md)
 
 `StateStoreNode` is created when:
 
@@ -20,6 +20,6 @@ void writeToTopology(
   Properties props)
 ```
 
-`writeToTopology` merely requests the given [InternalTopologyBuilder](processor/InternalTopologyBuilder.md) to [add](processor/InternalTopologyBuilder.md#addStateStore) the [storeBuilder](#storeBuilder).
+`writeToTopology` merely requests the given [InternalTopologyBuilder](../processor/InternalTopologyBuilder.md) to [add](../processor/InternalTopologyBuilder.md#addStateStore) the [storeBuilder](#storeBuilder).
 
 `writeToTopology` is part of the [GraphNode](GraphNode.md#writeToTopology) abstraction.

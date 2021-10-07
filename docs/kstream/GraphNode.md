@@ -1,6 +1,6 @@
 # GraphNode
 
-`GraphNode` is an [abstraction](#contract) of [graph nodes](#implementations) (for [InternalStreamsBuilder](InternalStreamsBuilder.md#root) to [build a topology](InternalStreamsBuilder.md#buildAndOptimizeTopology) for [StreamsBuilder](StreamsBuilder.md#build)).
+`GraphNode` is an [abstraction](#contract) of [graph nodes](#implementations) (for [InternalStreamsBuilder](InternalStreamsBuilder.md#root) to [build a topology](InternalStreamsBuilder.md#buildAndOptimizeTopology) for [StreamsBuilder](../StreamsBuilder.md#build)).
 
 ## Contract
 

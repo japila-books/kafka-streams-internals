@@ -26,6 +26,6 @@ Topology build(
 
 1. Uses undefined properties (`null`)
 
-`build` requests the [InternalStreamsBuilder](#internalStreamsBuilder) to [build and optimize a topology](InternalStreamsBuilder.md#buildAndOptimizeTopology). In the end, `build` returns the [Topology](#topology).
+`build` requests the [InternalStreamsBuilder](#internalStreamsBuilder) to [build and optimize a topology](kstream/InternalStreamsBuilder.md#buildAndOptimizeTopology). In the end, `build` returns the [Topology](#topology).
 
 `build` is part of the public API.
