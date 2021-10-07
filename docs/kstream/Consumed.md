@@ -1,4 +1,4 @@
-# Consumed &mdash; Metadata for Consuming Record Stream
+# Consumed &mdash; Metadata for Consuming Records
 
 `Consumed<K, V>` describes how to consume records in a topology in the [High-Level KStream DSL](index.md) for the following [StreamsBuilder](../StreamsBuilder.md) operators:
 
@@ -36,6 +36,13 @@ org.apache.kafka.streams.kstream.Consumed[Long,String]
 
 ## <span id="factories"> Creating Consumed
 
+### <span id="as"> as
+
+```java
+Consumed<K, V> as(
+  String processorName)
+```
+
 ### <span id="with"> with
 
 ```java
@@ -51,13 +58,6 @@ Consumed<K, V> with(
   TimestampExtractor timestampExtractor)
 Consumed<K, V> with(
   Topology.AutoOffsetReset resetPolicy)
-```
-
-### <span id="as"> as
-
-```java
-Consumed<K, V> as(
-  String processorName)
 ```
 
 ## Scala API
