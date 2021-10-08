@@ -16,11 +16,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/StreamsBuilder/</loc>
-         <lastmod>2021-10-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/StreamsConfig/</loc>
          <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
@@ -131,6 +126,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/StreamsBuilder/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/AbstractTask/</loc>
          <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
@@ -161,12 +166,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/Processor/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorContext/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorNode/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorNodeFactory/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorStateManager/</loc>
          <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorSupplier/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/ProcessorTopology/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/Punctuator/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/SinkNode/</loc>
          <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
