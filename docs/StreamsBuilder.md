@@ -6,6 +6,11 @@
 
 `StreamsBuilder` takes no arguments to be created.
 
+```scala
+import org.apache.kafka.streams.scala.StreamsBuilder
+val builder = new StreamsBuilder
+```
+
 While being created, `StreamsBuilder` creates a [Topology](#topology) that in turn is requested for an [InternalTopologyBuilder](#internalTopologyBuilder). In the end, `StreamsBuilder` creates an [InternalStreamsBuilder](#internalStreamsBuilder).
 
 ## <span id="topology"> Topology
