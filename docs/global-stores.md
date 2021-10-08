@@ -1,6 +1,6 @@
 # Global Stores
 
-[StreamsBuilder.addGlobalStore](StreamsBuilder.md#addGlobalStore) adds a global [StateStore](processor/StateStore.md) to a topology.
+[StreamsBuilder.addGlobalStore](kstream/StreamsBuilder.md#addGlobalStore) adds a global [StateStore](processor/StateStore.md) to a topology.
 
 Such a `StateStore` sources its data from all partitions of the provided input topic. This store uses the source topic as changelog (and during restore will insert records directly from the source).
 

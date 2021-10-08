@@ -1,11 +1,11 @@
 # Consumed &mdash; Metadata for Consuming Records
 
-`Consumed<K, V>` describes how to consume records in a topology in the [High-Level KStream DSL](index.md) for the following [StreamsBuilder](../StreamsBuilder.md) operators:
+`Consumed<K, V>` describes how to consume records in a topology in the [High-Level KStream DSL](index.md) for the following [StreamsBuilder](StreamsBuilder.md) operators:
 
-* [StreamsBuilder.stream](../StreamsBuilder.md#stream)
-* [StreamsBuilder.table](../StreamsBuilder.md#table)
-* [StreamsBuilder.globalTable](../StreamsBuilder.md#globalTable)
-* [StreamsBuilder.addGlobalStore](../StreamsBuilder.md#addGlobalStore)
+* [StreamsBuilder.stream](StreamsBuilder.md#stream)
+* [StreamsBuilder.table](StreamsBuilder.md#table)
+* [StreamsBuilder.globalTable](StreamsBuilder.md#globalTable)
+* [StreamsBuilder.addGlobalStore](StreamsBuilder.md#addGlobalStore)
 
 `Consumed<K, V>` is a [NamedOperation](NamedOperation.md).
 
@@ -62,7 +62,7 @@ Consumed<K, V> with(
 
 ## Scala API
 
-[Scala API](../scala.md) for Kafka Streams makes the optional `Consumed` metadata an implicit parameter in the [StreamsBuilder](../StreamsBuilder.md) API.
+[Scala API](../scala.md) for Kafka Streams makes the optional `Consumed` metadata an implicit parameter in the [StreamsBuilder](StreamsBuilder.md) API.
 
 Moreover, `ImplicitConversions` object defines `consumedFromSerde` implicit method that creates a `Consumed` instance with the key and value `Serde` objects available in implicit scope.
 

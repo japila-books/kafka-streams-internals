@@ -1,11 +1,11 @@
 # StreamsBuilder
 
-`StreamsBuilder` is the entry point to the [High-Level Streams DSL](kstream/index.md) to define and build a [stream processing topology](#topology).
+`StreamsBuilder` is the entry point to the [High-Level Streams DSL](index.md) to define and build a [stream processing topology](#topology).
 
-All of the high-level operators use the [InternalStreamsBuilder](kstream/InternalStreamsBuilder.md) behind the scenes. In other words, `StreamsBuilder` offers a more developer-friendly high-level API for developing Kafka Streams applications than using the `InternalStreamsBuilder` API directly (and is a façade of `InternalStreamsBuilder`).
+All of the high-level operators use the [InternalStreamsBuilder](InternalStreamsBuilder.md) behind the scenes. In other words, `StreamsBuilder` offers a more developer-friendly high-level API for developing Kafka Streams applications than using the `InternalStreamsBuilder` API directly (and is a façade of `InternalStreamsBuilder`).
 
 !!! note "Scala API for Kafka Streams"
-    Use [Scala API for Kafka Streams](scala.md) to make your Kafka Streams development more pleasant with Scala.
+    Use [Scala API for Kafka Streams](../scala.md) to make your Kafka Streams development more pleasant with Scala.
 
 ## Creating Instance
 
@@ -18,11 +18,11 @@ val builder = new StreamsBuilder
 
 While being created, `StreamsBuilder` creates an empty [Topology](#topology) that in turn is requested for an [InternalTopologyBuilder](#internalTopologyBuilder). In the end, `StreamsBuilder` creates an [InternalStreamsBuilder](#internalStreamsBuilder).
 
-![StreamsBuilder, Topology and InternalStreamsBuilder](images/StreamsBuilder.png)
+![StreamsBuilder, Topology and InternalStreamsBuilder](../images/StreamsBuilder.png)
 
 ## <span id="topology"> Topology
 
-`StreamsBuilder` creates a [Topology](Topology.md) when [created](#creating-instance).
+`StreamsBuilder` creates a [Topology](../Topology.md) when [created](#creating-instance).
 
 `StreamsBuilder` uses the `Topology` to create an [InternalTopologyBuilder](#internalTopologyBuilder).
 
@@ -38,7 +38,7 @@ Topology build(
 
 1. Uses undefined properties (`null`)
 
-`build` requests the [InternalStreamsBuilder](#internalStreamsBuilder) to [build and optimize a topology](kstream/InternalStreamsBuilder.md#buildAndOptimizeTopology). In the end, `build` returns the [Topology](#topology).
+`build` requests the [InternalStreamsBuilder](#internalStreamsBuilder) to [build and optimize a topology](InternalStreamsBuilder.md#buildAndOptimizeTopology). In the end, `build` returns the [Topology](#topology).
 
 ## <span id="globalTable"> globalTable Operator
 
@@ -57,7 +57,7 @@ GlobalKTable<K, V> globalTable(
   Materialized<K, V, KeyValueStore<Bytes, byte[]>> materialized)
 ```
 
-`globalTable` adds a [GlobalKTable](kstream/GlobalKTable.md) to a topology.
+`globalTable` adds a [GlobalKTable](GlobalKTable.md) to a topology.
 
 ### <span id="globalTable-demo-non-queryable"> Demo: Non-queryable GlobalKTable
 

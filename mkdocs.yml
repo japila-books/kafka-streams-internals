@@ -109,7 +109,6 @@ nav:
     - Overview: overview.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
-    - StreamsBuilder: StreamsBuilder.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
     - Topology: Topology.md
@@ -127,16 +126,24 @@ nav:
     - NamedOperation: kstream/NamedOperation.md
     - Produced: kstream/Produced.md
     - StateStoreNode: kstream/StateStoreNode.md
+    - StreamsBuilder: kstream/StreamsBuilder.md
   - Processor API:
+    - processor/index.md
     - AbstractTask: processor/AbstractTask.md
     - ActiveTaskCreator: processor/ActiveTaskCreator.md
     - GlobalStateManagerImpl: processor/GlobalStateManagerImpl.md
     - GlobalStreamThread: processor/GlobalStreamThread.md
     - InternalTopologyBuilder: processor/InternalTopologyBuilder.md
     - NodeFactory: processor/NodeFactory.md
+    - Processor: processor/Processor.md
+    - ProcessorContext: processor/ProcessorContext.md
+    - ProcessorNode: processor/ProcessorNode.md
+    - ProcessorNodeFactory: processor/ProcessorNodeFactory.md
     - ProcessorStateManager: processor/ProcessorStateManager.md
+    - ProcessorSupplier: processor/ProcessorSupplier.md
     - ProcessorTopology: processor/ProcessorTopology.md
-    - StoreChangelogReader: processor/StoreChangelogReader.md
+    - Punctuator: processor/Punctuator.md
+    - SinkNode: processor/SinkNode.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
     - SourceNode: processor/SourceNode.md
     - StandbyTask: processor/StandbyTask.md
@@ -144,6 +151,7 @@ nav:
     - StateDirectory: processor/StateDirectory.md
     - StateStore: processor/StateStore.md
     - StateStoreFactory: processor/StateStoreFactory.md
+    - StoreChangelogReader: processor/StoreChangelogReader.md
     - StreamTask: processor/StreamTask.md
     - StreamThread: processor/StreamThread.md
     - Task: processor/Task.md

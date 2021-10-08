@@ -2,7 +2,7 @@
 
 `KStream<K, V>` is an [abstraction](#contract) of a stream of records (of key-value pairs).
 
-`KStream` can be created directly from one or many Kafka topics (using [StreamsBuilder.stream](../StreamsBuilder.md#stream) operators) or as a result of transformations on an existing `KStream` instance.
+`KStream` can be created directly from one or many Kafka topics (using [StreamsBuilder.stream](StreamsBuilder.md#stream) operators) or as a result of transformations on an existing `KStream` instance.
 
 `KStream` offers a rich set of operators (_KStream API_) for building topologies to consume, process and produce (key-value) records.
 

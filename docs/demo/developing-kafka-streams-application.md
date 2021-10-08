@@ -2,7 +2,7 @@
 
 ## <span id="Topology"> Build Topology using StreamsBuilder
 
-A Kafka Streams application requires a [Topology](../Topology.md) that can be created directly or described (and built) indirectly using [StreamsBuilder](../StreamsBuilder.md).
+A Kafka Streams application requires a [Topology](../Topology.md) that can be created directly or described (and built) indirectly using [StreamsBuilder](../kstream/StreamsBuilder.md).
 
 ```scala
 import org.apache.kafka.streams.scala.StreamsBuilder

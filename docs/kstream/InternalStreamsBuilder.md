@@ -8,7 +8,7 @@
 
 `InternalStreamsBuilder` is created when:
 
-* `StreamsBuilder` is [created](../StreamsBuilder.md#creating-instance)
+* `StreamsBuilder` is [created](StreamsBuilder.md#creating-instance)
 
 ## <span id="root"> Root Node
 
@@ -22,7 +22,7 @@ This root node is used to [addGraphNode](#addGraphNode) in the following high-le
 * [addStateStore](#addStateStore)
 * [addGlobalStore](#addGlobalStore)
 
-This root node is then used to [build and optimize a topology](#buildAndOptimizeTopology) (for [StreamsBuilder](../StreamsBuilder.md#build)).
+This root node is then used to [build and optimize a topology](#buildAndOptimizeTopology) (for [StreamsBuilder](StreamsBuilder.md#build)).
 
 ## <span id="buildAndOptimizeTopology"> buildAndOptimizeTopology
 
@@ -35,7 +35,7 @@ void buildAndOptimizeTopology(
 
 `buildAndOptimizeTopology` is used when:
 
-* `StreamsBuilder` is requested to [build a topology](../StreamsBuilder.md#build)
+* `StreamsBuilder` is requested to [build a topology](StreamsBuilder.md#build)
 
 ### <span id="mergeDuplicateSourceNodes"> mergeDuplicateSourceNodes
 
@@ -56,5 +56,5 @@ void addStateStore(
 
 `addStateStore` is used when:
 
-* `StreamsBuilder` is requested to [addStateStore](../StreamsBuilder.md#addStateStore)
+* `StreamsBuilder` is requested to [addStateStore](StreamsBuilder.md#addStateStore)
 * `KTableImpl` is requested to `doJoinOnForeignKey`

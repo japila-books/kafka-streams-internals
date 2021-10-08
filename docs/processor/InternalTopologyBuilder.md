@@ -190,7 +190,25 @@ boolean isGlobalSource(
 * `GlobalStoreNode` is requested to `writeToTopology`
 * `TableSourceNode` is requested to `writeToTopology`
 
-## <span id="addStateStore"> addStateStore
+## <span id="addProcessor"> Registering Processor
+
+```java
+void addProcessor(
+  String name,
+  ProcessorSupplier<KIn, VIn, KOut, VOut> supplier,
+  String... predecessorNames)
+```
+
+`addProcessor` creates a [ProcessorNodeFactory](ProcessorNodeFactory.md) (that is then added to [nodeFactories](#nodeFactories) registry).
+
+`addProcessor` adds the name to [nodeGrouper](#nodeGrouper) registry and requests it to [unite](#unite) the name with the given `predecessorNames`.
+
+`addProcessor` is used when:
+
+* `Topology` is requested to [addProcessor](../Topology.md#addProcessor)
+* Some `GraphNode`s are requested to [writeToTopology](../kstream/GraphNode.md#writeToTopology)
+
+## <span id="addStateStore"> Registering StateStore
 
 ```java
 void addStateStore(

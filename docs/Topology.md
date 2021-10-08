@@ -8,7 +8,7 @@
 
 `Topology` takes no arguments to be created.
 
-`Topology` is a part of the public API of Kafka Streams and can be created directly or indirectly for [StreamsBuilder](StreamsBuilder.md#topology).
+`Topology` is a part of the public API of Kafka Streams and can be created directly or indirectly for [StreamsBuilder](kstream/StreamsBuilder.md#topology).
 
 ## <span id="internalTopologyBuilder"> InternalTopologyBuilder
 
@@ -39,6 +39,19 @@
 1. Uses no [TimestampExtractor](processor/TimestampExtractor.md)
 
 `addGlobalStore` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add a global store](processor/InternalTopologyBuilder.md#addGlobalStore).
+
+## <span id="addProcessor"> addProcessor
+
+```java
+Topology addProcessor(
+  String name,
+  ProcessorSupplier<KIn, VIn, KOut, VOut> supplier,
+  String... parentNames)
+```
+
+`addProcessor` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add a processor](processor/InternalTopologyBuilder.md#addProcessor).
+
+If there are any state stores associated with the processor, `addProcessor` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add them](processor/InternalTopologyBuilder.md#addStateStore).
 
 ## Demo
 
