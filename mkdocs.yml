@@ -113,7 +113,7 @@ nav:
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
     - Topology: Topology.md
-  - KStream DSL:
+  - Streams DSL:
     - kstream/index.md
     - Consumed: kstream/Consumed.md
     - GlobalKTable: kstream/GlobalKTable.md
