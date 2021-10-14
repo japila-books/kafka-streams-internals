@@ -161,7 +161,10 @@ nav:
   - State:
     - AbstractStoreBuilder: state/AbstractStoreBuilder.md
     - InMemoryWindowBytesStoreSupplier: state/InMemoryWindowBytesStoreSupplier.md
+    - KeyValueStore: state/KeyValueStore.md
     - QueryableStoreProvider: state/QueryableStoreProvider.md
+    - ReadOnlyKeyValueStore: state/ReadOnlyKeyValueStore.md
+    - StateSerdes: state/StateSerdes.md
     - StoreBuilder: state/StoreBuilder.md
     - Stores: state/Stores.md
     - StoreSupplier: state/StoreSupplier.md
