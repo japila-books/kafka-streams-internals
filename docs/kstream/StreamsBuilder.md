@@ -40,7 +40,7 @@ Topology build(
 
 `build` requests the [InternalStreamsBuilder](#internalStreamsBuilder) to [build and optimize a topology](InternalStreamsBuilder.md#buildAndOptimizeTopology). In the end, `build` returns the [Topology](#topology).
 
-## <span id="globalTable"> globalTable Operator
+## <span id="globalTable"> globalTable
 
 ```java
 GlobalKTable<K, V> globalTable(
@@ -140,4 +140,51 @@ Topologies:
     Processor: KTABLE-SOURCE-0000000001 (stores: [queryable-store-name])
       --> none
       <-- KSTREAM-SOURCE-0000000000
+```
+
+## <span id="stream"> stream
+
+```java
+KStream<K, V> stream(
+  Collection<String> topics)
+KStream<K, V> stream(
+  Collection<String> topics,
+  Consumed<K, V> consumed)
+KStream<K, V> stream(
+  Pattern topicPattern)
+KStream<K, V> stream(
+  Pattern topicPattern,
+  Consumed<K, V> consumed)
+KStream<K, V> stream(
+  String topic)
+KStream<K, V> stream(
+  String topic,
+  Consumed<K, V> consumed)
+```
+
+`stream` requests the [InternalStreamsBuilder](#internalStreamsBuilder) to [stream](InternalStreamsBuilder.md#stream).
+
+### <span id="stream-demo"> Demo: Custom Processor Name
+
+```scala
+import org.apache.kafka.streams.scala._
+import org.apache.kafka.streams.scala.kstream._
+import ImplicitConversions._
+import serialization.Serdes._
+
+import org.apache.kafka.streams.scala.StreamsBuilder
+val builder = new StreamsBuilder
+```
+
+```scala
+implicit val consumed = Consumed.`with`[String, String].withName("processorName")
+val demo = builder.stream[String, String]("demo")
+```
+
+```text
+scala> println(builder.build().describe)
+Topologies:
+   Sub-topology: 0
+    Source: processorName (topics: [demo])
+      --> none
 ```

@@ -58,3 +58,20 @@ void addStateStore(
 
 * `StreamsBuilder` is requested to [addStateStore](StreamsBuilder.md#addStateStore)
 * `KTableImpl` is requested to `doJoinOnForeignKey`
+
+## <span id="stream"> stream
+
+```java
+KStream<K, V> stream(
+  Collection<String> topics,
+  ConsumedInternal<K, V> consumed)
+KStream<K, V> stream(
+  Pattern topicPattern,
+  ConsumedInternal<K, V> consumed)
+```
+
+`stream`...FIXME
+
+`stream` is used when:
+
+* `StreamsBuilder` is requested to [stream](StreamsBuilder.md#stream)

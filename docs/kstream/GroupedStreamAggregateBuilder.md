@@ -1,0 +1,3 @@
+# GroupedStreamAggregateBuilder
+
+`GroupedStreamAggregateBuilder` is...FIXME

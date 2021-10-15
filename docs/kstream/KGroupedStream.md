@@ -1,0 +1,3 @@
+# KGroupedStream
+
+`KGroupedStream` is...FIXME

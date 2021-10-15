@@ -6,10 +6,11 @@ The Scala API for Kafka Streams defines Scala-friendly types that wrap the corre
 
 ## <span id="scala-package"> scala Package
 
-The Scala API is available in `org.apache.kafka.streams.scala` package.
+The Scala API is available in the `org.apache.kafka.streams.scala` package.
 
 ```scala
 import org.apache.kafka.streams.scala._
+import org.apache.kafka.streams.scala.kstream._
 ```
 
 ## <span id="build"><span id="library-dependency"> Library Dependency

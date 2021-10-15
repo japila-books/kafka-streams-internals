@@ -1,0 +1,3 @@
+# KStreamAggProcessorSupplier
+
+`KStreamAggProcessorSupplier` is...FIXME

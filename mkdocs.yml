@@ -107,22 +107,26 @@ nav:
   - Home: index.md
   - Internals:
     - Overview: overview.md
-    - AbstractProcessor: AbstractProcessor.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
-    - KStreamAggregate: KStreamAggregate.md
-    - KStreamAggregateProcessor: KStreamAggregateProcessor.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
     - TimestampedTupleForwarder: TimestampedTupleForwarder.md
     - Topology: Topology.md
   - Streams DSL:
     - kstream/index.md
+    - AbstractStream: kstream/AbstractStream.md
     - Consumed: kstream/Consumed.md
     - GlobalKTable: kstream/GlobalKTable.md
     - GraphNode: kstream/GraphNode.md
+    - GroupedStreamAggregateBuilder: kstream/GroupedStreamAggregateBuilder.md
     - InternalStreamsBuilder: kstream/InternalStreamsBuilder.md
+    - KGroupedStream: kstream/KGroupedStream.md
+    - KGroupedStreamImpl: kstream/KGroupedStreamImpl.md
     - KStream: kstream/KStream.md
+    - KStreamAggProcessorSupplier: kstream/KStreamAggProcessorSupplier.md
+    - KStreamAggregate: kstream/KStreamAggregate.md
+    - KStreamAggregateProcessor: kstream/KStreamAggregateProcessor.md
     - KStreamImpl: kstream/KStreamImpl.md
     - KStreamImplJoin: kstream/KStreamImplJoin.md
     - KTable: kstream/KTable.md
@@ -133,6 +137,7 @@ nav:
     - StreamsBuilder: kstream/StreamsBuilder.md
   - Processor API:
     - processor/index.md
+    - AbstractProcessor: processor/AbstractProcessor.md
     - AbstractTask: processor/AbstractTask.md
     - ActiveTaskCreator: processor/ActiveTaskCreator.md
     - GlobalStateManagerImpl: processor/GlobalStateManagerImpl.md

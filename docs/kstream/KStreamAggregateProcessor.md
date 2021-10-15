@@ -1,6 +1,6 @@
 # KStreamAggregateProcessor
 
-`KStreamAggregateProcessor` is an [AbstractProcessor](AbstractProcessor.md).
+`KStreamAggregateProcessor` is an [AbstractProcessor](../processor/AbstractProcessor.md).
 
 ## Creating Instance
 
@@ -16,12 +16,12 @@
 
 ## <span id="store"> TimestampedKeyValueStore
 
-`KStreamAggregateProcessor` [looks up](processor/ProcessorContext.md#getStateStore) a [TimestampedKeyValueStore](state/TimestampedKeyValueStore.md) by the name given when the owning [KStreamAggregate](KStreamAggregate.md#storeName) was created.
+`KStreamAggregateProcessor` [looks up](../processor/ProcessorContext.md#getStateStore) a [TimestampedKeyValueStore](../state/TimestampedKeyValueStore.md) by the name given when the owning [KStreamAggregate](KStreamAggregate.md#storeName) was created.
 
 The `TimestampedKeyValueStore` is used for the following:
 
 * Create a [TimestampedTupleForwarder](#tupleForwarder) (in [init](#init))
-* [Process](#process) a key-value record (using a [ValueAndTimestamp](state/ValueAndTimestamp.md))
+* [Process](#process) a key-value record (using a [ValueAndTimestamp](../state/ValueAndTimestamp.md))
 
 ## <span id="init"> Initializing
 
@@ -32,7 +32,7 @@ void init(
 
 `init`...FIXME
 
-`init` is part of the [AbstractProcessor](AbstractProcessor.md#init) abstraction.
+`init` is part of the [AbstractProcessor](../processor/AbstractProcessor.md#init) abstraction.
 
 ## <span id="process"> Processing Record
 
@@ -44,4 +44,4 @@ void process(
 
 `process`...FIXME
 
-`process` is part of the [AbstractProcessor](AbstractProcessor.md#process) abstraction.
+`process` is part of the [AbstractProcessor](../processor/AbstractProcessor.md#process) abstraction.
