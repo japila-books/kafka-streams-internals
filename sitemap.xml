@@ -6,21 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/AbstractProcessor/</loc>
-         <lastmod>2021-10-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/KStreamAggregate/</loc>
-         <lastmod>2021-10-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/KStreamAggregateProcessor/</loc>
-         <lastmod>2021-10-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaClientSupplier/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
@@ -86,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/AbstractStream/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/Consumed/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
@@ -101,12 +91,42 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/GroupedStreamAggregateBuilder/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/InternalStreamsBuilder/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KGroupedStream/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KGroupedStreamImpl/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStream/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStreamAggProcessorSupplier/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStreamAggregate/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStreamAggregateProcessor/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -152,6 +172,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/AbstractProcessor/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
