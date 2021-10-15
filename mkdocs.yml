@@ -179,6 +179,7 @@ nav:
     - CachedStateStore: state/CachedStateStore.md
     - InMemoryWindowBytesStoreSupplier: state/InMemoryWindowBytesStoreSupplier.md
     - KeyValueStore: state/KeyValueStore.md
+    - OffsetCheckpoint: state/OffsetCheckpoint.md
     - QueryableStoreProvider: state/QueryableStoreProvider.md
     - ReadOnlyKeyValueStore: state/ReadOnlyKeyValueStore.md
     - StateSerdes: state/StateSerdes.md
