@@ -7,7 +7,7 @@
 `KStreamAggregate` takes the following to be created:
 
 * <span id="storeName"> Name of a State Store
-* <span id="initializer"> `Initializer<T>`
+* <span id="initializer"> [Initializer](Initializer.md) (of `T` values)
 * <span id="aggregator"> `Aggregator<? super K, ? super V, T>`
 
 `KStreamAggregate` is created when:

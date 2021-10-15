@@ -111,15 +111,16 @@ nav:
     - KafkaStreams: KafkaStreams.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
-    - TimestampedTupleForwarder: TimestampedTupleForwarder.md
     - Topology: Topology.md
   - Streams DSL:
     - kstream/index.md
     - AbstractStream: kstream/AbstractStream.md
+    - Aggregator: kstream/Aggregator.md
     - Consumed: kstream/Consumed.md
     - GlobalKTable: kstream/GlobalKTable.md
     - GraphNode: kstream/GraphNode.md
     - GroupedStreamAggregateBuilder: kstream/GroupedStreamAggregateBuilder.md
+    - Initializer: kstream/Initializer.md
     - InternalStreamsBuilder: kstream/InternalStreamsBuilder.md
     - KGroupedStream: kstream/KGroupedStream.md
     - KGroupedStreamImpl: kstream/KGroupedStreamImpl.md
@@ -135,6 +136,7 @@ nav:
     - Produced: kstream/Produced.md
     - StateStoreNode: kstream/StateStoreNode.md
     - StreamsBuilder: kstream/StreamsBuilder.md
+    - TimestampedTupleForwarder: kstream/TimestampedTupleForwarder.md
   - Processor API:
     - processor/index.md
     - AbstractProcessor: processor/AbstractProcessor.md
