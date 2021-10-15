@@ -381,6 +381,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/state/OffsetCheckpoint/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/QueryableStoreProvider/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
