@@ -146,7 +146,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStreamSlidingWindowAggregateProcessor/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KStreamWindowAggregateProcessor/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/KTable/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KTableKTableJoinMergeProcessor/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KTableSource/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -291,6 +311,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/StateManager/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StateStore/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
@@ -337,6 +362,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/AbstractStoreBuilder/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/state/CachedStateStore/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -407,6 +437,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/state/WindowStore/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/state/WrappedStateStore/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
