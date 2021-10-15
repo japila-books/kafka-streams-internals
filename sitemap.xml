@@ -26,11 +26,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/TimestampedTupleForwarder/</loc>
-         <lastmod>2021-10-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/Topology/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
@@ -76,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/Aggregator/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/Consumed/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
@@ -92,6 +92,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/GroupedStreamAggregateBuilder/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/Initializer/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -167,6 +172,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/StreamsBuilder/</loc>
+         <lastmod>2021-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/TimestampedTupleForwarder/</loc>
          <lastmod>2021-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
