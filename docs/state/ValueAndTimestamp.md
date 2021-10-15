@@ -1,0 +1,3 @@
+# ValueAndTimestamp
+
+`ValueAndTimestamp` is...FIXME

@@ -1,0 +1,3 @@
+# KStreamAggregate
+
+`KStreamAggregate` is...FIXME
