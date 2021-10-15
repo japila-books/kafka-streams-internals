@@ -1,0 +1,3 @@
+# KStreamSlidingWindowAggregateProcessor
+
+`KStreamSlidingWindowAggregateProcessor` is...FIXME

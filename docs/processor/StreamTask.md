@@ -24,3 +24,13 @@
 
 * `ActiveTaskCreator` is requested to [createActiveTask](ActiveTaskCreator.md#createActiveTask)
 * `TopologyTestDriver` is requested to `setupTask`
+
+## <span id="prepareCommit"> prepareCommit
+
+```java
+Map<TopicPartition, OffsetAndMetadata> prepareCommit()
+```
+
+`prepareCommit`...FIXME
+
+`prepareCommit` is part of the [Task](Task.md#prepareCommit) abstraction.

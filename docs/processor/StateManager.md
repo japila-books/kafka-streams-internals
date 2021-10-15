@@ -1,0 +1,3 @@
+# StateManager
+
+`StateManager` is...FIXME

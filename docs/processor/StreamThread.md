@@ -73,6 +73,40 @@ Creating consumer client
 
 * `KafkaStreams` is requested to [createAndAddStreamThread](../KafkaStreams.md#createAndAddStreamThread)
 
+## <span id="run"> Starting Execution
+
+```java
+void run()
+```
+
+`run`...FIXME
+
+`run` is part of the `Thread` ([Java]({{ java.api }}/java/lang/Thread.html#run())) abstraction.
+
+### <span id="runLoop"> runLoop
+
+```java
+void runLoop()
+```
+
+`runLoop`...FIXME
+
+### <span id="runOnce"> runOnce
+
+```java
+void runOnce()
+```
+
+`runOnce`...FIXME
+
+### <span id="maybeCommit"> maybeCommit
+
+```java
+int maybeCommit()
+```
+
+`maybeCommit`...FIXME
+
 ## Logging
 
 Enable `ALL` logging level for `org.apache.kafka.streams.processor.internals.StreamThread` logger to see what happens inside.

@@ -20,6 +20,20 @@
 
 * `StreamThread` utility is used to [create a StreamThread](StreamThread.md#create)
 
+## <span id="commit"> Committing Tasks
+
+```java
+int commit(
+  Collection<Task> tasksToCommit)
+```
+
+`commit`...FIXME
+
+`commit` is used when:
+
+* `StreamThread` is requested to [maybeCommit](StreamThread.md#maybeCommit)
+* `TaskManager` is requested to [maybeCommitActiveTasksPerUserRequested](#maybeCommitActiveTasksPerUserRequested)
+
 ## <span id="handleAssignment"> handleAssignment
 
 ```java
@@ -47,3 +61,42 @@ void handleCloseAndRecycle(
 ```
 
 `handleCloseAndRecycle`...FIXME
+
+## <span id="handleCorruption"> handleCorruption
+
+```java
+void handleCorruption(
+  Set<TaskId> corruptedTasks)
+```
+
+`handleCorruption`...FIXME
+
+`handleCorruption` is used when:
+
+* `StreamThread` is requested to [runLoop](StreamThread.md#runLoop) (and caught a `TaskCorruptedException`)
+
+## <span id="maybeCommitActiveTasksPerUserRequested"> maybeCommitActiveTasksPerUserRequested
+
+```java
+int maybeCommitActiveTasksPerUserRequested()
+```
+
+`maybeCommitActiveTasksPerUserRequested`...FIXME
+
+`maybeCommitActiveTasksPerUserRequested` is used when:
+
+* `StreamThread` is requested to [maybeCommit](StreamThread.md#maybeCommit)
+
+## <span id="commitAndFillInConsumedOffsetsAndMetadataPerTaskMap"> commitAndFillInConsumedOffsetsAndMetadataPerTaskMap
+
+```java
+int commitAndFillInConsumedOffsetsAndMetadataPerTaskMap(
+  Collection<Task> tasksToCommit,
+  Map<Task, Map<TopicPartition, OffsetAndMetadata>> consumedOffsetsAndMetadataPerTask)
+```
+
+`commitAndFillInConsumedOffsetsAndMetadataPerTaskMap`...FIXME
+
+`commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` is used when:
+
+* `TaskManager` is requested to [handleCorruption](#handleCorruption) and [commit](#commit)

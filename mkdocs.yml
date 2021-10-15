@@ -130,7 +130,11 @@ nav:
     - KStreamAggregateProcessor: kstream/KStreamAggregateProcessor.md
     - KStreamImpl: kstream/KStreamImpl.md
     - KStreamImplJoin: kstream/KStreamImplJoin.md
+    - KStreamSlidingWindowAggregateProcessor: kstream/KStreamSlidingWindowAggregateProcessor.md
+    - KStreamWindowAggregateProcessor: kstream/KStreamWindowAggregateProcessor.md
     - KTable: kstream/KTable.md
+    - KTableKTableJoinMergeProcessor: kstream/KTableKTableJoinMergeProcessor.md
+    - KTableSource: kstream/KTableSource.md
     - Materialized: kstream/Materialized.md
     - NamedOperation: kstream/NamedOperation.md
     - Produced: kstream/Produced.md
@@ -160,6 +164,7 @@ nav:
     - StandbyTask: processor/StandbyTask.md
     - StandbyTaskCreator: processor/StandbyTaskCreator.md
     - StateDirectory: processor/StateDirectory.md
+    - StateManager: processor/StateManager.md
     - StateStore: processor/StateStore.md
     - StateStoreFactory: processor/StateStoreFactory.md
     - StoreChangelogReader: processor/StoreChangelogReader.md
@@ -171,6 +176,7 @@ nav:
     - TimestampExtractor: processor/TimestampExtractor.md
   - State:
     - AbstractStoreBuilder: state/AbstractStoreBuilder.md
+    - CachedStateStore: state/CachedStateStore.md
     - InMemoryWindowBytesStoreSupplier: state/InMemoryWindowBytesStoreSupplier.md
     - KeyValueStore: state/KeyValueStore.md
     - QueryableStoreProvider: state/QueryableStoreProvider.md
@@ -185,6 +191,7 @@ nav:
     - ValueAndTimestamp: state/ValueAndTimestamp.md
     - WindowBytesStoreSupplier: state/WindowBytesStoreSupplier.md
     - WindowStore: state/WindowStore.md
+    - WrappedStateStore: state/WrappedStateStore.md
   - Testing:
     - TopologyTestDriver: TopologyTestDriver.md
   - Features:

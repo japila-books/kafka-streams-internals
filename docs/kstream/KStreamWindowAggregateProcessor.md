@@ -1,0 +1,3 @@
+# KStreamWindowAggregateProcessor
+
+`KStreamWindowAggregateProcessor` is...FIXME
