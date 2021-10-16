@@ -26,6 +26,10 @@
 
 `StreamThread` is created using [create](#create) utility.
 
+## <span id="commitTimeMs"><span id="commit.interval.ms"> commit.interval.ms
+
+`StreamThread` uses [commit.interval.ms](../StreamsConfig.md#COMMIT_INTERVAL_MS_CONFIG) configuration property to [control whether to commit tasks or not](#maybeCommit).
+
 ## <span id="create"> Creating StreamThread
 
 ```java
@@ -105,7 +109,25 @@ void runOnce()
 int maybeCommit()
 ```
 
-`maybeCommit`...FIXME
+`maybeCommit` checks out whether to commit active and standby tasks (based on the last commit time and [commit.interval.ms](#commitTimeMs)).
+
+If the last commit happened enough long ago, `maybeCommit` prints out the following DEBUG message to the logs:
+
+```text
+Committing all active tasks [ids] and standby tasks [ids] since [time]ms has elapsed (commit interval is [time]ms)
+```
+
+`maybeCommit` requests the [TaskManager](#taskManager) to [commit](TaskManager.md#commit) the tasks that are `RUNNING` or `RESTORING`.
+
+If there were offsets committed, `maybeCommit` requests the [TaskManager](#taskManager) to [maybePurgeCommittedRecords](TaskManager.md#maybePurgeCommittedRecords). Otherwise, `maybeCommit` prints out the following DEBUG message to the logs:
+
+```text
+Unable to commit as we are in the middle of a rebalance, will try again when it completes.
+```
+
+If the last commit happened fairly recently, `maybeCommit` merely requests the [TaskManager](#taskManager) to [maybeCommitActiveTasksPerUserRequested](TaskManager.md#maybeCommitActiveTasksPerUserRequested)
+
+Either way, in the end, `maybeCommit` returns the number of committed offsets.
 
 ## Logging
 
