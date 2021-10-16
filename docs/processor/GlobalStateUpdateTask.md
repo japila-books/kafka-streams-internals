@@ -1,0 +1,3 @@
+# GlobalStateUpdateTask
+
+`GlobalStateUpdateTask` is...FIXME

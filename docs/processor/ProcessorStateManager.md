@@ -2,6 +2,39 @@
 
 `ProcessorStateManager` is a [StateManager](StateManager.md).
 
+## Creating Instance
+
+`ProcessorStateManager` takes the following to be created:
+
+* <span id="taskId"> [TaskId](TaskId.md)
+* <span id="taskType"> `TaskType`
+* [eosEnabled](#eosEnabled) flag
+* <span id="logContext"> `LogContext`
+* <span id="stateDirectory"> [StateDirectory](StateDirectory.md)
+* <span id="changelogReader"> `ChangelogRegister`
+* <span id="storeToChangelogTopic"> `storeToChangelogTopic` collection
+* <span id="sourcePartitions"> Source `TopicPartition`s
+
+`ProcessorStateManager` is created when:
+
+* `ActiveTaskCreator` is requested to [createTasks](ActiveTaskCreator.md#createTasks)
+* `StandbyTaskCreator` is requested to [createTasks](StandbyTaskCreator.md#createTasks)
+* `TopologyTestDriver` is requested to [setupTask](../TopologyTestDriver.md#setupTask)
+
+## <span id="eosEnabled"> eosEnabled Flag
+
+`ProcessorStateManager` is given `eosEnabled` flag when [created](#creating-instance).
+
+## <span id="checkpointFile"> Offset Checkpoint File
+
+When [created](#creating-instance), `ProcessorStateManager` requests the given [StateDirectory](#stateDirectory) for a [checkpoint file](StateDirectory.md#checkpointFileFor) for the given [TaskId](#taskId) and creates a new `OffsetCheckpoint`.
+
+`ProcessorStateManager` uses the `OffsetCheckpoint` for the following:
+
+* [initializeStoreOffsetsFromCheckpoint](#initializeStoreOffsetsFromCheckpoint) (to read offsets and then delete it with [eosEnabled](#eosEnabled))
+* [Checkpoint](#checkpoint)
+* [deleteCheckPointFileIfEOSEnabled](#deleteCheckPointFileIfEOSEnabled)
+
 ## <span id="flushCache"> Flushing Store Caches
 
 ```java
@@ -44,6 +77,74 @@ Changing the location of state.dir may resolve the problem.
 ---
 
 `checkpoint` is part of the [StateManager](StateManager.md#checkpoint) abstraction.
+
+## <span id="registerStore"> registerStore
+
+```java
+void registerStore(
+  StateStore store, 
+  StateRestoreCallback stateRestoreCallback)
+```
+
+`registerStore`...FIXME
+
+`registerStore` is part of the [StateManager](StateManager.md#registerStore) abstraction.
+
+## <span id="registerStateStores"> registerStateStores
+
+```java
+void registerStateStores(
+  List<StateStore> allStores, 
+  InternalProcessorContext processorContext)
+```
+
+`registerStateStores`...FIXME
+
+`registerStateStores` is used when:
+
+* `StateManagerUtil` is requested to [registerStateStores](StateManagerUtil.md#registerStateStores)
+
+## <span id="maybeRegisterStoreWithChangelogReader"> maybeRegisterStoreWithChangelogReader
+
+```java
+void maybeRegisterStoreWithChangelogReader(
+  String storeName)
+```
+
+`maybeRegisterStoreWithChangelogReader`...FIXME
+
+`maybeRegisterStoreWithChangelogReader` is used when:
+
+* `ProcessorStateManager` is requested to [registerStateStores](#registerStateStores) and [registerStore](#registerStore)
+
+## <span id="getStorePartition"> getStorePartition
+
+```java
+TopicPartition getStorePartition(
+  String storeName)
+```
+
+`getStorePartition` creates a `TopicPartition` with the following:
+
+* [changelogFor](#changelogFor) with the given `storeName` for the name of the (changelog) topic
+* The [partition](TaskId.md#partition) of the [TaskId](#taskId) for the partition (of the changelog topic)
+
+`getStorePartition` is used when:
+
+* `ProcessorStateManager` is requested to [maybeRegisterStoreWithChangelogReader](#maybeRegisterStoreWithChangelogReader) and [registerStore](#registerStore)
+
+## <span id="initializeStoreOffsetsFromCheckpoint"> initializeStoreOffsetsFromCheckpoint
+
+```java
+void initializeStoreOffsetsFromCheckpoint(
+  boolean storeDirIsEmpty)
+```
+
+`initializeStoreOffsetsFromCheckpoint`...FIXME
+
+`initializeStoreOffsetsFromCheckpoint` is used when:
+
+* `StateManagerUtil` is requested to [registerStateStores](StateManagerUtil.md#registerStateStores)
 
 ## Logging
 

@@ -144,14 +144,19 @@ nav:
   - Processor API:
     - processor/index.md
     - AbstractProcessor: processor/AbstractProcessor.md
+    - AbstractProcessorContext: processor/AbstractProcessorContext.md
     - AbstractTask: processor/AbstractTask.md
     - ActiveTaskCreator: processor/ActiveTaskCreator.md
+    - GlobalProcessorContextImpl: processor/GlobalProcessorContextImpl.md
+    - GlobalStateManager: processor/GlobalStateManager.md
     - GlobalStateManagerImpl: processor/GlobalStateManagerImpl.md
+    - GlobalStateUpdateTask: processor/GlobalStateUpdateTask.md
     - GlobalStreamThread: processor/GlobalStreamThread.md
     - InternalTopologyBuilder: processor/InternalTopologyBuilder.md
     - NodeFactory: processor/NodeFactory.md
     - Processor: processor/Processor.md
     - ProcessorContext: processor/ProcessorContext.md
+    - ProcessorContextImpl: processor/ProcessorContextImpl.md
     - ProcessorNode: processor/ProcessorNode.md
     - ProcessorNodeFactory: processor/ProcessorNodeFactory.md
     - ProcessorStateManager: processor/ProcessorStateManager.md
@@ -165,12 +170,14 @@ nav:
     - StandbyTaskCreator: processor/StandbyTaskCreator.md
     - StateDirectory: processor/StateDirectory.md
     - StateManager: processor/StateManager.md
+    - StateManagerUtil: processor/StateManagerUtil.md
     - StateStore: processor/StateStore.md
     - StateStoreFactory: processor/StateStoreFactory.md
     - StoreChangelogReader: processor/StoreChangelogReader.md
     - StreamTask: processor/StreamTask.md
     - StreamThread: processor/StreamThread.md
     - Task: processor/Task.md
+    - TaskId: processor/TaskId.md
     - TaskManager: processor/TaskManager.md
     - Tasks: processor/Tasks.md
     - TimestampExtractor: processor/TimestampExtractor.md

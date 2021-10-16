@@ -1,0 +1,3 @@
+# GlobalProcessorContextImpl
+
+`GlobalProcessorContextImpl` is...FIXME
