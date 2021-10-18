@@ -34,3 +34,7 @@ Used when:
 * `StreamThread` is [created](processor/StreamThread.md#pollTime)
 
 ## <span id="TASK_TIMEOUT_MS_CONFIG"><span id="task.timeout.ms"> task.timeout.ms
+
+## <span id="UPGRADE_FROM_CONFIG"><span id="upgrade.from"> upgrade.from
+
+Default: (undefined)

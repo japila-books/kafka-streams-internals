@@ -107,10 +107,14 @@ nav:
   - Home: index.md
   - Internals:
     - Overview: overview.md
+    - AssignorConfiguration: AssignorConfiguration.md
+    - ChangelogTopics: ChangelogTopics.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor: StreamsPartitionAssignor.md
+    - PartitionGrouper: PartitionGrouper.md
+    - RepartitionTopics: RepartitionTopics.md
     - Topology: Topology.md
   - Streams DSL:
     - kstream/index.md

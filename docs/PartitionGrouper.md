@@ -1,0 +1,3 @@
+# PartitionGrouper
+
+`PartitionGrouper` is...FIXME
