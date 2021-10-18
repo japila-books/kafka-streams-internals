@@ -16,6 +16,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/CopartitionedTopicsEnforcer/</loc>
+         <lastmod>2021-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/InternalTopicManager/</loc>
+         <lastmod>2021-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/KafkaClientSupplier/</loc>
          <lastmod>2021-10-18</lastmod>
          <changefreq>daily</changefreq>
@@ -116,6 +126,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/GroupedTableOperationRepartitionNode/</loc>
+         <lastmod>2021-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/Initializer/</loc>
          <lastmod>2021-10-18</lastmod>
          <changefreq>daily</changefreq>
@@ -181,6 +196,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/KTableImpl/</loc>
+         <lastmod>2021-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/KTableKTableJoinMergeProcessor/</loc>
          <lastmod>2021-10-18</lastmod>
          <changefreq>daily</changefreq>
@@ -201,6 +221,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/OptimizableRepartitionNode/</loc>
+         <lastmod>2021-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/Produced/</loc>
          <lastmod>2021-10-18</lastmod>
          <changefreq>daily</changefreq>
@@ -217,6 +242,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/TimestampedTupleForwarder/</loc>
+         <lastmod>2021-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/UnoptimizableRepartitionNode/</loc>
          <lastmod>2021-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -327,6 +357,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/SinkNode/</loc>
+         <lastmod>2021-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/SinkNodeFactory/</loc>
          <lastmod>2021-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
