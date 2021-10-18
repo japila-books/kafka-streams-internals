@@ -20,24 +20,6 @@
 
 * `StreamThread` utility is used to [create a StreamThread](StreamThread.md#create)
 
-## <span id="rebalanceInProgress"> rebalanceInProgress Flag
-
-`TaskManager` uses `rebalanceInProgress` internal flag to indicate that it is in the middle of a rebalance (which is not safe to commit, i.e. [commitAndFillInConsumedOffsetsAndMetadataPerTaskMap](#commitAndFillInConsumedOffsetsAndMetadataPerTaskMap) and [maybeCommitActiveTasksPerUserRequested](#maybeCommitActiveTasksPerUserRequested)).
-
-The `rebalanceInProgress` flag is disabled initially. It is turned on (`true`) in [handleRebalanceStart](#handleRebalanceStart) and off in [handleRebalanceComplete](#handleRebalanceComplete).
-
-### <span id="isRebalanceInProgress"> isRebalanceInProgress
-
-```java
-boolean isRebalanceInProgress()
-```
-
-`isRebalanceInProgress` returns the value of the internal [rebalanceInProgress](#rebalanceInProgress) flag.
-
-`isRebalanceInProgress` is used when:
-
-* `StreamThread` is requested to [run](StreamThread.md#runLoop)
-
 ## <span id="commit"> Committing (Active) Tasks
 
 ```java
@@ -131,7 +113,27 @@ In the end, `commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` returns the nu
 
 * `TaskManager` is requested to [commit](#commit) and [handle a TaskCorruptedException](#handleCorruption)
 
-## <span id="handleRebalanceStart"> handleRebalanceStart
+## Partition Rebalancing
+
+### <span id="rebalanceInProgress"> rebalanceInProgress Flag
+
+`TaskManager` uses `rebalanceInProgress` internal flag to indicate that it is in the middle of partition rebalancing (which is considered not safe to commit and used to skip [commitAndFillInConsumedOffsetsAndMetadataPerTaskMap](#commitAndFillInConsumedOffsetsAndMetadataPerTaskMap) and [maybeCommitActiveTasksPerUserRequested](#maybeCommitActiveTasksPerUserRequested)).
+
+The `rebalanceInProgress` flag is disabled (`false`) initially. It is turned on (`true`) in [handleRebalanceStart](#handleRebalanceStart) and off in [handleRebalanceComplete](#handleRebalanceComplete).
+
+### <span id="isRebalanceInProgress"> isRebalanceInProgress
+
+```java
+boolean isRebalanceInProgress()
+```
+
+`isRebalanceInProgress` returns the value of the internal [rebalanceInProgress](#rebalanceInProgress) flag.
+
+`isRebalanceInProgress` is used when:
+
+* `StreamThread` is requested to [run](StreamThread.md#runLoop)
+
+### <span id="handleRebalanceStart"> handleRebalanceStart
 
 ```java
 void handleRebalanceStart(
@@ -146,7 +148,7 @@ void handleRebalanceStart(
 
 * `StreamsPartitionAssignor` is requested to [handleRebalanceStart](../StreamsPartitionAssignor.md#handleRebalanceStart)
 
-## <span id="handleRebalanceComplete"> handleRebalanceComplete
+### <span id="handleRebalanceComplete"> handleRebalanceComplete
 
 ```java
 void handleRebalanceComplete()
