@@ -1,0 +1,3 @@
+# SinkNodeFactory
+
+`SinkNodeFactory` is...FIXME

@@ -1,0 +1,3 @@
+# CopartitionedTopicsEnforcer
+
+`CopartitionedTopicsEnforcer` is...FIXME

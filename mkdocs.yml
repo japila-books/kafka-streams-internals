@@ -109,12 +109,15 @@ nav:
     - Overview: overview.md
     - AssignorConfiguration: AssignorConfiguration.md
     - ChangelogTopics: ChangelogTopics.md
+    - CopartitionedTopicsEnforcer: CopartitionedTopicsEnforcer.md
+    - InternalTopicManager: InternalTopicManager.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
-    - StreamsConfig: StreamsConfig.md
-    - StreamsPartitionAssignor: StreamsPartitionAssignor.md
     - PartitionGrouper: PartitionGrouper.md
-    - RepartitionTopics: RepartitionTopics.md
+    - StreamsConfig: StreamsConfig.md
+    - StreamsPartitionAssignor:
+      - StreamsPartitionAssignor: StreamsPartitionAssignor.md
+      - RepartitionTopics: RepartitionTopics.md
     - Topology: Topology.md
   - Streams DSL:
     - kstream/index.md
@@ -124,6 +127,7 @@ nav:
     - GlobalKTable: kstream/GlobalKTable.md
     - GraphNode: kstream/GraphNode.md
     - GroupedStreamAggregateBuilder: kstream/GroupedStreamAggregateBuilder.md
+    - GroupedTableOperationRepartitionNode: kstream/GroupedTableOperationRepartitionNode.md
     - Initializer: kstream/Initializer.md
     - InternalStreamsBuilder: kstream/InternalStreamsBuilder.md
     - KGroupedStream: kstream/KGroupedStream.md
@@ -137,14 +141,17 @@ nav:
     - KStreamSlidingWindowAggregateProcessor: kstream/KStreamSlidingWindowAggregateProcessor.md
     - KStreamWindowAggregateProcessor: kstream/KStreamWindowAggregateProcessor.md
     - KTable: kstream/KTable.md
+    - KTableImpl: kstream/KTableImpl.md
     - KTableKTableJoinMergeProcessor: kstream/KTableKTableJoinMergeProcessor.md
     - KTableSource: kstream/KTableSource.md
     - Materialized: kstream/Materialized.md
     - NamedOperation: kstream/NamedOperation.md
+    - OptimizableRepartitionNode: kstream/OptimizableRepartitionNode.md
     - Produced: kstream/Produced.md
     - StateStoreNode: kstream/StateStoreNode.md
     - StreamsBuilder: kstream/StreamsBuilder.md
     - TimestampedTupleForwarder: kstream/TimestampedTupleForwarder.md
+    - UnoptimizableRepartitionNode: kstream/UnoptimizableRepartitionNode.md
   - Processor API:
     - processor/index.md
     - AbstractProcessor: processor/AbstractProcessor.md
@@ -168,6 +175,7 @@ nav:
     - ProcessorTopology: processor/ProcessorTopology.md
     - Punctuator: processor/Punctuator.md
     - SinkNode: processor/SinkNode.md
+    - SinkNodeFactory: processor/SinkNodeFactory.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
     - SourceNode: processor/SourceNode.md
     - StandbyTask: processor/StandbyTask.md

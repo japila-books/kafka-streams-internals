@@ -1,5 +1,83 @@
 # InternalTopologyBuilder
 
+## <span id="copartitionSourceGroups"> copartitionSourceGroups
+
+```java
+List<Set<String>> copartitionSourceGroups
+```
+
+`InternalTopologyBuilder` defines `copartitionSourceGroups` internal registry for groups of source processors that need to be co-partitioned.
+
+A new entry is added when:
+
+* `InternalTopologyBuilder` is requested to [copartitionSources](#copartitionSources)
+
+The registry is used when `InternalTopologyBuilder` is requested for the following:
+
+* [maybeUpdateCopartitionSourceGroups](#maybeUpdateCopartitionSourceGroups)
+* [validateCopartition](#validateCopartition)
+* [copartitionGroups](#copartitionGroups)
+
+## <span id="copartitionSources"> copartitionSources
+
+```java
+void copartitionSources(
+  Collection<String> sourceNodes)
+```
+
+`copartitionSources` simply adds the given `sourceNodes` to the [copartitionSourceGroups](#copartitionSourceGroups) internal registry.
+
+`copartitionSources` is used when:
+
+* `AbstractStream` is requested to [ensureCopartitionWith](../kstream/AbstractStream.md#ensureCopartitionWith)
+* `KTableImpl` is requested to [doJoinOnForeignKey](../kstream/KTableImpl.md#doJoinOnForeignKey)
+
+## <span id="internalTopicNamesWithProperties"> internalTopicNamesWithProperties
+
+```java
+Map<String, InternalTopicProperties> internalTopicNamesWithProperties
+```
+
+`InternalTopologyBuilder` defines `internalTopicNamesWithProperties` internal registry of all the internal topics with their corresponding properties.
+
+A new internal topic is added when:
+
+* `InternalTopologyBuilder` is requested to [addInternalTopic](#addInternalTopic)
+
+The registry is used when:
+
+* `InternalTopologyBuilder` is requested to [validateCopartition](#validateCopartition), [buildSinkNode](#buildSinkNode), [buildSourceNode](#buildSourceNode), [topicGroups](#topicGroups), [maybeDecorateInternalSourceTopics](#maybeDecorateInternalSourceTopics)
+* `SinkNodeFactory` is requested to [build a processor node](SinkNodeFactory.md#build)
+
+## <span id="addInternalTopic"> addInternalTopic
+
+```java
+void addInternalTopic(
+  String topicName,
+  InternalTopicProperties internalTopicProperties)
+```
+
+`addInternalTopic`...FIXME
+
+`addInternalTopic` is used when:
+
+* `KTableImpl` is requested to [doJoinOnForeignKey](../kstream/KTableImpl.md#doJoinOnForeignKey)
+* `GroupedTableOperationRepartitionNode` is requested to [writeToTopology](../kstream/GroupedTableOperationRepartitionNode.md#writeToTopology)
+* `OptimizableRepartitionNode` is requested to [writeToTopology](../kstream/OptimizableRepartitionNode.md#writeToTopology)
+* `UnoptimizableRepartitionNode` is requested to [writeToTopology](../kstream/UnoptimizableRepartitionNode.md#writeToTopology)
+
+## <span id="validateCopartition"> validateCopartition
+
+```java
+void validateCopartition()
+```
+
+`validateCopartition`...FIXME
+
+`validateCopartition` is used when:
+
+* `InternalStreamsBuilder` is requested to [buildAndOptimizeTopology](#buildAndOptimizeTopology)
+
 ## <span id="globalTopics"> Global Topics
 
 ```java
@@ -234,3 +312,16 @@ void addStateStore(
 * `StreamToTableNode` is requested to `writeToTopology`
 * `TableProcessorNode` is requested to `writeToTopology`
 * `TableSourceNode` is requested to `writeToTopology`
+
+## <span id="topicGroups"> topicGroups
+
+```java
+Map<Subtopology, TopicsInfo> topicGroups()
+```
+
+`topicGroups`...FIXME
+
+`topicGroups` is used when:
+
+* `RepartitionTopics` is requested to [setup](../RepartitionTopics.md#setup)
+* `StreamsPartitionAssignor` is requested for [consumer group assignment](../StreamsPartitionAssignor.md#assign)
