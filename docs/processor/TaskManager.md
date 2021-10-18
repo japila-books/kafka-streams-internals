@@ -20,14 +20,34 @@
 
 * `StreamThread` utility is used to [create a StreamThread](StreamThread.md#create)
 
-## <span id="commit"> Committing Tasks
+## <span id="rebalanceInProgress"> rebalanceInProgress Flag
+
+`TaskManager` uses `rebalanceInProgress` internal flag to indicate that it is in the middle of a rebalance (which is not safe to commit, i.e. [commitAndFillInConsumedOffsetsAndMetadataPerTaskMap](#commitAndFillInConsumedOffsetsAndMetadataPerTaskMap) and [maybeCommitActiveTasksPerUserRequested](#maybeCommitActiveTasksPerUserRequested)).
+
+The `rebalanceInProgress` flag is disabled initially. It is turned on (`true`) in [handleRebalanceStart](#handleRebalanceStart) and off in [handleRebalanceComplete](#handleRebalanceComplete).
+
+### <span id="isRebalanceInProgress"> isRebalanceInProgress
+
+```java
+boolean isRebalanceInProgress()
+```
+
+`isRebalanceInProgress` returns the value of the internal [rebalanceInProgress](#rebalanceInProgress) flag.
+
+`isRebalanceInProgress` is used when:
+
+* `StreamThread` is requested to [run](StreamThread.md#runLoop)
+
+## <span id="commit"> Committing (Active) Tasks
 
 ```java
 int commit(
   Collection<Task> tasksToCommit)
 ```
 
-`commit`...FIXME
+`commit` [commitAndFillInConsumedOffsetsAndMetadataPerTaskMap](#commitAndFillInConsumedOffsetsAndMetadataPerTaskMap) the given tasks.
+
+In the end, `commit` returns consumed offsets and metadata per every committed task (`Map<Task, Map<TopicPartition, OffsetAndMetadata>>`).
 
 `commit` is used when:
 
@@ -62,7 +82,7 @@ void handleCloseAndRecycle(
 
 `handleCloseAndRecycle`...FIXME
 
-## <span id="handleCorruption"> handleCorruption
+## <span id="handleCorruption"> Handling TaskCorruptedException
 
 ```java
 void handleCorruption(
@@ -81,7 +101,9 @@ void handleCorruption(
 int maybeCommitActiveTasksPerUserRequested()
 ```
 
-`maybeCommitActiveTasksPerUserRequested`...FIXME
+With [rebalance in progress](#rebalanceInProgress), `maybeCommitActiveTasksPerUserRequested` returns `-1` immediately.
+
+Otherwise, `maybeCommitActiveTasksPerUserRequested` finds tasks (among [active tasks](#activeTaskIterable)) with [commitRequested](Task.md#commitRequested) or [commitNeeded](Task.md#commitNeeded) and, if there is at least one, [commits them](#commit).
 
 `maybeCommitActiveTasksPerUserRequested` is used when:
 
@@ -95,8 +117,45 @@ int commitAndFillInConsumedOffsetsAndMetadataPerTaskMap(
   Map<Task, Map<TopicPartition, OffsetAndMetadata>> consumedOffsetsAndMetadataPerTask)
 ```
 
-`commitAndFillInConsumedOffsetsAndMetadataPerTaskMap`...FIXME
+With [rebalance in progress](#rebalanceInProgress), `commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` returns `-1` immediately.
+
+`commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` requests every [Task](Task.md) with [commitNeeded](Task.md#commitNeeded) (in the given `tasksToCommit` tasks) to [prepareCommit](Task.md#prepareCommit) (that gives offsets and metadata per partition). `commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` saves the offsets and metadata per partition for a task (that is [active](Task.md#isActive)) in the given `consumedOffsetsAndMetadataPerTask`.
+
+`commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` [commitOffsetsOrTransaction](#commitOffsetsOrTransaction) (with the given `consumedOffsetsAndMetadataPerTask` that may have been updated with some active tasks as described above).
+
+Once again, `commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` requests every [Task](Task.md) with [commitNeeded](Task.md#commitNeeded) (in the given `tasksToCommit` tasks) to [clearTaskTimeout](Task.md#clearTaskTimeout) and [postCommit](Task.md#postCommit) (with `enforceCheckpoint` flag disabled).
+
+In the end, `commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` returns the number of tasks committed.
 
 `commitAndFillInConsumedOffsetsAndMetadataPerTaskMap` is used when:
 
-* `TaskManager` is requested to [handleCorruption](#handleCorruption) and [commit](#commit)
+* `TaskManager` is requested to [commit](#commit) and [handle a TaskCorruptedException](#handleCorruption)
+
+## <span id="handleRebalanceStart"> handleRebalanceStart
+
+```java
+void handleRebalanceStart(
+  Set<String> subscribedTopics)
+```
+
+`handleRebalanceStart` requests the [InternalTopologyBuilder](#builder) to [addSubscribedTopicsFromMetadata](InternalTopologyBuilder.md#addSubscribedTopicsFromMetadata) with the given `subscribedTopics`.
+
+`handleRebalanceStart` [tryToLockAllNonEmptyTaskDirectories](#tryToLockAllNonEmptyTaskDirectories) and turns the [rebalanceInProgress](#rebalanceInProgress) internal flag on (`true`).
+
+`handleRebalanceStart` is used when:
+
+* `StreamsPartitionAssignor` is requested to [handleRebalanceStart](../StreamsPartitionAssignor.md#handleRebalanceStart)
+
+## <span id="handleRebalanceComplete"> handleRebalanceComplete
+
+```java
+void handleRebalanceComplete()
+```
+
+`handleRebalanceComplete` requests the [Consumer](#mainConsumer) to pause (_suspend_) fetching from the partitions that are assigned to this consumer.
+
+`handleRebalanceComplete` [releaseLockedUnassignedTaskDirectories](#releaseLockedUnassignedTaskDirectories) and turns the [rebalanceInProgress](#rebalanceInProgress) internal flag off (`false`).
+
+`handleRebalanceComplete` is used when:
+
+* `StreamsPartitionAssignor` is requested to [onPartitionsAssigned](../StreamsPartitionAssignor.md#onPartitionsAssigned)
