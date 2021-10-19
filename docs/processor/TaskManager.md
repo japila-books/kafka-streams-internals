@@ -140,7 +140,7 @@ void handleRebalanceStart(
   Set<String> subscribedTopics)
 ```
 
-`handleRebalanceStart` requests the [InternalTopologyBuilder](#builder) to [addSubscribedTopicsFromMetadata](InternalTopologyBuilder.md#addSubscribedTopicsFromMetadata) with the given `subscribedTopics`.
+`handleRebalanceStart` requests the [InternalTopologyBuilder](#builder) to [addSubscribedTopicsFromMetadata](../InternalTopologyBuilder.md#addSubscribedTopicsFromMetadata) with the given `subscribedTopics`.
 
 `handleRebalanceStart` [tryToLockAllNonEmptyTaskDirectories](#tryToLockAllNonEmptyTaskDirectories) and turns the [rebalanceInProgress](#rebalanceInProgress) internal flag on (`true`).
 

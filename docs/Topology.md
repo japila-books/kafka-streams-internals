@@ -2,7 +2,7 @@
 
 `Topology` is a logical representation of a [ProcessorTopology](processor/ProcessorTopology.md).
 
-`Topology` is a facade to [InternalTopologyBuilder](processor/InternalTopologyBuilder.md) (with all methods delegating to it).
+`Topology` is a facade to [InternalTopologyBuilder](InternalTopologyBuilder.md) (with all methods delegating to it).
 
 ## Creating Instance
 
@@ -12,7 +12,7 @@
 
 ## <span id="internalTopologyBuilder"> InternalTopologyBuilder
 
-`Topology` creates an [InternalTopologyBuilder](processor/InternalTopologyBuilder.md) when [created](#creating-instance).
+`Topology` creates an [InternalTopologyBuilder](InternalTopologyBuilder.md) when [created](#creating-instance).
 
 ## <span id="addGlobalStore"> addGlobalStore
 
@@ -38,7 +38,7 @@
 
 1. Uses no [TimestampExtractor](processor/TimestampExtractor.md)
 
-`addGlobalStore` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add a global store](processor/InternalTopologyBuilder.md#addGlobalStore).
+`addGlobalStore` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add a global store](InternalTopologyBuilder.md#addGlobalStore).
 
 ## <span id="addProcessor"> addProcessor
 
@@ -49,9 +49,9 @@ Topology addProcessor(
   String... parentNames)
 ```
 
-`addProcessor` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add a processor](processor/InternalTopologyBuilder.md#addProcessor).
+`addProcessor` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add a processor](InternalTopologyBuilder.md#addProcessor).
 
-If there are any state stores associated with the processor, `addProcessor` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add them](processor/InternalTopologyBuilder.md#addStateStore).
+If there are any state stores associated with the processor, `addProcessor` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add them](InternalTopologyBuilder.md#addStateStore).
 
 ## Demo
 

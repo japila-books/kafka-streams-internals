@@ -20,6 +20,6 @@ void writeToTopology(
   Properties props)
 ```
 
-`writeToTopology` merely requests the given [InternalTopologyBuilder](../processor/InternalTopologyBuilder.md) to [add](../processor/InternalTopologyBuilder.md#addStateStore) the [storeBuilder](#storeBuilder).
+`writeToTopology` merely requests the given [InternalTopologyBuilder](../InternalTopologyBuilder.md) to [add](../InternalTopologyBuilder.md#addStateStore) the [storeBuilder](#storeBuilder).
 
 `writeToTopology` is part of the [GraphNode](GraphNode.md#writeToTopology) abstraction.

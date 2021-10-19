@@ -75,6 +75,20 @@ Map<TopicPartition, PartitionInfo> prepareRepartitionTopics(
 
 `prepareRepartitionTopics` creates a new [RepartitionTopics](RepartitionTopics.md) that is requested to [setup](RepartitionTopics.md#setup) and then for the [topicPartitionsInfo](RepartitionTopics.md#topicPartitionsInfo).
 
+### <span id="assignTasksToClients"> assignTasksToClients
+
+```java
+boolean assignTasksToClients(
+  Cluster fullMetadata,
+  Set<String> allSourceTopics,
+  Map<Subtopology, TopicsInfo> topicGroups,
+  Map<UUID, ClientMetadata> clientMetadataMap,
+  Map<TaskId, Set<TopicPartition>> partitionsForTask,
+  Set<TaskId> statefulTasks)
+```
+
+`assignTasksToClients`...FIXME
+
 ## <span id="onAssignment"> onAssignment
 
 ```java

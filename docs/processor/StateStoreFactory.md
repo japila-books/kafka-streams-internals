@@ -6,7 +6,7 @@
 StateStoreFactory<S extends StateStore>
 ```
 
-`StateStoreFactory` is a `public static class` of [InternalTopologyBuilder](InternalTopologyBuilder.md).
+`StateStoreFactory` is a `public static class` of [InternalTopologyBuilder](../InternalTopologyBuilder.md).
 
 ## Creating Instance
 
@@ -16,4 +16,4 @@ StateStoreFactory<S extends StateStore>
 
 `StateStoreFactory` is created when:
 
-* `InternalTopologyBuilder` is requested to [addStateStore](InternalTopologyBuilder.md#addStateStore)
+* `InternalTopologyBuilder` is requested to [addStateStore](../InternalTopologyBuilder.md#addStateStore)

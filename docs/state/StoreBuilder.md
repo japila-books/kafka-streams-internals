@@ -16,7 +16,7 @@ T build()
 
 Used when:
 
-* `InternalTopologyBuilder` is requested to [rewriteTopology](../processor/InternalTopologyBuilder.md#rewriteTopology) (and build global state stores)
+* `InternalTopologyBuilder` is requested to [rewriteTopology](../InternalTopologyBuilder.md#rewriteTopology) (and build global state stores)
 * `StateStoreFactory` is requested to [build a StateStore](../processor/StateStoreFactory.md#build)
 
 ### <span id="logConfig"> logConfig

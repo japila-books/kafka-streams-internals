@@ -4,7 +4,7 @@
 
 `InternalStreamsBuilder` takes the following to be created:
 
-* <span id="internalTopologyBuilder"> [InternalTopologyBuilder](../processor/InternalTopologyBuilder.md)
+* <span id="internalTopologyBuilder"> [InternalTopologyBuilder](../InternalTopologyBuilder.md)
 
 `InternalStreamsBuilder` is created when:
 

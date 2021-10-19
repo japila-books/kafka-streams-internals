@@ -14,4 +14,4 @@
 
 `ProcessorTopology` is created when:
 
-* `InternalTopologyBuilder` is requested to [build a ProcessorTopology](InternalTopologyBuilder.md#build)
+* `InternalTopologyBuilder` is requested to [build a ProcessorTopology](../InternalTopologyBuilder.md#build)

@@ -8,12 +8,12 @@
 
 `KafkaStreams` takes the following to be created:
 
-* <span id="internalTopologyBuilder"><span id="topology"> [InternalTopologyBuilder](processor/InternalTopologyBuilder.md) (or [Topology](Topology.md))
+* <span id="internalTopologyBuilder"><span id="topology"> [InternalTopologyBuilder](InternalTopologyBuilder.md) (or [Topology](Topology.md))
 * <span id="config"> [StreamsConfig](StreamsConfig.md)
 * <span id="clientSupplier"> [KafkaClientSupplier](KafkaClientSupplier.md) (default: `DefaultKafkaClientSupplier`)
 * <span id="time"> `Time`
 
-When created, `KafkaStreams` requests the given [InternalTopologyBuilder](processor/InternalTopologyBuilder.md) to [rewriteTopology](processor/InternalTopologyBuilder.md#rewriteTopology) followed by building a [task](#taskTopology) and [global task](#globalTaskTopology) topologies.
+When created, `KafkaStreams` requests the given [InternalTopologyBuilder](InternalTopologyBuilder.md) to [rewriteTopology](InternalTopologyBuilder.md#rewriteTopology) followed by building a [task](#taskTopology) and [global task](#globalTaskTopology) topologies.
 
 `KafkaStreams` then...FIXME
 
@@ -28,13 +28,13 @@ void defaultStreamsUncaughtExceptionHandler(
 
 ## <span id="taskTopology"> Task Topology
 
-`KafkaStreams` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [build a task topology](processor/InternalTopologyBuilder.md#buildTopology) when [created](#creating-instance).
+`KafkaStreams` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [build a task topology](InternalTopologyBuilder.md#buildTopology) when [created](#creating-instance).
 
 The [ProcessorTopology](processor/ProcessorTopology.md) can have [persistent local stores](processor/ProcessorTopology.md#hasPersistentLocalStore).
 
 ## <span id="globalTaskTopology"> Global Task Topology
 
-When [created](#creating-instance) `KafkaStreams` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [build a global task topology](processor/InternalTopologyBuilder.md#buildGlobalStateTopology).
+When [created](#creating-instance) `KafkaStreams` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [build a global task topology](InternalTopologyBuilder.md#buildGlobalStateTopology).
 
 ## <span id="threads"> StreamThreads
 

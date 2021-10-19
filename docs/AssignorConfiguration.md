@@ -29,3 +29,27 @@ With `upgrade.from` defined, `rebalanceProtocol`...FIXME
 `rebalanceProtocol` is used when:
 
 * `StreamsPartitionAssignor` is requested to [configure](StreamsPartitionAssignor.md#configure)
+
+## <span id="copartitionedTopicsEnforcer"> CopartitionedTopicsEnforcer
+
+```java
+CopartitionedTopicsEnforcer copartitionedTopicsEnforcer()
+```
+
+`copartitionedTopicsEnforcer` creates a new [CopartitionedTopicsEnforcer](CopartitionedTopicsEnforcer.md) (with the [logPrefix](#logPrefix)).
+
+`copartitionedTopicsEnforcer` is used when:
+
+* `StreamsPartitionAssignor` is requested to [configure](StreamsPartitionAssignor.md#configure)
+
+## <span id="internalTopicManager"> InternalTopicManager
+
+```java
+InternalTopicManager internalTopicManager()
+```
+
+`internalTopicManager` creates a new [InternalTopicManager](InternalTopicManager.md).
+
+`internalTopicManager` is used when:
+
+* `StreamsPartitionAssignor` is requested to [configure](StreamsPartitionAssignor.md#configure)

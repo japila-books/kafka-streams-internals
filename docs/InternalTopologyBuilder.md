@@ -1,5 +1,15 @@
 # InternalTopologyBuilder
 
+## Creating Instance
+
+`InternalTopologyBuilder` takes the following to be created:
+
+* <span id="namedTopology"> Topology Name
+
+`InternalTopologyBuilder` is created when:
+
+* `Topology` is [created](Topology.md#internalTopologyBuilder)
+
 ## <span id="copartitionSourceGroups"> copartitionSourceGroups
 
 ```java
@@ -29,8 +39,8 @@ void copartitionSources(
 
 `copartitionSources` is used when:
 
-* `AbstractStream` is requested to [ensureCopartitionWith](../kstream/AbstractStream.md#ensureCopartitionWith)
-* `KTableImpl` is requested to [doJoinOnForeignKey](../kstream/KTableImpl.md#doJoinOnForeignKey)
+* `AbstractStream` is requested to [ensureCopartitionWith](kstream/AbstractStream.md#ensureCopartitionWith)
+* `KTableImpl` is requested to [doJoinOnForeignKey](kstream/KTableImpl.md#doJoinOnForeignKey)
 
 ## <span id="internalTopicNamesWithProperties"> internalTopicNamesWithProperties
 
@@ -47,7 +57,7 @@ A new internal topic is added when:
 The registry is used when:
 
 * `InternalTopologyBuilder` is requested to [validateCopartition](#validateCopartition), [buildSinkNode](#buildSinkNode), [buildSourceNode](#buildSourceNode), [topicGroups](#topicGroups), [maybeDecorateInternalSourceTopics](#maybeDecorateInternalSourceTopics)
-* `SinkNodeFactory` is requested to [build a processor node](SinkNodeFactory.md#build)
+* `SinkNodeFactory` is requested to [build a processor node](processor/SinkNodeFactory.md#build)
 
 ## <span id="addInternalTopic"> addInternalTopic
 
@@ -61,10 +71,10 @@ void addInternalTopic(
 
 `addInternalTopic` is used when:
 
-* `KTableImpl` is requested to [doJoinOnForeignKey](../kstream/KTableImpl.md#doJoinOnForeignKey)
-* `GroupedTableOperationRepartitionNode` is requested to [writeToTopology](../kstream/GroupedTableOperationRepartitionNode.md#writeToTopology)
-* `OptimizableRepartitionNode` is requested to [writeToTopology](../kstream/OptimizableRepartitionNode.md#writeToTopology)
-* `UnoptimizableRepartitionNode` is requested to [writeToTopology](../kstream/UnoptimizableRepartitionNode.md#writeToTopology)
+* `KTableImpl` is requested to [doJoinOnForeignKey](kstream/KTableImpl.md#doJoinOnForeignKey)
+* `GroupedTableOperationRepartitionNode` is requested to [writeToTopology](kstream/GroupedTableOperationRepartitionNode.md#writeToTopology)
+* `OptimizableRepartitionNode` is requested to [writeToTopology](kstream/OptimizableRepartitionNode.md#writeToTopology)
+* `UnoptimizableRepartitionNode` is requested to [writeToTopology](kstream/UnoptimizableRepartitionNode.md#writeToTopology)
 
 ## <span id="validateCopartition"> validateCopartition
 
@@ -95,14 +105,14 @@ ProcessorTopology build(
   Set<String> nodeGroup)
 ```
 
-For every [NodeFactory](NodeFactory.md) (in the [nodeFactories](#nodeFactories) internal registry), if the name of the factory is in the given node group if defined or simply all node factories go through, `build` does the following:
+For every [NodeFactory](processor/NodeFactory.md) (in the [nodeFactories](#nodeFactories) internal registry), if the name of the factory is in the given node group if defined or simply all node factories go through, `build` does the following:
 
-1. Requests the `NodeFactory` to [build a ProcessorNode](NodeFactory.md#build) (and registers it in a local registry of processors by name)
+1. Requests the `NodeFactory` to [build a ProcessorNode](processor/NodeFactory.md#build) (and registers it in a local registry of processors by name)
 1. For `ProcessorNodeFactory`s, [buildProcessorNode](#buildProcessorNode)
 1. For `SourceNodeFactory`s, [buildSourceNode](#buildSourceNode)
 1. For `SinkNodeFactory`s, [buildSinkNode](#buildSinkNode)
 
-In the end, `build` creates a new [ProcessorTopology](ProcessorTopology.md).
+In the end, `build` creates a new [ProcessorTopology](processor/ProcessorTopology.md).
 
 `build` is used when:
 
@@ -134,7 +144,7 @@ void buildSourceNode(
 
 ---
 
-When the [pattern](SourceNodeFactory.md#pattern) (of the given [SourceNodeFactory](SourceNodeFactory.md)) is defined, `buildSourceNode` [subscriptionUpdates](#subscriptionUpdates) and requests the `SourceNodeFactory` to [get the topics](SourceNodeFactory.md#getTopics). Otherwise, `buildSourceNode` requests the `SourceNodeFactory` for the [topics](SourceNodeFactory.md#topics).
+When the [pattern](processor/SourceNodeFactory.md#pattern) (of the given [SourceNodeFactory](processor/SourceNodeFactory.md)) is defined, `buildSourceNode` [subscriptionUpdates](#subscriptionUpdates) and requests the `SourceNodeFactory` to [get the topics](processor/SourceNodeFactory.md#getTopics). Otherwise, `buildSourceNode` requests the `SourceNodeFactory` for the [topics](processor/SourceNodeFactory.md#topics).
 
 `buildSourceNode` adds the topic to the given `topicSourceMap` collection.
 
@@ -163,8 +173,8 @@ ProcessorTopology buildTopology()
 
 `buildTopology` is used when:
 
-* `KafkaStreams` is [created](../KafkaStreams.md#creating-instance)
-* `TopologyTestDriver` is requested to [setupTopology](../TopologyTestDriver.md#setupTopology)
+* `KafkaStreams` is [created](KafkaStreams.md#creating-instance)
+* `TopologyTestDriver` is requested to [setupTopology](TopologyTestDriver.md#setupTopology)
 
 ## <span id="buildSubtopology"> Building Processor SubTopology
 
@@ -177,8 +187,8 @@ ProcessorTopology buildSubtopology(
 
 `buildSubtopology` is used when:
 
-* `ActiveTaskCreator` is requested to [createTasks](ActiveTaskCreator.md#createTasks) and [createActiveTaskFromStandby](ActiveTaskCreator.md#createActiveTaskFromStandby)
-* `StandbyTaskCreator` is requested to [createTasks](StandbyTaskCreator.md#createTasks) and [createStandbyTaskFromActive](StandbyTaskCreator.md#createStandbyTaskFromActive)
+* `ActiveTaskCreator` is requested to [createTasks](processor/ActiveTaskCreator.md#createTasks) and [createActiveTaskFromStandby](processor/ActiveTaskCreator.md#createActiveTaskFromStandby)
+* `StandbyTaskCreator` is requested to [createTasks](processor/StandbyTaskCreator.md#createTasks) and [createStandbyTaskFromActive](processor/StandbyTaskCreator.md#createStandbyTaskFromActive)
 
 ## <span id="buildGlobalStateTopology"> Building Global State Processor Topology
 
@@ -196,8 +206,8 @@ topology has not completed optimization
 
 `buildGlobalStateTopology` is used when:
 
-* `KafkaStreams` is [created](../KafkaStreams.md#creating-instance)
-* `TopologyTestDriver` is requested to [setupTopology](../TopologyTestDriver.md#setupTopology)
+* `KafkaStreams` is [created](KafkaStreams.md#creating-instance)
+* `TopologyTestDriver` is requested to [setupTopology](TopologyTestDriver.md#setupTopology)
 
 ## <span id="rewriteTopology"> Rewriting Topology
 
@@ -206,18 +216,18 @@ InternalTopologyBuilder rewriteTopology(
   StreamsConfig config)
 ```
 
-`rewriteTopology` [setApplicationId](#setApplicationId) to the value of [application.id](../StreamsConfig.md#APPLICATION_ID_CONFIG) configuration property.
+`rewriteTopology` [setApplicationId](#setApplicationId) to the value of [application.id](StreamsConfig.md#APPLICATION_ID_CONFIG) configuration property.
 
-With [cache.max.bytes.buffering](../StreamsConfig.md#CACHE_MAX_BYTES_BUFFERING_CONFIG) enabled, `rewriteTopology`...FIXME
+With [cache.max.bytes.buffering](StreamsConfig.md#CACHE_MAX_BYTES_BUFFERING_CONFIG) enabled, `rewriteTopology`...FIXME
 
-`rewriteTopology` requests the [global StoreBuilders](#globalStateBuilders) to [build StateStores](../state/StoreBuilder.md#build).
+`rewriteTopology` requests the [global StoreBuilders](#globalStateBuilders) to [build StateStores](state/StoreBuilder.md#build).
 
 In the end, `rewriteTopology` [saves the StreamsConfig](#setStreamsConfig) (and returns itself).
 
 `rewriteTopology` is used when:
 
-* `KafkaStreams` is [created](../KafkaStreams.md#creating-instance)
-* `TopologyTestDriver` is requested to [setupTopology](../TopologyTestDriver.md#setupTopology)
+* `KafkaStreams` is [created](KafkaStreams.md#creating-instance)
+* `TopologyTestDriver` is requested to [setupTopology](TopologyTestDriver.md#setupTopology)
 
 ## <span id="globalNodeGroups"> globalNodeGroups
 
@@ -238,9 +248,9 @@ boolean isGlobalSource(
   String nodeName)
 ```
 
-`isGlobalSource` finds a [NodeFactory](NodeFactory.md) (by given `nodeName`) in [nodeFactories](#nodeFactories) registry.
+`isGlobalSource` finds a [NodeFactory](processor/NodeFactory.md) (by given `nodeName`) in [nodeFactories](#nodeFactories) registry.
 
-`isGlobalSource` is positive (`true`) when the `NodeFactory` is a [SourceNodeFactory](SourceNodeFactory.md) with one [topic](SourceNodeFactory.md#topics) only that is [global](#globalTopics). Otherwise, `isGlobalSource` is negative (`false`).
+`isGlobalSource` is positive (`true`) when the `NodeFactory` is a [SourceNodeFactory](processor/SourceNodeFactory.md) with one [topic](processor/SourceNodeFactory.md#topics) only that is [global](#globalTopics). Otherwise, `isGlobalSource` is negative (`false`).
 
 `isGlobalSource` is used when:
 
@@ -264,7 +274,7 @@ boolean isGlobalSource(
 
 `addGlobalStore` is used when:
 
-* `Topology` is requested to [addGlobalStore](../Topology.md#addGlobalStore)
+* `Topology` is requested to [addGlobalStore](Topology.md#addGlobalStore)
 * `GlobalStoreNode` is requested to `writeToTopology`
 * `TableSourceNode` is requested to `writeToTopology`
 
@@ -277,14 +287,14 @@ void addProcessor(
   String... predecessorNames)
 ```
 
-`addProcessor` creates a [ProcessorNodeFactory](ProcessorNodeFactory.md) (that is then added to [nodeFactories](#nodeFactories) registry).
+`addProcessor` creates a [ProcessorNodeFactory](processor/ProcessorNodeFactory.md) (that is then added to [nodeFactories](#nodeFactories) registry).
 
 `addProcessor` adds the name to [nodeGrouper](#nodeGrouper) registry and requests it to [unite](#unite) the name with the given `predecessorNames`.
 
 `addProcessor` is used when:
 
-* `Topology` is requested to [addProcessor](../Topology.md#addProcessor)
-* Some `GraphNode`s are requested to [writeToTopology](../kstream/GraphNode.md#writeToTopology)
+* `Topology` is requested to [addProcessor](Topology.md#addProcessor)
+* Some `GraphNode`s are requested to [writeToTopology](kstream/GraphNode.md#writeToTopology)
 
 ## <span id="addStateStore"> Registering StateStore
 
@@ -304,7 +314,7 @@ void addStateStore(
 
 `addStateStore` is used when:
 
-* `Topology` is requested to [addProcessor](../Topology.md#addProcessor) and [addStateStore](../Topology.md#addStateStore)
+* `Topology` is requested to [addProcessor](Topology.md#addProcessor) and [addStateStore](Topology.md#addStateStore)
 * `KTableKTableJoinNode` is requested to `writeToTopology`
 * `StatefulProcessorNode` is requested to `writeToTopology`
 * `StateStoreNode` is requested to `writeToTopology`
@@ -323,5 +333,5 @@ Map<Subtopology, TopicsInfo> topicGroups()
 
 `topicGroups` is used when:
 
-* `RepartitionTopics` is requested to [setup](../RepartitionTopics.md#setup)
-* `StreamsPartitionAssignor` is requested for [consumer group assignment](../StreamsPartitionAssignor.md#assign)
+* `RepartitionTopics` is requested to [setup](RepartitionTopics.md#setup)
+* `StreamsPartitionAssignor` is requested for [consumer group assignment](StreamsPartitionAssignor.md#assign)

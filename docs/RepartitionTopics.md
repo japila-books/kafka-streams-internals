@@ -6,7 +6,7 @@
 
 `RepartitionTopics` takes the following to be created:
 
-* <span id="internalTopologyBuilder"> [InternalTopologyBuilder](processor/InternalTopologyBuilder.md)
+* <span id="internalTopologyBuilder"> [InternalTopologyBuilder](InternalTopologyBuilder.md)
 * <span id="internalTopicManager"> [InternalTopicManager](InternalTopicManager.md)
 * <span id="copartitionedTopicsEnforcer"> [CopartitionedTopicsEnforcer](CopartitionedTopicsEnforcer.md)
 * <span id="clusterMetadata"> `Cluster` metadata
@@ -28,11 +28,11 @@ Map<TopicPartition, PartitionInfo> topicPartitionInfos
 void setup()
 ```
 
-`setup` requests the [InternalTopologyBuilder](#internalTopologyBuilder) for the [topic groups](processor/InternalTopologyBuilder.md#topicGroups) (that gives a `Map<Subtopology, TopicsInfo>`).
+`setup` requests the [InternalTopologyBuilder](#internalTopologyBuilder) for the [topic groups](InternalTopologyBuilder.md#topicGroups) (that gives a `Map<Subtopology, TopicsInfo>`).
 
 `setup` [computeRepartitionTopicConfig](#computeRepartitionTopicConfig) for the topic groups and the [cluster metadata](#clusterMetadata) (that gives a `Map<String, InternalTopicConfig>`).
 
-`setup` [ensureCopartitioning](#ensureCopartitioning) of the [copartitionGroups](processor/InternalTopologyBuilder.md#copartitionGroups) (from [InternalTopologyBuilder](#internalTopologyBuilder)).
+`setup` [ensureCopartitioning](#ensureCopartitioning) of the [copartitionGroups](InternalTopologyBuilder.md#copartitionGroups) (from [InternalTopologyBuilder](#internalTopologyBuilder)).
 
 `setup` requests the [InternalTopicManager](#internalTopicManager) to [make the repartition source topics ready](InternalTopicManager.md#makeReady) (exist and have proper number of partitions, creating if necessary).
 

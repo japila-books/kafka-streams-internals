@@ -12,4 +12,4 @@
 
 `ProcessorNodeFactory` is created when:
 
-* `InternalTopologyBuilder` is requested to [addProcessor](InternalTopologyBuilder.md#addProcessor) and [addGlobalStore](InternalTopologyBuilder.md#addGlobalStore)
+* `InternalTopologyBuilder` is requested to [addProcessor](../InternalTopologyBuilder.md#addProcessor) and [addGlobalStore](../InternalTopologyBuilder.md#addGlobalStore)
