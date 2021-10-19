@@ -53,6 +53,16 @@ Topology addProcessor(
 
 If there are any state stores associated with the processor, `addProcessor` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add them](InternalTopologyBuilder.md#addStateStore).
 
+## <span id="addSource"> addSource
+
+```java
+Topology addSource(...) // (1)
+```
+
+1. There are over 10 different `addSource`s
+
+`addSource` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add a new source (node)](InternalTopologyBuilder.md#addSource) (with the given arguments).
+
 ## Demo
 
 ```scala

@@ -119,6 +119,7 @@ nav:
       - InternalTopicManager: InternalTopicManager.md
       - PartitionGrouper: PartitionGrouper.md
       - RepartitionTopics: RepartitionTopics.md
+    - TopicsInfo: TopicsInfo.md
     - Topology: Topology.md
   - Streams DSL:
     - kstream/index.md
@@ -151,6 +152,7 @@ nav:
     - Produced: kstream/Produced.md
     - StateStoreNode: kstream/StateStoreNode.md
     - StreamsBuilder: kstream/StreamsBuilder.md
+    - StreamSourceNode: kstream/StreamSourceNode.md
     - TimestampedTupleForwarder: kstream/TimestampedTupleForwarder.md
     - UnoptimizableRepartitionNode: kstream/UnoptimizableRepartitionNode.md
   - Processor API:

@@ -1,0 +1,3 @@
+# StreamSourceNode
+
+`StreamSourceNode` is...FIXME

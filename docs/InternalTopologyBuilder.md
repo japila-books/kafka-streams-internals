@@ -10,6 +10,44 @@
 
 * `Topology` is [created](Topology.md#internalTopologyBuilder)
 
+## <span id="nodeGroups"> Node Groups
+
+`InternalTopologyBuilder` defines `nodeGroups` internal registry of...FIXME
+
+Node groups are uniquely identified by **node group ID** (starting from `0`).
+
+### <span id="makeNodeGroups"> makeNodeGroups
+
+```java
+Map<Integer, Set<String>> makeNodeGroups()
+```
+
+For every node (in the [nodeFactories](#nodeFactories) registry) `makeNodeGroups` [putNodeGroupName](#putNodeGroupName).
+
+`makeNodeGroups` uses local mutable `nodeGroups` and `nodeGroupId` values that can be modified every [putNodeGroupName](#putNodeGroupName).
+
+In the end, `makeNodeGroups` returns the `nodeGroups` local collection.
+
+### <span id="putNodeGroupName"> putNodeGroupName
+
+```java
+int putNodeGroupName(
+  String nodeName,
+  int nodeGroupId,
+  Map<Integer, Set<String>> nodeGroups,
+  Map<String, Set<String>> rootToNodeGroup)
+```
+
+`putNodeGroupName` requests the [nodeGrouper](#nodeGrouper) for the name of the root node of the given `nodeName`.
+
+`putNodeGroupName` looks up the name of the root node in the given `rootToNodeGroup`.
+
+If the node group is found (by the name of the root node), `putNodeGroupName` simply adds the given `nodeName` and returns the given `nodeGroupId` (unchanged).
+
+Otherwise, if the name of the root node is not among the available node groups (in the given `rootToNodeGroup`), `putNodeGroupName` adds the root name to the given `rootToNodeGroup` and `nodeGroups` (with an empty node group and a new node group ID).
+
+In the end, `putNodeGroupName` returns a new or the given node group ID (based on availability of the root node).
+
 ## <span id="copartitionSourceGroups"> copartitionSourceGroups
 
 ```java
@@ -335,3 +373,39 @@ Map<Subtopology, TopicsInfo> topicGroups()
 
 * `RepartitionTopics` is requested to [setup](RepartitionTopics.md#setup)
 * `StreamsPartitionAssignor` is requested for [consumer group assignment](StreamsPartitionAssignor.md#assign)
+
+## <span id="addSource"> addSource
+
+```java
+void addSource(
+  Topology.AutoOffsetReset offsetReset,
+  String name,
+  TimestampExtractor timestampExtractor,
+  Deserializer<?> keyDeserializer,
+  Deserializer<?> valDeserializer,
+  Pattern topicPattern)
+void addSource(
+  Topology.AutoOffsetReset offsetReset,
+  String name,
+  TimestampExtractor timestampExtractor,
+  Deserializer<?> keyDeserializer,
+  Deserializer<?> valDeserializer,
+  String... topics)
+```
+
+`addSource` adds the topics to the [sourceTopicNames](#sourceTopicNames) internal registry.
+
+`addSource` creates a new [SourceNodeFactory](processor/SourceNodeFactory.md) and adds the factory to the [nodeFactories](#nodeFactories) registry (under the given `name`).
+
+`addSource` adds the given `name` and the `topics` to the [nodeToSourceTopics](#nodeToSourceTopics) registry.
+
+`addSource` adds the given `name` to [nodeGrouper](#nodeGrouper) and clears out the [nodeGroups](#nodeGroups) (so it has to be rebuilt next time it is requested).
+
+`addSource` is used when:
+
+* `GroupedTableOperationRepartitionNode` is requested to `writeToTopology`
+* `OptimizableRepartitionNode` is requested to `writeToTopology`
+* `StreamSourceNode` is requested to [writeToTopology](kstream/StreamSourceNode.md#writeToTopology)
+* `TableSourceNode` is requested to `writeToTopology`
+* `Topology` is requested to [addSource](Topology.md#addSource)
+* `UnoptimizableRepartitionNode` is requested to `writeToTopology`

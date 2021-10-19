@@ -28,7 +28,7 @@ Map<TopicPartition, PartitionInfo> topicPartitionInfos
 void setup()
 ```
 
-`setup` requests the [InternalTopologyBuilder](#internalTopologyBuilder) for the [topic groups](InternalTopologyBuilder.md#topicGroups) (that gives a `Map<Subtopology, TopicsInfo>`).
+`setup` requests the [InternalTopologyBuilder](#internalTopologyBuilder) for the [topic groups](InternalTopologyBuilder.md#topicGroups) (that gives [TopicsInfo](TopicsInfo.md)s by `Subtopology`).
 
 `setup` [computeRepartitionTopicConfig](#computeRepartitionTopicConfig) for the topic groups and the [cluster metadata](#clusterMetadata) (that gives a `Map<String, InternalTopicConfig>`).
 
