@@ -12,9 +12,30 @@
 
 ## <span id="nodeGroups"> Node Groups
 
-`InternalTopologyBuilder` defines `nodeGroups` internal registry of...FIXME
+```java
+Map<Integer, Set<String>> nodeGroups
+```
+
+`InternalTopologyBuilder` defines `nodeGroups` internal registry of subtopologies and an associated group of (source) topics.
+
+`nodeGroups` is initially undefined (`null`) and is [built](#makeNodeGroups) on demand when undefined that happens after `InternalTopologyBuilder` is requested for the following:
+
+* [addSource](#addSource)
+* [addSink](#addSink)
+* [addProcessor](#addProcessor)
+* [addStateStore](#addStateStore)
+* [addGlobalStore](#addGlobalStore)
+* [connectProcessorAndStateStores](#connectProcessorAndStateStores)
 
 Node groups are uniquely identified by **node group ID** (starting from `0`).
+
+Used when:
+
+* [Building a topology](#buildTopology)
+* [Building a sub-topology](#buildSubtopology)
+* [globalNodeGroups](#globalNodeGroups)
+* [topicGroups](#topicGroups)
+* [Describing a topology](#describe)
 
 ### <span id="makeNodeGroups"> makeNodeGroups
 
@@ -47,6 +68,42 @@ If the node group is found (by the name of the root node), `putNodeGroupName` si
 Otherwise, if the name of the root node is not among the available node groups (in the given `rootToNodeGroup`), `putNodeGroupName` adds the root name to the given `rootToNodeGroup` and `nodeGroups` (with an empty node group and a new node group ID).
 
 In the end, `putNodeGroupName` returns a new or the given node group ID (based on availability of the root node).
+
+### <span id="nodeGrouper"> Node Grouper
+
+`InternalTopologyBuilder` creates a node grouper (`QuickUnion<String>`) when [created](#creating-instance).
+
+The node grouper is requested to add a node name for the following:
+
+* [addSource](#addSource)
+* [addSink](#addSink)
+* [addProcessor](#addProcessor)
+* [addGlobalStore](#addGlobalStore)
+
+The node grouper is requested to unite names (of a node and predecessors) for the following:
+
+* [addSink](#addSink)
+* [addProcessor](#addProcessor)
+* [addGlobalStore](#addGlobalStore)
+* [connectProcessorAndStateStore](#connectProcessorAndStateStore)
+
+In the end, the node grouper is requested for a root node in [putNodeGroupName](#putNodeGroupName).
+
+## <span id="describe"> Describing Topology
+
+```java
+TopologyDescription describe()
+```
+
+`describe` creates a new `TopologyDescription` (that is going to be the returned value in the end).
+
+For every [node group](#nodeGroups) `describe` checks if the group contains a [global (state) source](#isGlobalSource).
+
+If so, `describe` [describeGlobalStore](#describeGlobalStore). Otherwise, `describe` [describeSubtopology](#describeSubtopology).
+
+`describe` is used when:
+
+* `Topology` is requested to [describe](Topology.md#describe)
 
 ## <span id="copartitionSourceGroups"> copartitionSourceGroups
 
@@ -327,7 +384,7 @@ void addProcessor(
 
 `addProcessor` creates a [ProcessorNodeFactory](processor/ProcessorNodeFactory.md) (that is then added to [nodeFactories](#nodeFactories) registry).
 
-`addProcessor` adds the name to [nodeGrouper](#nodeGrouper) registry and requests it to [unite](#unite) the name with the given `predecessorNames`.
+`addProcessor` adds the name to [nodeGrouper](#nodeGrouper) to [unite](#unite) the name with the given `predecessorNames`.
 
 `addProcessor` is used when:
 
