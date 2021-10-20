@@ -224,3 +224,4 @@ nav:
     - Logging: logging.md
   - Demos:
     - Developing Kafka Streams Application: demo/developing-kafka-streams-application.md
+    - Co-partitioning: demo/co-partitioning.md

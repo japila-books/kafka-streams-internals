@@ -111,7 +111,7 @@ If so, `describe` [describeGlobalStore](#describeGlobalStore). Otherwise, `descr
 List<Set<String>> copartitionSourceGroups
 ```
 
-`InternalTopologyBuilder` defines `copartitionSourceGroups` internal registry for groups of source processors that need to be co-partitioned.
+`InternalTopologyBuilder` defines `copartitionSourceGroups` internal registry of groups of source processors that need to be co-partitioned.
 
 A new entry is added when:
 
@@ -122,6 +122,32 @@ The registry is used when `InternalTopologyBuilder` is requested for the followi
 * [maybeUpdateCopartitionSourceGroups](#maybeUpdateCopartitionSourceGroups)
 * [validateCopartition](#validateCopartition)
 * [copartitionGroups](#copartitionGroups)
+
+## <span id="maybeUpdateCopartitionSourceGroups"> maybeUpdateCopartitionSourceGroups
+
+```java
+void maybeUpdateCopartitionSourceGroups(
+  String replacedNodeName,
+  String optimizedNodeName)
+```
+
+`maybeUpdateCopartitionSourceGroups`...FIXME
+
+`maybeUpdateCopartitionSourceGroups` is used when:
+
+* `InternalStreamsBuilder` is requested to [maybeOptimizeRepartitionOperations](kstream/InternalStreamsBuilder.md#maybeOptimizeRepartitionOperations)
+
+## <span id="copartitionGroups"> copartitionGroups
+
+```java
+Collection<Set<String>> copartitionGroups()
+```
+
+`copartitionGroups`...FIXME
+
+`copartitionGroups` is used when:
+
+* `RepartitionTopics` is requested to [setup](RepartitionTopics.md#setup)
 
 ## <span id="copartitionSources"> copartitionSources
 
