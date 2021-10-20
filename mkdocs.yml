@@ -150,6 +150,7 @@ nav:
     - NamedOperation: kstream/NamedOperation.md
     - OptimizableRepartitionNode: kstream/OptimizableRepartitionNode.md
     - Produced: kstream/Produced.md
+    - SourceGraphNode: kstream/SourceGraphNode.md
     - StateStoreNode: kstream/StateStoreNode.md
     - StreamsBuilder: kstream/StreamsBuilder.md
     - StreamSourceNode: kstream/StreamSourceNode.md
