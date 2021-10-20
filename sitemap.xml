@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/demo/co-partitioning/</loc>
+         <lastmod>2021-10-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/demo/developing-kafka-streams-application/</loc>
          <lastmod>2021-10-20</lastmod>
          <changefreq>daily</changefreq>
@@ -237,6 +242,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/Produced/</loc>
+         <lastmod>2021-10-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/SourceGraphNode/</loc>
          <lastmod>2021-10-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
