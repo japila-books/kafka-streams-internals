@@ -154,6 +154,8 @@ KStream<K, V> repartition(
   Repartitioned<K, V> repartitioned)
 ```
 
+[KStreamImpl.repartition](KStreamImpl.md#repartition)
+
 ### <span id="split"> split
 
 ```java

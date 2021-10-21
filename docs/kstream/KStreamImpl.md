@@ -40,6 +40,17 @@ In the end, `doJoin` requests the given [KStreamImplJoin](KStreamImplJoin.md) to
 
 * `KStreamImpl` is requested to [join](#join), [leftJoin](#leftJoin) and [outerJoin](#outerJoin)
 
+### <span id="repartitionForJoin"> repartitionForJoin
+
+```java
+KStreamImpl<K, V> repartitionForJoin(
+  String repartitionName,
+  Serde<K> keySerdeOverride,
+  Serde<V> valueSerdeOverride)
+```
+
+`repartitionForJoin`...FIXME
+
 ## <span id="groupBy"> groupBy
 
 ```java
@@ -67,3 +78,66 @@ KGroupedStream<K, V> groupByKey(
 `groupByKey` creates a [KGroupedStreamImpl](KGroupedStreamImpl.md).
 
 `groupByKey` is part of the [KStream](KStream.md#groupByKey) abstraction.
+
+## <span id="repartition"> repartition
+
+```java
+KStream<K, V> repartition()
+KStream<K, V> repartition(
+  Repartitioned<K, V> repartitioned)
+```
+
+`repartition` [doRepartition](#doRepartition)
+
+`repartition` is part of the [KStream](KStream.md#repartition) abstraction.
+
+### <span id="doRepartition"> doRepartition
+
+```java
+KStream<K, V> doRepartition(
+  Repartitioned<K, V> repartitioned)
+```
+
+`doRepartition` [creates a new UnoptimizableRepartitionNodeBuilder](UnoptimizableRepartitionNode.md#unoptimizableRepartitionNodeBuilder) that is then used to [createRepartitionedSource](#createRepartitionedSource).
+
+`doRepartition` requests the `UnoptimizableRepartitionNodeBuilder` to build a `UnoptimizableRepartitionNode`.
+
+`doRepartition` requests the [InternalStreamsBuilder](AbstractStream.md#builder) to [add the UnoptimizableRepartitionNode](InternalStreamsBuilder.md#addGraphNode) to the [GraphNode](AbstractStream.md#graphNode) (as a child node).
+
+In the end, `doRepartition` [creates a new KStreamImpl](#creating-instance) (with the [repartitionRequired](#repartitionRequired) turned off and the `UnoptimizableRepartitionNode` as the [GraphNode](#graphNode)).
+
+## <span id="createRepartitionedSource"> createRepartitionedSource
+
+```java
+String createRepartitionedSource(
+  InternalStreamsBuilder builder,
+  Serde<K1> keySerde,
+  Serde<V1> valueSerde,
+  String repartitionTopicNamePrefix,
+  StreamPartitioner<K1, V1> streamPartitioner,
+  BaseRepartitionNodeBuilder<K1, V1, RN> baseRepartitionNodeBuilder)
+```
+
+`createRepartitionedSource`...FIXME
+
+`createRepartitionedSource` is used when:
+
+* `CogroupedStreamAggregateBuilder` is requested to `createRepartitionSource`
+* `GroupedStreamAggregateBuilder` is requested to `createRepartitionSource`
+* `InternalStreamsBuilder` is requested to [createRepartitionNode](InternalStreamsBuilder.md#createRepartitionNode)
+* `KStreamImpl` is requested to [doRepartition](#doRepartition), [toTable](#toTable), [repartitionForJoin](#repartitionForJoin)
+
+## <span id="toTable"> toTable
+
+```java
+KTable<K, V> toTable(
+  Named named,
+  Materialized<K, V, KeyValueStore<Bytes, byte[]>> materialized)
+KTable<K, V> toTable(...) // (1)
+```
+
+(1) There are other `toTable`s (of less interest)
+
+`toTable`...FIXME
+
+`toTable` is part of the [KStream](KStream.md#toTable) abstraction.

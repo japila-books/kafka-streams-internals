@@ -27,9 +27,12 @@ This root node is then used to [build and optimize a topology](#buildAndOptimize
 ## <span id="buildAndOptimizeTopology"> buildAndOptimizeTopology
 
 ```java
+void buildAndOptimizeTopology() // (1)
 void buildAndOptimizeTopology(
   Properties props)
 ```
+
+1. Used in tests only
 
 `buildAndOptimizeTopology`...FIXME
 
@@ -44,6 +47,42 @@ void mergeDuplicateSourceNodes()
 ```
 
 `mergeDuplicateSourceNodes`...FIXME
+
+### <span id="maybePerformOptimizations"> maybePerformOptimizations
+
+```java
+void maybePerformOptimizations(
+  Properties props)
+```
+
+`maybePerformOptimizations`...FIXME
+
+### <span id="optimizeKTableSourceTopics"> optimizeKTableSourceTopics
+
+```java
+void optimizeKTableSourceTopics()
+```
+
+`optimizeKTableSourceTopics`...FIXME
+
+### <span id="maybeOptimizeRepartitionOperations"> maybeOptimizeRepartitionOperations
+
+```java
+void maybeOptimizeRepartitionOperations()
+```
+
+`maybeOptimizeRepartitionOperations`...FIXME
+
+### <span id="createRepartitionNode"> createRepartitionNode
+
+```java
+OptimizableRepartitionNode<K, V> createRepartitionNode(
+  String repartitionTopicName,
+  Serde<K> keySerde,
+  Serde<V> valueSerde)
+```
+
+`createRepartitionNode`...FIXME
 
 ## <span id="addStateStore"> Adding StateStore to Topology
 
