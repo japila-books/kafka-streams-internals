@@ -121,6 +121,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/kstream/BaseRepartitionNode/</loc>
+         <lastmod>2021-10-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/kstream/Consumed/</loc>
          <lastmod>2021-10-23</lastmod>
          <changefreq>daily</changefreq>
