@@ -18,12 +18,41 @@ Used when:
 
 ## Implementations
 
-* ProcessorGraphNode
-* StreamToTableNode
 * BaseJoinProcessorNode
-* SourceGraphNode
-* StreamSinkNode
+* [BaseRepartitionNode](BaseRepartitionNode.md)
+* ProcessorGraphNode
+* [SourceGraphNode](SourceGraphNode.md)
 * [StateStoreNode](StateStoreNode.md)
-* TableProcessorNode
-* BaseRepartitionNode
+* StreamSinkNode
 * StreamTableJoinNode
+* StreamToTableNode
+* TableProcessorNode
+
+## Creating Instance
+
+`GraphNode` takes the following to be created:
+
+* <span id="nodeName"> Node Name
+
+!!! note "Abstract Class"
+    `GraphNode` is an abstract class and cannot be created directly. It is created indirectly for the [concrete GraphNodes](#implementations).
+
+## Demo
+
+```scala
+import org.apache.kafka.streams.StreamsBuilder
+
+// Without this class the following would not be available
+// due to `protected` access level
+class MyStreamsBuilder extends StreamsBuilder {
+  val root = internalStreamsBuilder.root
+}
+
+val builder = new MyStreamsBuilder
+builder.root
+```
+
+```text
+scala> println(builder.root)
+StreamsGraphNode{nodeName='root', buildPriority=null, hasWrittenToTopology=false, keyChangingOperation=false, valueChangingOperation=false, mergeNode=false, parentNodes=[]}
+```

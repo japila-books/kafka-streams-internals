@@ -12,6 +12,10 @@
 
 ## <span id="root"> Root Node
 
+```java
+GraphNode root
+```
+
 `InternalStreamsBuilder` creates a root [GraphNode](GraphNode.md) when [created](#creating-instance).
 
 This root node is used to [addGraphNode](#addGraphNode) in the following high-level operators:

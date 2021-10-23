@@ -127,7 +127,11 @@ nav:
     - Aggregator: kstream/Aggregator.md
     - Consumed: kstream/Consumed.md
     - GlobalKTable: kstream/GlobalKTable.md
-    - GraphNode: kstream/GraphNode.md
+    - GraphNodes:
+      - BaseRepartitionNode: kstream/BaseRepartitionNode.md
+      - GraphNode: kstream/GraphNode.md
+      - OptimizableRepartitionNode: kstream/OptimizableRepartitionNode.md
+      - SourceGraphNode: kstream/SourceGraphNode.md
     - GroupedStreamAggregateBuilder: kstream/GroupedStreamAggregateBuilder.md
     - GroupedTableOperationRepartitionNode: kstream/GroupedTableOperationRepartitionNode.md
     - Initializer: kstream/Initializer.md
@@ -148,9 +152,7 @@ nav:
     - KTableSource: kstream/KTableSource.md
     - Materialized: kstream/Materialized.md
     - NamedOperation: kstream/NamedOperation.md
-    - OptimizableRepartitionNode: kstream/OptimizableRepartitionNode.md
     - Produced: kstream/Produced.md
-    - SourceGraphNode: kstream/SourceGraphNode.md
     - StateStoreNode: kstream/StateStoreNode.md
     - StreamsBuilder: kstream/StreamsBuilder.md
     - StreamSourceNode: kstream/StreamSourceNode.md

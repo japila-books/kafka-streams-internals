@@ -23,14 +23,23 @@
 
 `KStreamImpl` is given a `repartitionRequired` flag when [created](#creating-instance).
 
-The `repartitionRequired` flag is handed over to the child nodes (in operators like `filter`, `mapValues`, `split`, etc.)
+The flag is disabled (`false`) when:
 
-The `repartitionRequired` flag is used in the following operators:
+* `InternalStreamsBuilder` is requested to [create a KStream](InternalStreamsBuilder.md#stream)
+* `KStreamImpl` is requested to [doRepartition](#doRepartition), [repartitionForJoin](#repartitionForJoin), [doStreamTableJoin](#doStreamTableJoin)
+* `KStreamImplJoin` is requested to [join](KStreamImplJoin.md#join)
+* `KTableImpl` is requested to [toStream](KTableImpl.md#toStream)
+
+The `repartitionRequired` flag is left unchanged (and handed over to the child nodes) in most operators (e.g. `filter`, `mapValues`, `split`).
+
+The flag is enabled (`true`) when:
+
+* `KStreamImpl` is requested to [selectKey](#selectKey), [map](#map), [flatMap](#flatMap), [merge](#merge) (when either `KStream` requires so), [flatTransform](#flatTransform)
+
+The `repartitionRequired` flag is used in the following operators to add an extra (parent) `OptimizableRepartitionNode` to the [InternalStreamsBuilder](#builder):
 
 * [toTable](#toTable)
-* [doJoin](#doJoin)
-* [join](#join)
-* [leftJoin](#leftJoin)
+* [doJoin](#doJoin), [join](#join) and [leftJoin](#leftJoin) (to [repartitionForJoin](#repartitionForJoin))
 
 ## <span id="join"> join
 
@@ -206,6 +215,8 @@ KTable<K, V> toTable(...) // (1)
 ```
 
 1. There are other `toTable`s (of less interest)
+
+Only when the [repartitionRequired](#repartitionRequired) flag is enabled, `toTable` creates an [OptimizableRepartitionNodeBuilder](#optimizableRepartitionNodeBuilder) and a [repartitioned source](#createRepartitionedSource). `toTable` requests the `OptimizableRepartitionNodeBuilder` to build a (parent) `OptimizableRepartitionNode` and requests the [InternalStreamsBuilder](#builder) to [add](InternalStreamsBuilder.md#addGraphNode) the repartition node (to the [GraphNode](#graphNode)).
 
 `toTable`...FIXME
 
