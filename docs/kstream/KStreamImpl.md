@@ -7,8 +7,8 @@
 `KStreamImpl` takes the following to be created:
 
 * <span id="name"> Name
-* <span id="keySerde"> `Serde<K>`
-* <span id="valueSerde"> `Serde<V>`
+* <span id="keySerde"> Key `Serde` ([Apache Kafka]({{ book.kafka }}/Serde))
+* <span id="valueSerde"> Value `Serde` ([Apache Kafka]({{ book.kafka }}/Serde))
 * <span id="subTopologySourceNodes"> Sub-Topology Source Nodes (Names)
 * [repartitionRequired](#repartitionRequired) flag
 * <span id="graphNode"> [GraphNode](GraphNode.md)
@@ -22,6 +22,69 @@
 ## <span id="repartitionRequired"> repartitionRequired Flag
 
 `KStreamImpl` is given a `repartitionRequired` flag when [created](#creating-instance).
+
+The `repartitionRequired` flag is handed over to the child nodes (in operators like `filter`, `mapValues`, `split`, etc.)
+
+The `repartitionRequired` flag is used in the following operators:
+
+* [toTable](#toTable)
+* [doJoin](#doJoin)
+* [join](#join)
+* [leftJoin](#leftJoin)
+
+## <span id="join"> join
+
+```java
+KStream<K, VR> join(
+  GlobalKTable<KG, VG> globalTable,
+  ...) // (1)
+KStream<K, VR> join(
+  KStream<K, VO> otherStream,
+  ...)
+KStream<K, VR> join(
+  KTable<K, VO> table,
+  ...)
+```
+
+1. There are quite a few `join`s
+
+`join`...FIXME
+
+`join` is part of the [KStream](KStream.md#join) abstraction.
+
+## <span id="leftJoin"> leftJoin
+
+```java
+KStream<K, VR> leftJoin(
+  GlobalKTable<KG, VG> globalTable,
+  ...) // (1)
+KStream<K, VR> leftJoin(
+  KStream<K, VO> otherStream,
+  ...)
+KStream<K, VR> leftJoin(
+  KTable<K, VO> table,
+  ...)
+```
+
+1. There are quite a few `leftJoin`s
+
+`leftJoin`...FIXME
+
+`leftJoin` is part of the [KStream](KStream.md#leftJoin) abstraction.
+
+## <span id="outerJoin"> outerJoin
+
+```java
+KStream<K, VR> outerJoin(
+  KStream<K, VO> otherStream,
+  ...) // (1)
+```
+
+1. There are quite a few `outerJoin`s
+
+`outerJoin`...FIXME
+
+`outerJoin` is part of the [KStream](KStream.md#outerJoin) abstraction.
 
 ## <span id="doJoin"> doJoin
 
@@ -49,7 +112,13 @@ KStreamImpl<K, V> repartitionForJoin(
   Serde<V> valueSerdeOverride)
 ```
 
-`repartitionForJoin`...FIXME
+`repartitionForJoin` [creates an OptimizableRepartitionNodeBuilder](OptimizableRepartitionNode.md#optimizableRepartitionNodeBuilder).
+
+`repartitionForJoin` [creates a repartitioned source](#createRepartitionedSource).
+
+Only when there is no [OptimizableRepartitionNode](#repartitionNode) defined already or the [name](AbstractStream.md#name) (of this `KStreamImpl`) is different from the given `repartitionName`, `repartitionForJoin` requests the `OptimizableRepartitionNodeBuilder` to build an `OptimizableRepartitionNode` and requests the [InternalStreamsBuilder](#builder) to [add the repartition node](InternalStreamsBuilder.md#addGraphNode) (to the [GraphNode](AbstractStream.md#graphNode)).
+
+In the end, `repartitionForJoin` creates a new [KStreamImpl](#creating-instance) (with the [repartitionRequired](#repartitionRequired) flag off and the [OptimizableRepartitionNode](#repartitionNode) as the [GraphNode](#graphNode)).
 
 ## <span id="groupBy"> groupBy
 
@@ -106,7 +175,7 @@ KStream<K, V> doRepartition(
 
 In the end, `doRepartition` [creates a new KStreamImpl](#creating-instance) (with the [repartitionRequired](#repartitionRequired) turned off and the `UnoptimizableRepartitionNode` as the [GraphNode](#graphNode)).
 
-## <span id="createRepartitionedSource"> createRepartitionedSource
+## <span id="createRepartitionedSource"> Creating Repartitioned Source
 
 ```java
 String createRepartitionedSource(
@@ -136,7 +205,7 @@ KTable<K, V> toTable(
 KTable<K, V> toTable(...) // (1)
 ```
 
-(1) There are other `toTable`s (of less interest)
+1. There are other `toTable`s (of less interest)
 
 `toTable`...FIXME
 
