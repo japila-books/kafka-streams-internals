@@ -1,0 +1,3 @@
+# StreamsMetadata
+
+`StreamsMetadata` is...FIXME

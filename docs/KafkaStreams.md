@@ -163,7 +163,7 @@ StreamThread createAndAddStreamThread(
 
 ## <span id="streamsMetadataState"> StreamsMetadataState
 
-`KafkaStreams` creates a new [StreamsMetadataState](processor/StreamsMetadataState.md) when [created](#creating-instance) (with the endpoint based on [application.server](StreamsConfig.md#APPLICATION_SERVER_CONFIG) configuration property).
+`KafkaStreams` creates a new [StreamsMetadataState](StreamsMetadataState.md) when [created](#creating-instance) (with the endpoint based on [application.server](StreamsConfig.md#APPLICATION_SERVER_CONFIG) configuration property).
 
 The `StreamsMetadataState` is used to [create a StreamThread](#createAndAddStreamThread) and for the following state-related metadata operators:
 
@@ -185,7 +185,7 @@ KeyQueryMetadata queryMetadataForKey(
   StreamPartitioner<? super K, ?> partitioner)
 ```
 
-`queryMetadataForKey` requests the [StreamsMetadataState](#streamsMetadataState) to [getKeyQueryMetadataForKey](processor/StreamsMetadataState.md#getKeyQueryMetadataForKey).
+`queryMetadataForKey` requests the [StreamsMetadataState](#streamsMetadataState) to [getKeyQueryMetadataForKey](StreamsMetadataState.md#getKeyQueryMetadataForKey).
 
 ## Logging
 

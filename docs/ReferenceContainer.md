@@ -5,7 +5,7 @@
 * <span id="mainConsumer"> Main Kafka `Consumer<byte[], byte[]>` ([Apache Kafka]({{ book.kafka }}/clients/consumer/Consumer))
 * <span id="adminClient"> `Admin` Client ([Apache Kafka]({{ book.kafka }}/clients/admin/Admin))
 * <span id="taskManager"> [TaskManager](TaskManager.md)
-* <span id="streamsMetadataState"> [StreamsMetadataState](processor/StreamsMetadataState.md)
+* <span id="streamsMetadataState"> [StreamsMetadataState](StreamsMetadataState.md)
 * <span id="assignmentErrorCode"> Assignment Error Code
 * <span id="nextScheduledRebalanceMs"> Next Scheduled Rebalance Time
 * <span id="time"> `Time`

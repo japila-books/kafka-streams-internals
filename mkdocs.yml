@@ -117,6 +117,8 @@ nav:
     - StandbyTask: StandbyTask.md
     - StandbyTaskCreator: StandbyTaskCreator.md
     - StreamsConfig: StreamsConfig.md
+    - StreamsMetadata: StreamsMetadata.md
+    - StreamsMetadataState: StreamsMetadataState.md
     - StreamsPartitionAssignor:
       - StreamsPartitionAssignor: StreamsPartitionAssignor.md
       - AssignorConfiguration: AssignorConfiguration.md
@@ -201,7 +203,6 @@ nav:
     - StateStoreFactory: processor/StateStoreFactory.md
     - StoreChangelogReader: processor/StoreChangelogReader.md
     - StreamPartitioner: processor/StreamPartitioner.md
-    - StreamsMetadataState: processor/StreamsMetadataState.md
     - TimestampExtractor: processor/TimestampExtractor.md
   - State:
     - AbstractStoreBuilder: state/AbstractStoreBuilder.md

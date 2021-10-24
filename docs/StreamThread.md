@@ -54,7 +54,7 @@ StreamThread create(
 `create` creates a new [ReferenceContainer](ReferenceContainer.md) with the given arguments:
 
 * `Admin` client ([Apache Kafka]({{ book.kafka }}/clients/admin/Admin))
-* [StreamsMetadataState](processor/StreamsMetadataState.md)
+* [StreamsMetadataState](StreamsMetadataState.md)
 * `Time`
 
 `create` prints out the following INFO message to the logs:

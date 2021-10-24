@@ -17,7 +17,7 @@ Integer partition(
 Used when:
 
 * `RecordCollectorImpl` is requested to [send a record](RecordCollectorImpl.md#send)
-* `StreamsMetadataState` is requested to [getKeyQueryMetadataForKey](StreamsMetadataState.md#getKeyQueryMetadataForKey)
+* `StreamsMetadataState` is requested to [getKeyQueryMetadataForKey](../StreamsMetadataState.md#getKeyQueryMetadataForKey)
 
 ## Implementations
 
