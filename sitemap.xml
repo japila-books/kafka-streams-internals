@@ -96,6 +96,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/StreamsMetadata/</loc>
+         <lastmod>2021-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/StreamsMetadataState/</loc>
+         <lastmod>2021-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/StreamsPartitionAssignor/</loc>
          <lastmod>2021-10-24</lastmod>
          <changefreq>daily</changefreq>
@@ -487,11 +497,6 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/StreamPartitioner/</loc>
-         <lastmod>2021-10-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://books.japila.pl/kafka-streams-internals/processor/StreamsMetadataState/</loc>
          <lastmod>2021-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
