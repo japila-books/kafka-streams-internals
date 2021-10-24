@@ -8,7 +8,9 @@ Collection<Task> createTasks(
   Map<TaskId, Set<TopicPartition>> tasksToBeCreated)
 ```
 
-`createTasks`...FIXME
+For every [TaskId](TaskId.md) and `TopicPartition`s pair (in the given `tasksToBeCreated` collection), `createTasks` requests the [InternalTopologyBuilder](#builder) to [buildSubtopology](InternalTopologyBuilder.md#buildSubtopology). `createTasks` [createActiveTask](#createActiveTask) (with the [ProcessorTopology](processor/ProcessorTopology.md), a new [ProcessorStateManager](processor/ProcessorStateManager.md) and [ProcessorContextImpl](processor/ProcessorContextImpl.md)).
+
+In the end, `createTasks` returns the newly-created [StreamTask](StreamTask.md)s.
 
 `createTasks` is used when:
 

@@ -8,7 +8,9 @@ void createTasks(
   Map<TaskId, Set<TopicPartition>> standbyTasksToCreate)
 ```
 
-`createTasks`...FIXME
+`createTasks` requests the [ActiveTaskCreator](#activeTaskCreator) to [create active tasks](ActiveTaskCreator.md#createTasks) (in the given `activeTasksToCreate` collection). `createTasks` registers the tasks in the [activeTasksPerId](#activeTasksPerId) and [allTasksPerId](#allTasksPerId) registries. `createTasks` registers the [inputPartitions](Task.md#inputPartitions) of the tasks in the [activeTasksPerPartition](#activeTasksPerPartition).
+
+`createTasks` requests the [StandbyTaskCreator](#standbyTaskCreator) to [create standby tasks](StandbyTaskCreator.md#createTasks) (in the given `standbyTasksToCreate` collection). `createTasks` registers the tasks in the [standbyTasksPerId](#standbyTasksPerId) and [allTasksPerId](#allTasksPerId) registries.
 
 `createTasks` is used when:
 

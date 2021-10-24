@@ -44,7 +44,21 @@ void handleAssignment(
   Map<TaskId, Set<TopicPartition>> standbyTasks)
 ```
 
-`handleAssignment`...FIXME
+`handleAssignment` prints out the following INFO message to the logs:
+
+```text
+Handle new assignment with:
+  New active tasks: [activeTasks]
+  New standby tasks: [standbyTasks]
+  Existing active tasks: [activeTaskIds]
+  Existing standby tasks: [standbyTaskIds]
+```
+
+`handleAssignment` requests the [InternalTopologyBuilder](#builder) to [addSubscribedTopicsFromAssignment](InternalTopologyBuilder.md#addSubscribedTopicsFromAssignment) (with the `TopicPartition`s from the given `activeTasks`).
+
+`handleAssignment` determines which [existing tasks](#tasks) to close (and remove) or recycle and [handleCloseAndRecycle](#handleCloseAndRecycle) them.
+
+In the end, `handleAssignment` requests the [Tasks](#tasks) to [create active and standby tasks](Tasks.md#createTasks).
 
 `handleAssignment` is used when:
 
@@ -161,3 +175,15 @@ void handleRebalanceComplete()
 `handleRebalanceComplete` is used when:
 
 * `StreamsPartitionAssignor` is requested to [onPartitionsAssigned](StreamsPartitionAssignor.md#onPartitionsAssigned)
+
+## Logging
+
+Enable `ALL` logging level for `org.apache.kafka.streams.processor.internals.TaskManager` logger to see what happens inside.
+
+Add the following line to `log4j.properties`:
+
+```text
+log4j.logger.org.apache.kafka.streams.processor.internals.TaskManager=ALL
+```
+
+Refer to [Logging](logging.md).
