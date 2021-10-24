@@ -130,6 +130,7 @@ nav:
     - StreamThread: StreamThread.md
     - StreamTask: StreamTask.md
     - Task: Task.md
+    - TaskAssignor: TaskAssignor.md
     - TaskId: TaskId.md
     - TaskManager: TaskManager.md
     - Tasks: Tasks.md

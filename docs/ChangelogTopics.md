@@ -12,3 +12,15 @@
 `ChangelogTopics` is created when:
 
 * `StreamsPartitionAssignor` is requested to [assignTasksToClients](StreamsPartitionAssignor.md#assignTasksToClients)
+
+## <span id="setup"> setup
+
+```java
+void setup()
+```
+
+`setup`...FIXME
+
+`setup` is used when:
+
+* `StreamsPartitionAssignor` is requested for [consumer group assignment](StreamsPartitionAssignor.md#assign) (and [assignTasksToClients](StreamsPartitionAssignor.md#assignTasksToClients))

@@ -38,6 +38,15 @@ void configure(
 
 `configure` is part of the `Configurable` ([Apache Kafka]({{ book.kafka }}/Configurable#configure)) abstraction.
 
+## <span id="streamsMetadataState"> StreamsMetadataState
+
+`StreamsPartitionAssignor` is given a [StreamsMetadataState](StreamsMetadataState.md) (from a [ReferenceContainer](ReferenceContainer.md#streamsMetadataState)) when requested to [configure](#configure).
+
+The `StreamsMetadataState` is used (to [handle partition assignment change](StreamsMetadataState.md#onChange)) when:
+
+* [assign](#assign)
+* [onAssignment](#onAssignment)
+
 ## <span id="assign"> Consumer Group Assignment
 
 ```java
@@ -87,7 +96,69 @@ boolean assignTasksToClients(
   Set<TaskId> statefulTasks)
 ```
 
-`assignTasksToClients`...FIXME
+`assignTasksToClients` creates local `taskForPartition` (`Map<TopicPartition, TaskId>`) and `tasksForTopicGroup` (`Map<Subtopology, Set<TaskId>>`) collections that are used to [populate tasks](#populateTasksForMaps).
+
+`assignTasksToClients` creates a [ChangelogTopics](ChangelogTopics.md) (with the `tasksForTopicGroup` local collection) that is in turn requested to [setup](ChangelogTopics.md#setup).
+
+`assignTasksToClients` [populateClientStatesMap](#populateClientStatesMap).
+
+`assignTasksToClients` prints out the following INFO message to the logs:
+
+```text
+All members participating in this rebalance:
+ [UUID]: [consumers].
+```
+
+`assignTasksToClients` prints out the following DEBUG message to the logs:
+
+```text
+Assigning tasks [allTasks] including stateful [statefulTasks] to clients [clientStates] with number of replicas [numStandbyReplicas]
+```
+
+`assignTasksToClients` [creates a TaskAssignor](#createTaskAssignor) that is in turn requested to [assign](TaskAssignor.md#assign).
+
+`assignTasksToClients` prints out the following INFO message to the logs:
+
+```text
+Assigned tasks [allTasks] including stateful [statefulTasks] to clients as:
+ [UUID]=[currentAssignment].
+```
+
+In the end, `assignTasksToClients` returns whether the generated assignment requires a followup probing rebalance (from the [TaskAssignor](TaskAssignor.md#assign)).
+
+### <span id="populateTasksForMaps"> populateTasksForMaps
+
+```java
+void populateTasksForMaps(
+  Map<TopicPartition, TaskId> taskForPartition,
+  Map<Subtopology, Set<TaskId>> tasksForTopicGroup,
+  Set<String> allSourceTopics,
+  Map<TaskId, Set<TopicPartition>> partitionsForTask,
+  Cluster fullMetadata)
+```
+
+`populateTasksForMaps`...FIXME
+
+### <span id="populateClientStatesMap"> populateClientStatesMap
+
+```java
+boolean populateClientStatesMap(
+  Map<UUID, ClientState> clientStates,
+  Map<UUID, ClientMetadata> clientMetadataMap,
+  Map<TopicPartition, TaskId> taskForPartition,
+  ChangelogTopics changelogTopics)
+```
+
+`populateClientStatesMap`...FIXME
+
+### <span id="createTaskAssignor"> createTaskAssignor
+
+```java
+TaskAssignor createTaskAssignor(
+  boolean lagComputationSuccessful)
+```
+
+`createTaskAssignor` creates a [TaskAssignor](TaskAssignor.md) (using the [taskAssignorSupplier](#taskAssignorSupplier) function).
 
 ## <span id="onAssignment"> onAssignment
 
@@ -97,9 +168,50 @@ void onAssignment(
   ConsumerGroupMetadata metadata)
 ```
 
-`onAssignment`...FIXME
+`onAssignment` [validateActiveTaskEncoding](#validateActiveTaskEncoding).
+
+`onAssignment` [gets the active tasks](#getActiveTasks) (from the partitions and the `AssignmentInfo` of the given `Assignment`).
+
+`onAssignment` [maybeScheduleFollowupRebalance](#maybeScheduleFollowupRebalance).
+
+`onAssignment` creates an empty (fake) `Cluster` metadata (with the partitions by host, i.e. `Map<HostInfo, Set<TopicPartition>>`) and requests the [StreamsMetadataState](#streamsMetadataState) to [handle the assignment change](StreamsMetadataState.md#onChange).
+
+In the end, `onAssignment` requests the [TaskManager](#taskManager) to [handleAssignment](TaskManager.md#handleAssignment) (with the active tasks).
 
 `onAssignment` is part of the `ConsumerPartitionAssignor` ([Apache Kafka]({{ book.kafka }}/clients/consumer/ConsumerPartitionAssignor#onAssignment)) abstraction.
+
+### <span id="validateActiveTaskEncoding"> validateActiveTaskEncoding
+
+```java
+void validateActiveTaskEncoding(
+  List<TopicPartition> partitions,
+  AssignmentInfo info,
+  String logPrefix)
+```
+
+`validateActiveTaskEncoding`...FIXME
+
+### <span id="getActiveTasks"> Active Tasks
+
+```java
+Map<TaskId, Set<TopicPartition>> getActiveTasks(
+  List<TopicPartition> partitions,
+  AssignmentInfo info)
+```
+
+`getActiveTasks`...FIXME
+
+### <span id="maybeScheduleFollowupRebalance"> maybeScheduleFollowupRebalance
+
+```java
+void maybeScheduleFollowupRebalance(
+  long encodedNextScheduledRebalanceMs,
+  int receivedAssignmentMetadataVersion,
+  int latestCommonlySupportedVersion,
+  Set<HostInfo> groupHostInfo)
+```
+
+`maybeScheduleFollowupRebalance`...FIXME
 
 ## <span id="subscriptionUserData"> subscriptionUserData
 
