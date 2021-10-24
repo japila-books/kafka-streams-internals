@@ -37,12 +37,12 @@ Map<TopicPartition, Long> changelogOffsets()
 
 Used when:
 
-* `AbstractTask` is requested to [maybeWriteCheckpoint](AbstractTask.md#maybeWriteCheckpoint)
+* `AbstractTask` is requested to [maybeWriteCheckpoint](../AbstractTask.md#maybeWriteCheckpoint)
 * `GlobalStateUpdateTask` is requested to [initialize](GlobalStateUpdateTask.md#initialize)
 * `ProcessorStateManager` is requested to [changelogPartitions](ProcessorStateManager.md#changelogPartitions)
-* `StandbyTask` is requested to [commitNeeded](StandbyTask.md#commitNeeded) and [changelogOffsets](StandbyTask.md#changelogOffsets)
+* `StandbyTask` is requested to [commitNeeded](../StandbyTask.md#commitNeeded) and [changelogOffsets](../StandbyTask.md#changelogOffsets)
 * `StoreChangelogReader` is requested to [getPositionString](StoreChangelogReader.md#getPositionString)
-* `StreamTask` is requested to [changelogOffsets](StreamTask.md#changelogOffsets)
+* `StreamTask` is requested to [changelogOffsets](../StreamTask.md#changelogOffsets)
 
 ### <span id="checkpoint"> checkpoint
 
@@ -52,7 +52,7 @@ void checkpoint()
 
 Used when:
 
-* `AbstractTask` is requested to [maybeWriteCheckpoint](AbstractTask.md#maybeWriteCheckpoint)
+* `AbstractTask` is requested to [maybeWriteCheckpoint](../AbstractTask.md#maybeWriteCheckpoint)
 * `GlobalStateUpdateTask` is requested to [flushState](GlobalStateUpdateTask.md#flushState)
 
 ### <span id="close"> close
@@ -74,7 +74,7 @@ void flush()
 
 Used when:
 
-* `AbstractTask` is requested to [maybeWriteCheckpoint](AbstractTask.md#maybeWriteCheckpoint)
+* `AbstractTask` is requested to [maybeWriteCheckpoint](../AbstractTask.md#maybeWriteCheckpoint)
 * `GlobalStateUpdateTask` is requested to [flushState](GlobalStateUpdateTask.md#flushState)
 
 ### <span id="getGlobalStore"> getGlobalStore
@@ -99,7 +99,7 @@ StateStore getStore(
 
 Used when:
 
-* `AbstractTask` is requested to [getStore](AbstractTask.md#getStore)
+* `AbstractTask` is requested to [getStore](../AbstractTask.md#getStore)
 * `ProcessorContextImpl` is requested to [getStateStore](ProcessorContextImpl.md#getStateStore)
 * `TopologyTestDriver` is requested to [getStateStore](../TopologyTestDriver.md#getStateStore)
 
@@ -131,7 +131,7 @@ void updateChangelogOffsets(
 Used when:
 
 * `GlobalStateUpdateTask` is requested to [flushState](GlobalStateUpdateTask.md#flushState)
-* `StreamTask` is requested to [maybeWriteCheckpoint](StreamTask.md#maybeWriteCheckpoint)
+* `StreamTask` is requested to [maybeWriteCheckpoint](../StreamTask.md#maybeWriteCheckpoint)
 
 ## Implementations
 

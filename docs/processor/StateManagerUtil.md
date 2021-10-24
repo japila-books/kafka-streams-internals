@@ -16,5 +16,5 @@ void registerStateStores(
 
 `registerStateStores` is used when:
 
-* `StandbyTask` is requested to [initializeIfNeeded](StandbyTask.md#initializeIfNeeded)
-* `StreamTask` is requested to [initializeIfNeeded](StreamTask.md#initializeIfNeeded)
+* `StandbyTask` is requested to [initializeIfNeeded](../StandbyTask.md#initializeIfNeeded)
+* `StreamTask` is requested to [initializeIfNeeded](../StreamTask.md#initializeIfNeeded)

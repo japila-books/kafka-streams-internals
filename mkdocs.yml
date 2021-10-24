@@ -107,9 +107,15 @@ nav:
   - Home: index.md
   - Internals:
     - Overview: overview.md
+    - AbstractTask: AbstractTask.md
+    - ActiveTaskCreator: ActiveTaskCreator.md
     - InternalTopologyBuilder: InternalTopologyBuilder.md
+    - InternalConfig: InternalConfig.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
+    - ReferenceContainer: ReferenceContainer.md
+    - StandbyTask: StandbyTask.md
+    - StandbyTaskCreator: StandbyTaskCreator.md
     - StreamsConfig: StreamsConfig.md
     - StreamsPartitionAssignor:
       - StreamsPartitionAssignor: StreamsPartitionAssignor.md
@@ -119,6 +125,12 @@ nav:
       - InternalTopicManager: InternalTopicManager.md
       - PartitionGrouper: PartitionGrouper.md
       - RepartitionTopics: RepartitionTopics.md
+    - StreamThread: StreamThread.md
+    - StreamTask: StreamTask.md
+    - Task: Task.md
+    - TaskId: TaskId.md
+    - TaskManager: TaskManager.md
+    - Tasks: Tasks.md
     - TopicsInfo: TopicsInfo.md
     - Topology: Topology.md
   - Streams DSL:
@@ -162,8 +174,6 @@ nav:
     - processor/index.md
     - AbstractProcessor: processor/AbstractProcessor.md
     - AbstractProcessorContext: processor/AbstractProcessorContext.md
-    - AbstractTask: processor/AbstractTask.md
-    - ActiveTaskCreator: processor/ActiveTaskCreator.md
     - GlobalProcessorContextImpl: processor/GlobalProcessorContextImpl.md
     - GlobalStateManager: processor/GlobalStateManager.md
     - GlobalStateManagerImpl: processor/GlobalStateManagerImpl.md
@@ -179,24 +189,19 @@ nav:
     - ProcessorSupplier: processor/ProcessorSupplier.md
     - ProcessorTopology: processor/ProcessorTopology.md
     - Punctuator: processor/Punctuator.md
+    - RecordCollectorImpl: processor/RecordCollectorImpl.md
     - SinkNode: processor/SinkNode.md
     - SinkNodeFactory: processor/SinkNodeFactory.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
     - SourceNode: processor/SourceNode.md
-    - StandbyTask: processor/StandbyTask.md
-    - StandbyTaskCreator: processor/StandbyTaskCreator.md
     - StateDirectory: processor/StateDirectory.md
     - StateManager: processor/StateManager.md
     - StateManagerUtil: processor/StateManagerUtil.md
     - StateStore: processor/StateStore.md
     - StateStoreFactory: processor/StateStoreFactory.md
     - StoreChangelogReader: processor/StoreChangelogReader.md
-    - StreamTask: processor/StreamTask.md
-    - StreamThread: processor/StreamThread.md
-    - Task: processor/Task.md
-    - TaskId: processor/TaskId.md
-    - TaskManager: processor/TaskManager.md
-    - Tasks: processor/Tasks.md
+    - StreamPartitioner: processor/StreamPartitioner.md
+    - StreamsMetadataState: processor/StreamsMetadataState.md
     - TimestampExtractor: processor/TimestampExtractor.md
   - State:
     - AbstractStoreBuilder: state/AbstractStoreBuilder.md

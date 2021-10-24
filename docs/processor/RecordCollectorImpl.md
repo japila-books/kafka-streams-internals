@@ -1,0 +1,3 @@
+# RecordCollectorImpl
+
+`RecordCollectorImpl` is...FIXME

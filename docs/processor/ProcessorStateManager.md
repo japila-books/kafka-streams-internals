@@ -6,7 +6,7 @@
 
 `ProcessorStateManager` takes the following to be created:
 
-* <span id="taskId"> [TaskId](TaskId.md)
+* <span id="taskId"> [TaskId](../TaskId.md)
 * <span id="taskType"> `TaskType`
 * [eosEnabled](#eosEnabled) flag
 * <span id="logContext"> `LogContext`
@@ -17,8 +17,8 @@
 
 `ProcessorStateManager` is created when:
 
-* `ActiveTaskCreator` is requested to [createTasks](ActiveTaskCreator.md#createTasks)
-* `StandbyTaskCreator` is requested to [createTasks](StandbyTaskCreator.md#createTasks)
+* `ActiveTaskCreator` is requested to [createTasks](../ActiveTaskCreator.md#createTasks)
+* `StandbyTaskCreator` is requested to [createTasks](../StandbyTaskCreator.md#createTasks)
 * `TopologyTestDriver` is requested to [setupTask](../TopologyTestDriver.md#setupTask)
 
 ## <span id="eosEnabled"> eosEnabled Flag
@@ -45,7 +45,7 @@ void flushCache()
 
 `flushCache` is used when:
 
-* `StreamTask` is requested to [prepareCommit](StreamTask.md#prepareCommit)
+* `StreamTask` is requested to [prepareCommit](../StreamTask.md#prepareCommit)
 
 ## <span id="checkpoint"> Checkpointing
 
@@ -127,7 +127,7 @@ TopicPartition getStorePartition(
 `getStorePartition` creates a `TopicPartition` with the following:
 
 * [changelogFor](#changelogFor) with the given `storeName` for the name of the (changelog) topic
-* The [partition](TaskId.md#partition) of the [TaskId](#taskId) for the partition (of the changelog topic)
+* The [partition](../TaskId.md#partition) of the [TaskId](#taskId) for the partition (of the changelog topic)
 
 `getStorePartition` is used when:
 

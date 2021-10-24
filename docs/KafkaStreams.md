@@ -1,6 +1,6 @@
 # KafkaStreams
 
-`KafkaStreams` is the execution environment of a Kafka Streams application.
+`KafkaStreams` is the execution environment of a single instance of a Kafka Streams application (_KafkaStreams instance_).
 
 `KafkaStreams` is a Kafka client for continuous stream processing (on input coming from one or more input topics and sending output to zero, one, or more output topics).
 
@@ -38,7 +38,7 @@ When [created](#creating-instance) `KafkaStreams` requests the [InternalTopology
 
 ## <span id="threads"> StreamThreads
 
-`KafkaStreams` manages [StreamThread](processor/StreamThread.md)s in a `threads` internal registry.
+`KafkaStreams` manages [StreamThread](StreamThread.md)s in a `threads` internal registry.
 
 The `threads` collection starts empty when `KafkaStreams` is [created](#creating-instance).
 
@@ -95,7 +95,7 @@ Starting Streams client
 
 `start` requests the [GlobalStreamThread](#globalStreamThread) to [start](processor/GlobalStreamThread.md#start) (if defined).
 
-`start` requests all the [StreamThreads](#threads) to [start](processor/StreamThread.md#run).
+`start` requests all the [StreamThreads](#threads) to [start](StreamThread.md#run).
 
 `start`...FIXME
 
@@ -151,7 +151,7 @@ StreamThread createAndAddStreamThread(
   int threadIdx)
 ```
 
-`createAndAddStreamThread` [creates a StreamThread](processor/StreamThread.md#create) and requests it to [setStateListener](processor/StreamThread.md#setStateListener) with the [StreamStateListener](#streamStateListener).
+`createAndAddStreamThread` [creates a StreamThread](StreamThread.md#create) and requests it to [setStateListener](StreamThread.md#setStateListener) with the [StreamStateListener](#streamStateListener).
 
 `createAndAddStreamThread` registers the `StreamThread` (in the [threads](#threads) and [threadState](#threadState) internal registries).
 
@@ -160,6 +160,32 @@ StreamThread createAndAddStreamThread(
 `createAndAddStreamThread` is used when:
 
 * `KafkaStreams` is [created](#creating-instance) and requested to [addStreamThread](#addStreamThread)
+
+## <span id="streamsMetadataState"> StreamsMetadataState
+
+`KafkaStreams` creates a new [StreamsMetadataState](processor/StreamsMetadataState.md) when [created](#creating-instance) (with the endpoint based on [application.server](StreamsConfig.md#APPLICATION_SERVER_CONFIG) configuration property).
+
+The `StreamsMetadataState` is used to [create a StreamThread](#createAndAddStreamThread) and for the following state-related metadata operators:
+
+* [metadataForAllStreamsClients](#metadataForAllStreamsClients)
+* [streamsMetadataForStore](#streamsMetadataForStore)
+* [queryMetadataForKey](#queryMetadataForKey)
+* [allLocalStorePartitionLags](#allLocalStorePartitionLags)
+
+### <span id="queryMetadataForKey"> queryMetadataForKey
+
+```java
+KeyQueryMetadata queryMetadataForKey(
+  String storeName,
+  K key,
+  Serializer<K> keySerializer)
+KeyQueryMetadata queryMetadataForKey(
+  String storeName,
+  K key,
+  StreamPartitioner<? super K, ?> partitioner)
+```
+
+`queryMetadataForKey` requests the [StreamsMetadataState](#streamsMetadataState) to [getKeyQueryMetadataForKey](processor/StreamsMetadataState.md#getKeyQueryMetadataForKey).
 
 ## Logging
 

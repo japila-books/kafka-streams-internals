@@ -7,7 +7,7 @@
 `StreamThread` takes the following to be created:
 
 * <span id="time"> `Time`
-* <span id="config"> [StreamsConfig](../StreamsConfig.md)
+* <span id="config"> [StreamsConfig](StreamsConfig.md)
 * <span id="adminClient"> `Admin`
 * <span id="mainConsumer"> Main `Consumer<byte[], byte[]>`
 * <span id="restoreConsumer"> Restore `Consumer<byte[], byte[]>`
@@ -28,7 +28,7 @@
 
 ## <span id="commitTimeMs"><span id="commit.interval.ms"> commit.interval.ms
 
-`StreamThread` uses [commit.interval.ms](../StreamsConfig.md#COMMIT_INTERVAL_MS_CONFIG) configuration property to [control whether to commit tasks or not](#maybeCommit).
+`StreamThread` uses [commit.interval.ms](StreamsConfig.md#COMMIT_INTERVAL_MS_CONFIG) configuration property to [control whether to commit tasks or not](#maybeCommit).
 
 ## <span id="create"> Creating StreamThread
 
@@ -51,17 +51,23 @@ StreamThread create(
   java.util.function.Consumer<Throwable> streamsUncaughtExceptionHandler)
 ```
 
+`create` creates a new [ReferenceContainer](ReferenceContainer.md) with the given arguments:
+
+* `Admin` client ([Apache Kafka]({{ book.kafka }}/clients/admin/Admin))
+* [StreamsMetadataState](processor/StreamsMetadataState.md)
+* `Time`
+
 `create` prints out the following INFO message to the logs:
 
 ```text
 Creating restore consumer client
 ```
 
-`create` requests the given `StreamsConfig` for the [restore consumer configs](../StreamsConfig.md#getRestoreConsumerConfigs) (with [getRestoreConsumerClientId](#getRestoreConsumerClientId)) and requests the given [KafkaClientSupplier](../KafkaClientSupplier.md) for a [restore consumer](../KafkaClientSupplier.md#getRestoreConsumer).
+`create` requests the given `StreamsConfig` for the [restore consumer configs](StreamsConfig.md#getRestoreConsumerConfigs) (with [getRestoreConsumerClientId](#getRestoreConsumerClientId)) and requests the given [KafkaClientSupplier](KafkaClientSupplier.md) for a [restore consumer](KafkaClientSupplier.md#getRestoreConsumer).
 
-`create` creates a [StoreChangelogReader](StoreChangelogReader.md).
+`create` creates a [StoreChangelogReader](processor/StoreChangelogReader.md).
 
-`create` creates a [ThreadCache](../state/ThreadCache.md).
+`create` creates a [ThreadCache](state/ThreadCache.md).
 
 `create` creates a [ActiveTaskCreator](ActiveTaskCreator.md), a [StandbyTaskCreator](StandbyTaskCreator.md) and a [TaskManager](TaskManager.md).
 
@@ -75,7 +81,7 @@ Creating consumer client
 
 `create` is used when:
 
-* `KafkaStreams` is requested to [createAndAddStreamThread](../KafkaStreams.md#createAndAddStreamThread)
+* `KafkaStreams` is requested to [createAndAddStreamThread](KafkaStreams.md#createAndAddStreamThread)
 
 ## <span id="run"> Starting Execution
 
@@ -139,4 +145,4 @@ Add the following line to `log4j.properties`:
 log4j.logger.org.apache.kafka.streams.processor.internals.StreamThread=ALL
 ```
 
-Refer to [Logging](../logging.md).
+Refer to [Logging](logging.md).

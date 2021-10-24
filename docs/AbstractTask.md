@@ -12,11 +12,11 @@
 `AbstractTask` takes the following to be created:
 
 * <span id="id"> `TaskId`
-* <span id="topology"> [ProcessorTopology](ProcessorTopology.md)
-* <span id="stateDirectory"> [StateDirectory](StateDirectory.md)
-* <span id="stateMgr"> [ProcessorStateManager](ProcessorStateManager.md)
+* <span id="topology"> [ProcessorTopology](processor/ProcessorTopology.md)
+* <span id="stateDirectory"> [StateDirectory](processor/StateDirectory.md)
+* <span id="stateMgr"> [ProcessorStateManager](processor/ProcessorStateManager.md)
 * <span id="inputPartitions"> Input `TopicPartition`s
-* <span id="taskTimeoutMs"> [task.timeout.ms](../StreamsConfig.md#TASK_TIMEOUT_MS_CONFIG) configuration property
+* <span id="taskTimeoutMs"> [task.timeout.ms](StreamsConfig.md#TASK_TIMEOUT_MS_CONFIG) configuration property
 * <span id="taskType"> Task Type
 * <span id="clazz"> `AbstractTask` Class
 

@@ -8,11 +8,11 @@
 
 * <span id="id"> `TaskId`
 * <span id="inputPartitions"> Input `TopicPartition`s
-* <span id="topology"> [ProcessorTopology](ProcessorTopology.md)
-* <span id="config"> [StreamsConfig](../StreamsConfig.md)
+* <span id="topology"> [ProcessorTopology](processor/ProcessorTopology.md)
+* <span id="config"> [StreamsConfig](StreamsConfig.md)
 * <span id="streamsMetrics"> `StreamsMetricsImpl`
-* <span id="stateMgr"> [ProcessorStateManager](ProcessorStateManager.md)
-* <span id="stateDirectory"> [StateDirectory](StateDirectory.md)
+* <span id="stateMgr"> [ProcessorStateManager](processor/ProcessorStateManager.md)
+* <span id="stateDirectory"> [StateDirectory](processor/StateDirectory.md)
 * <span id="cache"> `ThreadCache`
 * <span id="processorContext"> `InternalProcessorContext`
 

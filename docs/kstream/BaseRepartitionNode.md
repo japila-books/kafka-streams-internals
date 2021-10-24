@@ -1,6 +1,6 @@
 # BaseRepartitionNode
 
-`BaseRepartitionNode<K, V>` is an [extension](#contract) of the [GraphNode](GraphNode.md) abstraction for [repartition nodes](#implementations).
+`BaseRepartitionNode<K, V>` is an extension of the [GraphNode](GraphNode.md) abstraction for [repartition nodes](#implementations).
 
 ## Implementations
 
@@ -19,7 +19,7 @@
 * <span id="valueSerde"> Value `Serde` ([Apache Kafka]({{ book.kafka }}/Serde))
 * <span id="sinkName"> Sink Name
 * <span id="repartitionTopic"> Repartition Topic
-* <span id="partitioner"> `StreamPartitioner<K, V>`
+* <span id="partitioner"> [StreamPartitioner](../processor/StreamPartitioner.md)
 * <span id="internalTopicProperties"> `InternalTopicProperties`
 
 !!! note "Abstract Class"

@@ -15,7 +15,7 @@ void addRecords(
 Used when:
 
 * `TaskManager` is requested to [addRecordsToTasks](TaskManager.md#addRecordsToTasks)
-* `TopologyTestDriver` is requested to [enqueueTaskRecord](../TopologyTestDriver.md#enqueueTaskRecord)
+* `TopologyTestDriver` is requested to [enqueueTaskRecord](TopologyTestDriver.md#enqueueTaskRecord)
 
 ### <span id="changelogOffsets"> changelogOffsets
 
@@ -81,7 +81,7 @@ StateStore getStore(
 
 Used when:
 
-* `StreamThreadStateStoreProvider` is requested for [stores](../state/StreamThreadStateStoreProvider.md#stores)
+* `StreamThreadStateStoreProvider` is requested for [stores](state/StreamThreadStateStoreProvider.md#stores)
 
 ### <span id="highWaterMark"> highWaterMark
 
@@ -144,7 +144,7 @@ Map<TopicPartition, OffsetAndMetadata> prepareCommit()
 Used when:
 
 * `TaskManager` is requested to [closeDirtyAndRevive](TaskManager.md#closeDirtyAndRevive), [handleCloseAndRecycle](TaskManager.md#handleCloseAndRecycle), [prepareCommitAndAddOffsetsToMap](TaskManager.md#prepareCommitAndAddOffsetsToMap), [closeTaskDirty](TaskManager.md#closeTaskDirty), [tryCloseCleanAllActiveTasks](TaskManager.md#tryCloseCleanAllActiveTasks), [tryCloseCleanAllStandbyTasks](TaskManager.md#tryCloseCleanAllStandbyTasks) and [commitAndFillInConsumedOffsetsAndMetadataPerTaskMap](TaskManager.md#commitAndFillInConsumedOffsetsAndMetadataPerTaskMap)
-* `TopologyTestDriver` is requested to [completeAllProcessableWork](../TopologyTestDriver.md#completeAllProcessableWork), [advanceWallClockTime](../TopologyTestDriver.md#advanceWallClockTime) and [close](../TopologyTestDriver.md#close)
+* `TopologyTestDriver` is requested to [completeAllProcessableWork](TopologyTestDriver.md#completeAllProcessableWork), [advanceWallClockTime](TopologyTestDriver.md#advanceWallClockTime) and [close](TopologyTestDriver.md#close)
 
 ### <span id="resume"> resume
 

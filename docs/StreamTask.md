@@ -10,7 +10,7 @@
 * <span id="inputPartitions"> Input `TopicPartition`s
 * <span id="topology"> `ProcessorTopology`
 * <span id="mainConsumer"> Main `Consumer<byte[], byte[]>`
-* <span id="config"> [StreamsConfig](../StreamsConfig.md)
+* <span id="config"> [StreamsConfig](StreamsConfig.md)
 * <span id="streamsMetrics"> `StreamsMetricsImpl`
 * <span id="stateDirectory"> `StateDirectory`
 * <span id="cache"> `ThreadCache`

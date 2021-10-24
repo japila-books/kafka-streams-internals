@@ -25,7 +25,7 @@ org.apache.kafka.streams.kstream.Produced[Long,String]
 
 * <span id="keySerde"> `Serde<K>` of keys ([Apache Kafka]({{ book.kafka }}/Serde))
 * <span id="valueSerde"> `Serde<V>` of values ([Apache Kafka]({{ book.kafka }}/Serde))
-* <span id="partitioner"> `StreamPartitioner<? super K, ? super V>`
+* <span id="partitioner"> [StreamPartitioner](../processor/StreamPartitioner.md)
 * <span id="processorName"> Processor Name
 
 `Produced` is created using the [factories](#factories).

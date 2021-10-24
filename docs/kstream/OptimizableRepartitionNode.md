@@ -13,7 +13,7 @@
 * <span id="valueSerde"> Value `Serde` ([Apache Kafka]({{ book.kafka }}/Serde))
 * <span id="sinkName"> Sink Name
 * <span id="repartitionTopic"> Repartition Topic
-* <span id="partitioner"> `StreamPartitioner<K, V>`
+* <span id="partitioner"> [StreamPartitioner](../processor/StreamPartitioner.md)
 
 `OptimizableRepartitionNode` is created when:
 

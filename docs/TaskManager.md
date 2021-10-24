@@ -48,7 +48,7 @@ void handleAssignment(
 
 `handleAssignment` is used when:
 
-* `StreamsPartitionAssignor` is requested to [onAssignment](../StreamsPartitionAssignor.md#onAssignment)
+* `StreamsPartitionAssignor` is requested to [onAssignment](StreamsPartitionAssignor.md#onAssignment)
 
 ### <span id="handleCloseAndRecycle"> handleCloseAndRecycle
 
@@ -140,13 +140,13 @@ void handleRebalanceStart(
   Set<String> subscribedTopics)
 ```
 
-`handleRebalanceStart` requests the [InternalTopologyBuilder](#builder) to [addSubscribedTopicsFromMetadata](../InternalTopologyBuilder.md#addSubscribedTopicsFromMetadata) with the given `subscribedTopics`.
+`handleRebalanceStart` requests the [InternalTopologyBuilder](#builder) to [addSubscribedTopicsFromMetadata](InternalTopologyBuilder.md#addSubscribedTopicsFromMetadata) with the given `subscribedTopics`.
 
 `handleRebalanceStart` [tryToLockAllNonEmptyTaskDirectories](#tryToLockAllNonEmptyTaskDirectories) and turns the [rebalanceInProgress](#rebalanceInProgress) internal flag on (`true`).
 
 `handleRebalanceStart` is used when:
 
-* `StreamsPartitionAssignor` is requested to [handleRebalanceStart](../StreamsPartitionAssignor.md#handleRebalanceStart)
+* `StreamsPartitionAssignor` is requested to [handleRebalanceStart](StreamsPartitionAssignor.md#handleRebalanceStart)
 
 ### <span id="handleRebalanceComplete"> handleRebalanceComplete
 
@@ -160,4 +160,4 @@ void handleRebalanceComplete()
 
 `handleRebalanceComplete` is used when:
 
-* `StreamsPartitionAssignor` is requested to [onPartitionsAssigned](../StreamsPartitionAssignor.md#onPartitionsAssigned)
+* `StreamsPartitionAssignor` is requested to [onPartitionsAssigned](StreamsPartitionAssignor.md#onPartitionsAssigned)

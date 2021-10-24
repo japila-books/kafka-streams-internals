@@ -2,7 +2,15 @@
 
 ## <span id="APPLICATION_ID_CONFIG"><span id="application.id"> application.id
 
+## <span id="APPLICATION_SERVER_CONFIG"><span id="application.server"> application.server
+
+A `host:port` endpoint address of the KafkaStreams instance
+
 ## <span id="CACHE_MAX_BYTES_BUFFERING_CONFIG"><span id="cache.max.bytes.buffering"> cache.max.bytes.buffering
+
+## <span id="CLIENT_ID_CONFIG"><span id="client.id"> client.id
+
+See [Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#client.id)
 
 ## <span id="COMMIT_INTERVAL_MS_CONFIG"><span id="commit.interval.ms"> commit.interval.ms
 
@@ -18,7 +26,7 @@ Used when:
 
 * `GlobalStreamThread` is requested to [initialize](processor/GlobalStreamThread.md#initialize) (and create a `StateConsumer`)
 * `StoreChangelogReader` is [created](processor/StoreChangelogReader.md#updateOffsetIntervalMs)
-* `StreamThread` is [created](processor/StreamThread.md#commitTimeMs)
+* `StreamThread` is [created](StreamThread.md#commitTimeMs)
 
 ## <span id="POLL_MS_CONFIG"><span id="poll.ms"> poll.ms
 
@@ -31,7 +39,7 @@ Used when:
 * `GlobalStateManagerImpl` is [created](processor/GlobalStateManagerImpl.md#pollMsPlusRequestTimeout)
 * `GlobalStreamThread` is requested to [initialize](processor/GlobalStreamThread.md#initialize)
 * `StoreChangelogReader` is [created](processor/StoreChangelogReader.md#pollTime)
-* `StreamThread` is [created](processor/StreamThread.md#pollTime)
+* `StreamThread` is [created](StreamThread.md#pollTime)
 
 ## <span id="TASK_TIMEOUT_MS_CONFIG"><span id="task.timeout.ms"> task.timeout.ms
 

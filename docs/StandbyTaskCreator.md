@@ -4,10 +4,10 @@
 
 `StandbyTaskCreator` takes the following to be created:
 
-* <span id="builder"> [InternalTopologyBuilder](../InternalTopologyBuilder.md)
-* <span id="config"> [StreamsConfig](../StreamsConfig.md)
+* <span id="builder"> [InternalTopologyBuilder](InternalTopologyBuilder.md)
+* <span id="config"> [StreamsConfig](StreamsConfig.md)
 * <span id="streamsMetrics"> `StreamsMetricsImpl`
-* <span id="stateDirectory"> [StateDirectory](StateDirectory.md)
+* <span id="stateDirectory"> [StateDirectory](processor/StateDirectory.md)
 * <span id="storeChangelogReader"> `ChangelogReader`
 * <span id="threadId"> Thread ID
 * <span id="log"> `Logger`

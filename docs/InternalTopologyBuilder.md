@@ -308,8 +308,8 @@ ProcessorTopology buildSubtopology(
 
 `buildSubtopology` is used when:
 
-* `ActiveTaskCreator` is requested to [createTasks](processor/ActiveTaskCreator.md#createTasks) and [createActiveTaskFromStandby](processor/ActiveTaskCreator.md#createActiveTaskFromStandby)
-* `StandbyTaskCreator` is requested to [createTasks](processor/StandbyTaskCreator.md#createTasks) and [createStandbyTaskFromActive](processor/StandbyTaskCreator.md#createStandbyTaskFromActive)
+* `ActiveTaskCreator` is requested to [createTasks](ActiveTaskCreator.md#createTasks) and [createActiveTaskFromStandby](ActiveTaskCreator.md#createActiveTaskFromStandby)
+* `StandbyTaskCreator` is requested to [createTasks](StandbyTaskCreator.md#createTasks) and [createStandbyTaskFromActive](StandbyTaskCreator.md#createStandbyTaskFromActive)
 
 ## <span id="buildGlobalStateTopology"> Building Global State Processor Topology
 
