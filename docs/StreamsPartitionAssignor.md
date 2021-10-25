@@ -189,7 +189,12 @@ void validateActiveTaskEncoding(
   String logPrefix)
 ```
 
-`validateActiveTaskEncoding`...FIXME
+`validateActiveTaskEncoding` throws a `TaskAssignmentException` when the number of `partitions` is not the same as the number of active tasks (of the given `AssignmentInfo`):
+
+```text
+[logPrefix]Number of assigned partitions [partitions]
+is not equal to the number of active taskIds [activeTasks], assignmentInfo=[info]
+```
 
 ### <span id="getActiveTasks"> Active Tasks
 

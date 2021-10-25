@@ -208,8 +208,12 @@ nav:
   - State:
     - AbstractStoreBuilder: state/AbstractStoreBuilder.md
     - CachedStateStore: state/CachedStateStore.md
+    - ChangeLoggingKeyValueBytesStore: state/ChangeLoggingKeyValueBytesStore.md
     - InMemoryWindowBytesStoreSupplier: state/InMemoryWindowBytesStoreSupplier.md
+    - KeyValueBytesStoreSupplier: state/KeyValueBytesStoreSupplier.md
     - KeyValueStore: state/KeyValueStore.md
+    - KeyValueStoreBuilder: state/KeyValueStoreBuilder.md
+    - MeteredKeyValueStore: state/MeteredKeyValueStore.md
     - OffsetCheckpoint: state/OffsetCheckpoint.md
     - QueryableStoreProvider: state/QueryableStoreProvider.md
     - ReadOnlyKeyValueStore: state/ReadOnlyKeyValueStore.md
@@ -223,6 +227,7 @@ nav:
     - ValueAndTimestamp: state/ValueAndTimestamp.md
     - WindowBytesStoreSupplier: state/WindowBytesStoreSupplier.md
     - WindowStore: state/WindowStore.md
+    - WindowStoreBuilder: state/WindowStoreBuilder.md
     - WrappedStateStore: state/WrappedStateStore.md
   - Testing:
     - TopologyTestDriver: TopologyTestDriver.md
