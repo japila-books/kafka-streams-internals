@@ -6,7 +6,7 @@
 
 `ProcessorStateManager` takes the following to be created:
 
-* <span id="taskId"> [TaskId](../TaskId.md)
+* <span id="taskId"> [TaskId](TaskId.md)
 * <span id="taskType"> `TaskType`
 * [eosEnabled](#eosEnabled) flag
 * <span id="logContext"> `LogContext`
@@ -17,9 +17,9 @@
 
 `ProcessorStateManager` is created when:
 
-* `ActiveTaskCreator` is requested to [createTasks](../ActiveTaskCreator.md#createTasks)
-* `StandbyTaskCreator` is requested to [createTasks](../StandbyTaskCreator.md#createTasks)
-* `TopologyTestDriver` is requested to [setupTask](../TopologyTestDriver.md#setupTask)
+* `ActiveTaskCreator` is requested to [createTasks](ActiveTaskCreator.md#createTasks)
+* `StandbyTaskCreator` is requested to [createTasks](StandbyTaskCreator.md#createTasks)
+* `TopologyTestDriver` is requested to [setupTask](TopologyTestDriver.md#setupTask)
 
 ## <span id="eosEnabled"> eosEnabled Flag
 
@@ -45,7 +45,7 @@ void flushCache()
 
 `flushCache` is used when:
 
-* `StreamTask` is requested to [prepareCommit](../StreamTask.md#prepareCommit)
+* `StreamTask` is requested to [prepareCommit](StreamTask.md#prepareCommit)
 
 ## <span id="checkpoint"> Checkpointing
 
@@ -53,7 +53,7 @@ void flushCache()
 void checkpoint()
 ```
 
-`checkpoint` finds all the [persistent state stores](StateStore.md#persistent) (in the [stores](#stores) registry) that are logged (with a `changelogPartition`) and are not corrupted. For every state store, `checkpoint` records the `changelogPartition` and the offset (in a local `checkpointingOffsets` collection).
+`checkpoint` finds all the [persistent state stores](processor/StateStore.md#persistent) (in the [stores](#stores) registry) that are logged (with a `changelogPartition`) and are not corrupted. For every state store, `checkpoint` records the `changelogPartition` and the offset (in a local `checkpointingOffsets` collection).
 
 `checkpoint` prints out the following DEBUG message to the logs:
 
@@ -61,7 +61,7 @@ void checkpoint()
 Writing checkpoint: [checkpointingOffsets]
 ```
 
-`checkpoint` requests the [OffsetCheckpoint](#checkpointFile) file to [write out the offsets](../state/OffsetCheckpoint.md#write).
+`checkpoint` requests the [OffsetCheckpoint](#checkpointFile) file to [write out the offsets](state/OffsetCheckpoint.md#write).
 
 ---
 
@@ -82,7 +82,7 @@ Changing the location of state.dir may resolve the problem.
 
 ```java
 void registerStore(
-  StateStore store, 
+  StateStore store,
   StateRestoreCallback stateRestoreCallback)
 ```
 
@@ -127,7 +127,7 @@ TopicPartition getStorePartition(
 `getStorePartition` creates a `TopicPartition` with the following:
 
 * [changelogFor](#changelogFor) with the given `storeName` for the name of the (changelog) topic
-* The [partition](../TaskId.md#partition) of the [TaskId](#taskId) for the partition (of the changelog topic)
+* The [partition](TaskId.md#partition) of the [TaskId](#taskId) for the partition (of the changelog topic)
 
 `getStorePartition` is used when:
 
@@ -156,4 +156,4 @@ Add the following line to `log4j.properties`:
 log4j.logger.org.apache.kafka.streams.processor.internals.ProcessorStateManager=ALL
 ```
 
-Refer to [Logging](../logging.md).
+Refer to [Logging](logging.md).

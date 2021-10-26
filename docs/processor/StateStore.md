@@ -45,7 +45,7 @@ boolean persistent()
 Used when:
 
 * `GlobalStateManagerImpl` is [created](GlobalStateManagerImpl.md) (and finds global non-persistent state stores)
-* `ProcessorStateManager` is requested to [initializeStoreOffsetsFromCheckpoint](ProcessorStateManager.md#initializeStoreOffsetsFromCheckpoint) and [checkpoint](ProcessorStateManager.md#checkpoint)
+* `ProcessorStateManager` is requested to [initializeStoreOffsetsFromCheckpoint](../ProcessorStateManager.md#initializeStoreOffsetsFromCheckpoint) and [checkpoint](../ProcessorStateManager.md#checkpoint)
 * `ProcessorTopology` is requested to [hasPersistentLocalStore](ProcessorTopology.md#hasPersistentLocalStore) and [hasPersistentGlobalStore](ProcessorTopology.md#hasPersistentGlobalStore)
 * `TimestampedKeyValueStoreBuilder` is requested to build a `TimestampedKeyValueStore`
 * `TimestampedWindowStoreBuilder` is requested to build a `TimestampedWindowStore`

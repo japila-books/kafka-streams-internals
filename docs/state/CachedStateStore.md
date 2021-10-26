@@ -12,7 +12,7 @@ void flushCache()
 
 Used when:
 
-* `ProcessorStateManager` is requested to [flush store caches](../processor/ProcessorStateManager.md#flushCache)
+* `ProcessorStateManager` is requested to [flush store caches](../ProcessorStateManager.md#flushCache)
 
 ### <span id="setFlushListener"> setFlushListener
 

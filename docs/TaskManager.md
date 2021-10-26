@@ -9,7 +9,7 @@
 * <span id="processId"> Process UUID
 * <span id="logPrefix"> Log Prefix
 * <span id="streamsMetrics"> `StreamsMetricsImpl`
-* <span id="activeTaskCreator"> [ActiveTaskCreator](ActiveTaskCreator.md)
+* [ActiveTaskCreator](#activeTaskCreator)
 * <span id="standbyTaskCreator"> [StandbyTaskCreator](StandbyTaskCreator.md)
 * <span id="builder"> `InternalTopologyBuilder`
 * <span id="adminClient"> `Admin`
@@ -19,6 +19,10 @@
 `TaskManager` is created when:
 
 * `StreamThread` utility is used to [create a StreamThread](StreamThread.md#create)
+
+## <span id="activeTaskCreator"> ActiveTaskCreator
+
+`TaskManager` is given a [ActiveTaskCreator](ActiveTaskCreator.md) when [created](#creating-instance).
 
 ## <span id="commit"> Committing (Active) Tasks
 

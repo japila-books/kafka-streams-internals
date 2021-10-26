@@ -109,13 +109,20 @@ nav:
     - Overview: overview.md
     - AbstractTask: AbstractTask.md
     - ActiveTaskCreator: ActiveTaskCreator.md
+    - ChangelogReader: ChangelogReader.md
     - InternalTopologyBuilder: InternalTopologyBuilder.md
     - InternalConfig: InternalConfig.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
+    - ProcessorStateManager: ProcessorStateManager.md
+    - RecordCollector: RecordCollector.md
+    - RecordCollectorImpl: RecordCollectorImpl.md
     - ReferenceContainer: ReferenceContainer.md
     - StandbyTask: StandbyTask.md
     - StandbyTaskCreator: StandbyTaskCreator.md
+    - StateDirectory: StateDirectory.md
+    - StateManager: StateManager.md
+    - StateManagerUtil: StateManagerUtil.md
     - StreamsConfig: StreamsConfig.md
     - StreamsMetadata: StreamsMetadata.md
     - StreamsMetadataState: StreamsMetadataState.md
@@ -127,6 +134,7 @@ nav:
       - InternalTopicManager: InternalTopicManager.md
       - PartitionGrouper: PartitionGrouper.md
       - RepartitionTopics: RepartitionTopics.md
+    - StreamsProducer: StreamsProducer.md
     - StreamThread: StreamThread.md
     - StreamTask: StreamTask.md
     - Task: Task.md
@@ -188,18 +196,13 @@ nav:
     - ProcessorContextImpl: processor/ProcessorContextImpl.md
     - ProcessorNode: processor/ProcessorNode.md
     - ProcessorNodeFactory: processor/ProcessorNodeFactory.md
-    - ProcessorStateManager: processor/ProcessorStateManager.md
     - ProcessorSupplier: processor/ProcessorSupplier.md
     - ProcessorTopology: processor/ProcessorTopology.md
     - Punctuator: processor/Punctuator.md
-    - RecordCollectorImpl: processor/RecordCollectorImpl.md
     - SinkNode: processor/SinkNode.md
     - SinkNodeFactory: processor/SinkNodeFactory.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
     - SourceNode: processor/SourceNode.md
-    - StateDirectory: processor/StateDirectory.md
-    - StateManager: processor/StateManager.md
-    - StateManagerUtil: processor/StateManagerUtil.md
     - StateStore: processor/StateStore.md
     - StateStoreFactory: processor/StateStoreFactory.md
     - StoreChangelogReader: processor/StoreChangelogReader.md
