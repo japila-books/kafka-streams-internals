@@ -6,6 +6,8 @@
 
 A `host:port` endpoint address of the KafkaStreams instance
 
+## <span id="BUFFERED_RECORDS_PER_PARTITION_CONFIG"><span id="buffered.records.per.partition"> buffered.records.per.partition
+
 ## <span id="CACHE_MAX_BYTES_BUFFERING_CONFIG"><span id="cache.max.bytes.buffering"> cache.max.bytes.buffering
 
 ## <span id="CLIENT_ID_CONFIG"><span id="client.id"> client.id

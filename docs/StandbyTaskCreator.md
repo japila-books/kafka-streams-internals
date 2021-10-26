@@ -8,7 +8,7 @@
 * <span id="config"> [StreamsConfig](StreamsConfig.md)
 * <span id="streamsMetrics"> `StreamsMetricsImpl`
 * <span id="stateDirectory"> [StateDirectory](StateDirectory.md)
-* <span id="storeChangelogReader"> `ChangelogReader`
+* <span id="storeChangelogReader"> [ChangelogReader](ChangelogReader.md)
 * <span id="threadId"> Thread ID
 * <span id="log"> `Logger`
 

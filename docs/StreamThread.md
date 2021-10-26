@@ -11,7 +11,7 @@
 * <span id="adminClient"> `Admin`
 * <span id="mainConsumer"> Main `Consumer<byte[], byte[]>`
 * <span id="restoreConsumer"> Restore `Consumer<byte[], byte[]>`
-* <span id="changelogReader"> `ChangelogReader`
+* <span id="changelogReader"> [ChangelogReader](ChangelogReader.md)
 * <span id="originalReset"> `originalReset`
 * <span id="taskManager"> [TaskManager](TaskManager.md)
 * <span id="streamsMetrics"> `StreamsMetricsImpl`

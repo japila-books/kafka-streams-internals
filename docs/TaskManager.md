@@ -5,24 +5,30 @@
 `TaskManager` takes the following to be created:
 
 * <span id="time"> `Time`
-* <span id="changelogReader"> `ChangelogReader`
+* <span id="changelogReader"> [ChangelogReader](ChangelogReader.md)
 * <span id="processId"> Process UUID
 * <span id="logPrefix"> Log Prefix
 * <span id="streamsMetrics"> `StreamsMetricsImpl`
 * [ActiveTaskCreator](#activeTaskCreator)
 * <span id="standbyTaskCreator"> [StandbyTaskCreator](StandbyTaskCreator.md)
-* <span id="builder"> `InternalTopologyBuilder`
-* <span id="adminClient"> `Admin`
-* <span id="stateDirectory"> `StateDirectory`
+* <span id="builder"> [InternalTopologyBuilder](InternalTopologyBuilder.md)
+* <span id="adminClient"> `Admin` Client ([Apache Kafka]({{ book.kafka }}/clients/admin/Admin))
+* <span id="stateDirectory"> [StateDirectory](StateDirectory.md)
 * <span id="processingMode"> `StreamThread.ProcessingMode`
 
 `TaskManager` is created when:
 
 * `StreamThread` utility is used to [create a StreamThread](StreamThread.md#create)
 
+## <span id="tasks"> Tasks
+
+`TaskManager` creates a [Tasks](Tasks.md) when [created](#creating-instance).
+
 ## <span id="activeTaskCreator"> ActiveTaskCreator
 
-`TaskManager` is given a [ActiveTaskCreator](ActiveTaskCreator.md) when [created](#creating-instance).
+`TaskManager` is given an [ActiveTaskCreator](ActiveTaskCreator.md) when [created](#creating-instance).
+
+`TaskManager` uses this `ActiveTaskCreator` (along with [StandbyTaskCreator](#standbyTaskCreator)) merely to create a [Tasks](#tasks).
 
 ## <span id="commit"> Committing (Active) Tasks
 

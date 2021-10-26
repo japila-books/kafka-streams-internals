@@ -57,7 +57,7 @@ StreamTask createActiveTaskFromStandby(
 
 * `Tasks` is requested to [convertStandbyToActive](Tasks.md#convertStandbyToActive)
 
-## <span id="createActiveTask"> createActiveTask
+## <span id="createActiveTask"> Creating Active StreamTask
 
 ```java
 StreamTask createActiveTask(
