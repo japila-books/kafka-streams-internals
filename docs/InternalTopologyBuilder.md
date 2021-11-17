@@ -1,5 +1,7 @@
 # InternalTopologyBuilder
 
+`InternalTopologyBuilder` uses the [nodeFactories](#nodeFactories) internal registry and up to [building a ProcessorTopology](#build) the nodes are merely names in a "topology namespace" (with no knowledge about real nodes in a topology except their names).
+
 ## Creating Instance
 
 `InternalTopologyBuilder` takes the following to be created:
@@ -9,6 +11,28 @@
 `InternalTopologyBuilder` is created when:
 
 * `Topology` is [created](Topology.md#internalTopologyBuilder)
+
+## <span id="nodeFactories"> nodeFactories
+
+`InternalTopologyBuilder` uses a `nodeFactories` internal registry of [NodeFactory](processor/NodeFactory.md)ies by name.
+
+A new `NodeFactory` is added when:
+
+* [addSource](#addSource)
+* [addSink](#addSink)
+* [addProcessor](#addProcessor)
+* [addGlobalStore](#addGlobalStore)
+
+Used when:
+
+* [connectProcessorAndStateStore](#connectProcessorAndStateStore)
+* [findSourcesForProcessorPredecessors](#findSourcesForProcessorPredecessors)
+* [makeNodeGroups](#makeNodeGroups)
+* [build](#build)
+* [setRegexMatchedTopicsToSourceNodes](#setRegexMatchedTopicsToSourceNodes)
+* [isGlobalSource](#isGlobalSource)
+* [describeGlobalStore](#describeGlobalStore)
+* [describeSubtopology](#describeSubtopology)
 
 ## <span id="nodeGroups"> Node Groups
 
@@ -476,13 +500,13 @@ void addSource(
   String... topics)
 ```
 
-`addSource` adds the topics to the [sourceTopicNames](#sourceTopicNames) internal registry.
+`addSource` creates a new [SourceNodeFactory](processor/SourceNodeFactory.md) and adds it to the [nodeFactories](#nodeFactories) registry (under the given `name`).
 
-`addSource` creates a new [SourceNodeFactory](processor/SourceNodeFactory.md) and adds the factory to the [nodeFactories](#nodeFactories) registry (under the given `name`).
+`addSource` adds every topic (in the given `topics`) to the [sourceTopicNames](#sourceTopicNames) internal registry.
 
-`addSource` adds the given `name` and the `topics` to the [nodeToSourceTopics](#nodeToSourceTopics) registry.
+`addSource` registers the given `name` with the `topics` or the `topicPattern` (in the [nodeToSourceTopics](#nodeToSourceTopics) or the [nodeToSourcePatterns](#nodeToSourcePatterns) registries, respectively).
 
-`addSource` adds the given `name` to [nodeGrouper](#nodeGrouper) and clears out the [nodeGroups](#nodeGroups) (so it has to be rebuilt next time it is requested).
+`addSource` adds the given `name` to [nodeGrouper](#nodeGrouper) and clears out the [nodeGroups](#nodeGroups) (so it has to be built again next time it is requested).
 
 `addSource` is used when:
 

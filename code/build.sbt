@@ -1,4 +1,8 @@
-scalaVersion := "2.13.6"
+organization := "pl.japila"
+name := "kafka-streams-sandbox"
+version := "1.0.0"
+
+scalaVersion := "2.13.7"
 
 val kafkaVersion = "3.0.0"
 libraryDependencies += "org.apache.kafka" % "kafka-streams" % kafkaVersion
