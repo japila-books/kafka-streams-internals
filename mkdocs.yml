@@ -185,6 +185,7 @@ nav:
     - processor/index.md
     - AbstractProcessor: processor/AbstractProcessor.md
     - AbstractProcessorContext: processor/AbstractProcessorContext.md
+    - ConnectedStoreProvider: processor/ConnectedStoreProvider.md
     - GlobalProcessorContextImpl: processor/GlobalProcessorContextImpl.md
     - GlobalStateManager: processor/GlobalStateManager.md
     - GlobalStateManagerImpl: processor/GlobalStateManagerImpl.md
@@ -203,11 +204,13 @@ nav:
     - SinkNodeFactory: processor/SinkNodeFactory.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
     - SourceNode: processor/SourceNode.md
+    - StatefulProcessorNode: processor/StatefulProcessorNode.md
     - StateStore: processor/StateStore.md
     - StateStoreFactory: processor/StateStoreFactory.md
     - StoreChangelogReader: processor/StoreChangelogReader.md
     - StreamPartitioner: processor/StreamPartitioner.md
     - TimestampExtractor: processor/TimestampExtractor.md
+    - TransformerSupplier: processor/TransformerSupplier.md
   - State:
     - AbstractStoreBuilder: state/AbstractStoreBuilder.md
     - CachedStateStore: state/CachedStateStore.md

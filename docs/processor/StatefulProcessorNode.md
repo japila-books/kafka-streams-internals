@@ -1,0 +1,3 @@
+# StatefulProcessorNode
+
+`StatefulProcessorNode` is...FIXME
