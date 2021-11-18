@@ -16,7 +16,7 @@ Used when:
 
 * `AbstractStream` is requested to [toValueTransformerWithKeySupplier](../kstream/AbstractStream.md#toValueTransformerWithKeySupplier)
 * `Topology` is requested to [addProcessor](../Topology.md#addProcessor)
-* `StatefulProcessorNode` is requested to [writeToTopology](StatefulProcessorNode.md#writeToTopology)
+* `StatefulProcessorNode` is requested to [writeToTopology](../kstream/StatefulProcessorNode.md#writeToTopology)
 * _others_
 
 ## Implementations

@@ -461,7 +461,7 @@ void addStateStore(
 
 * `Topology` is requested to [addProcessor](Topology.md#addProcessor) and [addStateStore](Topology.md#addStateStore)
 * `KTableKTableJoinNode` is requested to `writeToTopology`
-* `StatefulProcessorNode` is requested to `writeToTopology`
+* `StatefulProcessorNode` is requested to [writeToTopology](kstream/StatefulProcessorNode.md#writeToTopology)
 * `StateStoreNode` is requested to `writeToTopology`
 * `StreamStreamJoinNode` is requested to `writeToTopology`
 * `StreamToTableNode` is requested to `writeToTopology`

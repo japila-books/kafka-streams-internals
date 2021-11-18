@@ -154,7 +154,9 @@ nav:
       - BaseRepartitionNode: kstream/BaseRepartitionNode.md
       - GraphNode: kstream/GraphNode.md
       - OptimizableRepartitionNode: kstream/OptimizableRepartitionNode.md
+      - ProcessorGraphNode: kstream/ProcessorGraphNode.md
       - SourceGraphNode: kstream/SourceGraphNode.md
+      - StatefulProcessorNode: kstream/StatefulProcessorNode.md
     - GroupedStreamAggregateBuilder: kstream/GroupedStreamAggregateBuilder.md
     - GroupedTableOperationRepartitionNode: kstream/GroupedTableOperationRepartitionNode.md
     - Initializer: kstream/Initializer.md
@@ -204,7 +206,6 @@ nav:
     - SinkNodeFactory: processor/SinkNodeFactory.md
     - SourceNodeFactory: processor/SourceNodeFactory.md
     - SourceNode: processor/SourceNode.md
-    - StatefulProcessorNode: processor/StatefulProcessorNode.md
     - StateStore: processor/StateStore.md
     - StateStoreFactory: processor/StateStoreFactory.md
     - StoreChangelogReader: processor/StoreChangelogReader.md
