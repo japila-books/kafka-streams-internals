@@ -18,3 +18,4 @@ Schedules an recurring action (`Punctuator`) to be executed every `interval` ms
 ## Implementations
 
 * `InternalProcessorContext`
+* [AbstractProcessorContext](AbstractProcessorContext.md)

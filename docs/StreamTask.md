@@ -75,6 +75,26 @@ void addRecords(
 
 `addRecords` is part of the [Task](Task.md#addRecords) abstraction.
 
+## <span id="schedule"> Scheduling Recurring Action
+
+```java
+Cancellable schedule(
+  long startTime,
+  long interval,
+  PunctuationType type,
+  Punctuator punctuator)
+Cancellable schedule(
+  long interval,
+  PunctuationType type,
+  Punctuator punctuator)
+```
+
+`schedule` creates a `PunctuationSchedule` (for the current [ProcessorNode](processor/ProcessorNode.md)) and requests the [stream-time PunctuationQueue](#streamTimePunctuationQueue) or [system-time PunctuationQueue](#systemTimePunctuationQueue) to [schedule the PunctuationSchedule](../PunctuationQueue.md#schedule) based on `PunctuationType` (`STREAM_TIME` or `WALL_CLOCK_TIME`, respectively).
+
+`schedule` is used when:
+
+* `ProcessorContextImpl` is requested to [schedule a recurring action](processor/ProcessorContextImpl.md#schedule)
+
 ## <span id="addPartitionsForOffsetReset"> addPartitionsForOffsetReset
 
 ```java

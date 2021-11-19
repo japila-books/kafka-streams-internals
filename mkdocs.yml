@@ -115,6 +115,7 @@ nav:
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
     - ProcessorStateManager: ProcessorStateManager.md
+    - PunctuationQueue: PunctuationQueue.md
     - RecordCollector: RecordCollector.md
     - RecordCollectorImpl: RecordCollectorImpl.md
     - ReferenceContainer: ReferenceContainer.md
@@ -193,6 +194,7 @@ nav:
     - GlobalStateManagerImpl: processor/GlobalStateManagerImpl.md
     - GlobalStateUpdateTask: processor/GlobalStateUpdateTask.md
     - GlobalStreamThread: processor/GlobalStreamThread.md
+    - InternalProcessorContext: processor/InternalProcessorContext.md
     - NodeFactory: processor/NodeFactory.md
     - Processor: processor/Processor.md
     - ProcessorContext: processor/ProcessorContext.md

@@ -21,7 +21,7 @@
 
 `ProcessorContextImpl` is given a [ProcessorStateManager](../ProcessorStateManager.md) when [created](#creating-instance).
 
-## <span id="schedule"> schedule
+## <span id="schedule"> Scheduling Recurring Action
 
 ```java
 Cancellable schedule(
@@ -30,7 +30,7 @@ Cancellable schedule(
   Punctuator callback)
 ```
 
-`schedule` converts the `interval` to milliseconds and requests the [StreamTask](#streamTask) to [schedule](../StreamTask.md#schedule).
+`schedule` converts the `interval` to milliseconds and requests the [StreamTask](#streamTask) to [schedule the given Punctuator](../StreamTask.md#schedule).
 
 `schedule` makes sure that the `interval` is at least 1 ms or throws an `IllegalArgumentException`:
 
