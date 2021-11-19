@@ -120,13 +120,39 @@ void markChangelogAsCorrupted(
   Collection<TopicPartition> partitions)
 ```
 
-### <span id="markChangelogAsCorrupted"> markChangelogAsCorrupted
+### <span id="maybeInitTaskTimeoutOrThrow"> maybeInitTaskTimeoutOrThrow
 
 ```java
 void maybeInitTaskTimeoutOrThrow(
   long currentWallClockMs,
   Exception cause)
 ```
+
+### <span id="maybePunctuateStreamTime"> maybePunctuateStreamTime
+
+```java
+boolean maybePunctuateStreamTime()
+```
+
+Default: `false`
+
+Used when:
+
+* `TaskManager` is requested to [punctuate](TaskManager.md#punctuate)
+* `TopologyTestDriver` is requested to [completeAllProcessableWork](TopologyTestDriver.md#completeAllProcessableWork)
+
+### <span id="maybePunctuateSystemTime"> maybePunctuateSystemTime
+
+```java
+boolean maybePunctuateSystemTime()
+```
+
+Default: `false`
+
+Used when:
+
+* `TaskManager` is requested to [punctuate](TaskManager.md#punctuate)
+* `TopologyTestDriver` is requested to [advanceWallClockTime](TopologyTestDriver.md#advanceWallClockTime)
 
 ### <span id="postCommit"> postCommit
 
@@ -145,6 +171,20 @@ Used when:
 
 * `TaskManager` is requested to [closeDirtyAndRevive](TaskManager.md#closeDirtyAndRevive), [handleCloseAndRecycle](TaskManager.md#handleCloseAndRecycle), [prepareCommitAndAddOffsetsToMap](TaskManager.md#prepareCommitAndAddOffsetsToMap), [closeTaskDirty](TaskManager.md#closeTaskDirty), [tryCloseCleanAllActiveTasks](TaskManager.md#tryCloseCleanAllActiveTasks), [tryCloseCleanAllStandbyTasks](TaskManager.md#tryCloseCleanAllStandbyTasks) and [commitAndFillInConsumedOffsetsAndMetadataPerTaskMap](TaskManager.md#commitAndFillInConsumedOffsetsAndMetadataPerTaskMap)
 * `TopologyTestDriver` is requested to [completeAllProcessableWork](TopologyTestDriver.md#completeAllProcessableWork), [advanceWallClockTime](TopologyTestDriver.md#advanceWallClockTime) and [close](TopologyTestDriver.md#close)
+
+### <span id="process"> Processing Record
+
+```java
+boolean process(
+  long wallClockTime)
+```
+
+Default: `false` (and overriden in [StreamTask](StreamTask.md#process))
+
+Used when:
+
+* `TaskManager` is requested to [process records](TaskManager.md#process)
+* `TopologyTestDriver` is requested to [completeAllProcessableWork](TopologyTestDriver.md#completeAllProcessableWork)
 
 ### <span id="resume"> resume
 

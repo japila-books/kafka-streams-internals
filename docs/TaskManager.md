@@ -30,6 +30,18 @@
 
 `TaskManager` uses this `ActiveTaskCreator` (along with [StandbyTaskCreator](#standbyTaskCreator)) merely to create a [Tasks](#tasks).
 
+## <span id="punctuate"> Punctuating Recurring Actions
+
+```java
+int punctuate()
+```
+
+`punctuate` requests every [active task](#activeTaskIterable) to [maybePunctuateStreamTime](Task.md#maybePunctuateStreamTime) and [maybePunctuateSystemTime](Task.md#maybePunctuateSystemTime) (counting punctuators that were executed).
+
+`punctuate` is used when:
+
+* `StreamThread` is requested to [runOnce](StreamThread.md#runOnce)
+
 ## <span id="commit"> Committing (Active) Tasks
 
 ```java
@@ -185,6 +197,20 @@ void handleRebalanceComplete()
 `handleRebalanceComplete` is used when:
 
 * `StreamsPartitionAssignor` is requested to [onPartitionsAssigned](StreamsPartitionAssignor.md#onPartitionsAssigned)
+
+## <span id="process"> Processing Records (with Active Stream Tasks)
+
+```java
+int process(
+  int maxNumRecords,
+  Time time)
+```
+
+`process` requests every [active StreamTask](#activeTaskIterable) to [process a record](Task.md#process) until the number of records processed (across all the active tasks) reaches the given `maxNumRecords` threshold or there are no more records to process.
+
+`process` is used when:
+
+* `StreamThread` is requested to [runOnce](StreamThread.md#runOnce) ([every iteration](StreamThread.md#runOnce-processing-tasks))
 
 ## Logging
 

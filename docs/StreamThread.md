@@ -107,6 +107,44 @@ void runLoop()
 void runOnce()
 ```
 
+`runOnce` records the start time and poll latency while [pollPhase](#pollPhase).
+
+`runOnce` continues work only when [isRunning](#isRunning). Otherwise, `runOnce` prints out the following DEBUG message to the logs and returns:
+
+```text
+Thread state is already [state], skipping the run once call after poll request
+```
+
+`runOnce` [initializeAndRestorePhase](#initializeAndRestorePhase) and computes the latency.
+
+Only when in `RUNNING` state, `runOnce` [processes tasks (in iterations)](#runOnce-processing-tasks).
+
+In the end, `runOnce` updates the `Sensor`s and every 2 minutes (non-configurable) prints out the following INFO message to the logs:
+
+```text
+Processed [totalRecordsProcessedSinceLastSummary] total records,
+ran [totalPunctuatorsSinceLastSummary] punctuators,
+and committed [totalCommittedSinceLastSummary] total tasks since the last update
+```
+
+#### <span id="numIterations"> Number of Iterations
+
+`StreamThread` uses `numIterations` internal registry for the maximum number of iterations.
+
+The `numIterations` starts as `1` when `StreamThread` is [created](#creating-instance) and is updated (incremented or half'ed) at the end of every [iteration](#runOnce-processing-tasks) (until active tasks [processed](Task.md#process) no rows).
+
+The `numIterations` is used as the maximum number of records for the [TaskManager](#taskManager) to [process records](TaskManager.md#process).
+
+`numIterations` is printed out twice to the logs at DEBUG level.
+
+#### <span id="runOnce-processing-tasks"> Processing Tasks (in Iterations)
+
+When in `RUNNING` state, `runOnce` executes the following steps the [maximum number of iterations](#numIterations).
+
+`runOnce`...FIXME
+
+`runOnce` requests the [TaskManager](#taskManager) to [punctuate](TaskManager.md#punctuate).
+
 `runOnce`...FIXME
 
 ### <span id="maybeCommit"> maybeCommit

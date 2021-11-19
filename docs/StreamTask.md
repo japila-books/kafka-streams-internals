@@ -45,6 +45,57 @@
 
 `StreamTask` is given a [RecordCollector](RecordCollector.md) when [created](#creating-instance).
 
+## <span id="schedule"> Scheduling Recurring Action
+
+```java
+Cancellable schedule(
+  long startTime,
+  long interval,
+  PunctuationType type,
+  Punctuator punctuator)
+Cancellable schedule(
+  long interval,
+  PunctuationType type,
+  Punctuator punctuator)
+```
+
+`schedule` creates a `PunctuationSchedule` (for the current [ProcessorNode](processor/ProcessorNode.md)) and requests the [stream-time](#streamTimePunctuationQueue) or [system-time](#systemTimePunctuationQueue)  `PunctuationQueue`s to [schedule the PunctuationSchedule](PunctuationQueue.md#schedule) based on the given `PunctuationType` (`STREAM_TIME` or `WALL_CLOCK_TIME`, respectively).
+
+`schedule` is used when:
+
+* `ProcessorContextImpl` is requested to [schedule a recurring action](processor/ProcessorContextImpl.md#schedule)
+
+### <span id="PunctuationQueue"><span id="streamTimePunctuationQueue"><span id="systemTimePunctuationQueue"> Stream- and System-Time PunctuationQueues
+
+`StreamTask` creates stream- and system-time [PunctuationQueue](PunctuationQueue.md)s when [created](#creating-instance).
+
+`StreamTask` registers a recurring action for [scheduling](#schedule) based on action type:
+
+* Stream-time queue for `STREAM_TIME` type
+* System-time queue for `WALL_CLOCK_TIME` type
+
+Actions are executed when [maybePunctuateStreamTime](#maybePunctuateStreamTime) or [maybePunctuateSystemTime](#maybePunctuateSystemTime) (when `TaskManager` is requested to [punctuate](TaskManager.md#punctuate)).
+
+### <span id="maybePunctuateStreamTime"> maybePunctuateStreamTime
+
+```java
+boolean maybePunctuateStreamTime()
+```
+
+`maybePunctuateStreamTime`...FIXME
+
+`maybePunctuateStreamTime` is part of the [Task](Task.md#maybePunctuateStreamTime) abstraction.
+
+### <span id="maybePunctuateSystemTime"> maybePunctuateSystemTime
+
+```java
+boolean maybePunctuateSystemTime()
+```
+
+`maybePunctuateSystemTime`...FIXME
+
+`maybePunctuateSystemTime` is part of the [Task](Task.md#maybePunctuateSystemTime) abstraction.
+
 ## <span id="prepareCommit"> prepareCommit
 
 ```java
@@ -74,26 +125,6 @@ void addRecords(
 `addRecords`...FIXME
 
 `addRecords` is part of the [Task](Task.md#addRecords) abstraction.
-
-## <span id="schedule"> Scheduling Recurring Action
-
-```java
-Cancellable schedule(
-  long startTime,
-  long interval,
-  PunctuationType type,
-  Punctuator punctuator)
-Cancellable schedule(
-  long interval,
-  PunctuationType type,
-  Punctuator punctuator)
-```
-
-`schedule` creates a `PunctuationSchedule` (for the current [ProcessorNode](processor/ProcessorNode.md)) and requests the [stream-time PunctuationQueue](#streamTimePunctuationQueue) or [system-time PunctuationQueue](#systemTimePunctuationQueue) to [schedule the PunctuationSchedule](../PunctuationQueue.md#schedule) based on `PunctuationType` (`STREAM_TIME` or `WALL_CLOCK_TIME`, respectively).
-
-`schedule` is used when:
-
-* `ProcessorContextImpl` is requested to [schedule a recurring action](processor/ProcessorContextImpl.md#schedule)
 
 ## <span id="addPartitionsForOffsetReset"> addPartitionsForOffsetReset
 
