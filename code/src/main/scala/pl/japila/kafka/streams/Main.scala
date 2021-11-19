@@ -1,7 +1,6 @@
 package pl.japila.kafka.streams
 
 import org.apache.kafka.common.serialization.Serdes.StringSerde
-import org.apache.kafka.streams.processor.api.{Processor, ProcessorSupplier}
 import org.apache.kafka.streams.{KafkaStreams, StreamsConfig, Topology}
 
 import java.util.Properties
@@ -9,9 +8,10 @@ import java.util.Properties
 object Main {
 
   def main(args: Array[String]): Unit = {
-    println(">>> main started")
+    println(">>> Creating a Topology")
 
     val topology = new Topology
+
     // Registers a SourceNodeFactory to handle the given topic(s)
     // No relation to other nodes thus far
     val sourceName = "my-source"
@@ -22,17 +22,15 @@ object Main {
     // Processors must have at least one parent (although they are optional)
     // parents are known as "predecessors" internally
     val processorName = "my-processor-forward"
-    topology.addProcessor(processorName, new ProcessorSupplier[String, String, String, String] {
-      override def get(): Processor[String, String, String, String] = {
-        new MyProcessor[String, String, String, String](forward = true)
-      }
-    }, sourceName)
+    topology.addProcessor(
+      processorName,
+      () => new MyProcessor[String, String, String, String](forward = true),
+      sourceName)
 
-    topology.addProcessor("foreach", new ProcessorSupplier[String, String, String, String] {
-      override def get(): Processor[String, String, String, String] = {
-        new MyProcessor[String, String, String, String](forward = false)
-      }
-    }, processorName)
+    topology.addProcessor(
+      "foreach",
+      () => new MyProcessor[String, String, String, String](forward = false),
+      processorName)
 
     println(topology.describe())
 
