@@ -71,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/PunctuationQueue/</loc>
+         <lastmod>2021-11-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://books.japila.pl/kafka-streams-internals/RecordCollector/</loc>
          <lastmod>2021-11-19</lastmod>
          <changefreq>daily</changefreq>
@@ -447,6 +452,11 @@
     </url>
     <url>
          <loc>https://books.japila.pl/kafka-streams-internals/processor/GlobalStreamThread/</loc>
+         <lastmod>2021-11-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://books.japila.pl/kafka-streams-internals/processor/InternalProcessorContext/</loc>
          <lastmod>2021-11-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
