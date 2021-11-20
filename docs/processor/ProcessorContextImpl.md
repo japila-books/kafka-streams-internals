@@ -39,3 +39,54 @@ The minimum supported scheduling interval is 1 millisecond.
 ```
 
 `schedule` is part of the [ProcessorContext](ProcessorContext.md#schedule) abstraction.
+
+## Forwarding Record Downstream
+
+`ProcessorContextImpl` is associated with a [ProcessorNode](ProcessorNode.md) known as the [current node](#currentNode).
+
+[forward](#forward) (and [forwardInternal](#forwardInternal) in particular) uses the [current ProcessorNode](#currentNode) to [process a given record](ProcessorNode.md#process).
+
+[ProcessorNode](ProcessorNode.md)s are associated with child `ProcessorNode`s known as [children](ProcessorNode.md#children).
+
+### <span id="forward"> forward
+
+```java
+void forward(
+  K key,
+  V value)
+void forward(
+  K key,
+  V value,
+  To to)
+void forward(
+  Record<K, V> record)
+void forward(
+  Record<K, V> record, 
+  String childName)
+```
+
+`forward` [forwardInternal](#forwardInternal) to the [child](ProcessorNode.md#getChild) or all the [children](ProcessorNode.md#children) nodes of the [current ProcessorNode](#currentNode).
+
+---
+
+`forward` throws an `UnsupportedOperationException` for a `TaskType.STANDBY` task:
+
+```text
+this should not happen: forward() is not supported in standby tasks.
+```
+
+---
+
+`forward` is part of the [ProcessorContext](ProcessorContext.md#forward) abstraction.
+
+### <span id="forwardInternal"> forwardInternal
+
+```java
+void forwardInternal(
+  ProcessorNode<K, V, ?, ?> child,
+  Record<K, V> record)
+```
+
+`forwardInternal` [sets the current node](AbstractProcessorContext.md#setCurrentNode) to be the given child [ProcessorNode](ProcessorNode.md) that is in turn requested to [process the record](ProcessorNode.md#process).
+
+If the child node is [terminal](ProcessorNode.md#isTerminalNode) (no children), `forwardInternal` requests the [StreamTask](#streamTask) to [maybeRecordE2ELatency](../StreamTask.md#maybeRecordE2ELatency).

@@ -21,6 +21,8 @@ void init(
   ProcessorContext<KOut, VOut> context)
 ```
 
+Initializes this `Processor` (passing in a [ProcessorContext](ProcessorContext.md))
+
 Used when:
 
 * `ProcessorNode` is requested to [init](ProcessorNode.md#init)

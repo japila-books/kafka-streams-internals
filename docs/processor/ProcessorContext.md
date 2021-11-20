@@ -4,6 +4,20 @@
 
 ## Contract (Subset)
 
+### <span id="forward"> Forwarding Record
+
+```java
+void forward(
+  Record<K, V> record)
+void forward(
+  Record<K, V> record,
+  String childName)
+```
+
+Forwards a `Record` (to all or the specified child processor)
+
+See [ProcessorContextImpl](ProcessorContextImpl.md#forward)
+
 ### <span id="schedule"> schedule
 
 ```java

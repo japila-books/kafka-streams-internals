@@ -18,6 +18,39 @@
 
 [SourceNode](SourceNode.md) and [SinkNode](SinkNode.md) are specialized `ProcessorNode`s.
 
+## <span id="children"> Child ProcessorNodes
+
+`ProcessorNode` defines `children` internal registry of child `ProcessorNode`s.
+
+The `children` is empty when `ProcessorNode` is [created](#creating-instance).
+
+A new `ProcessorNode` is added in [addChild](#addChild).
+
+### <span id="addChild"> addChild
+
+```java
+void addChild(
+  ProcessorNode<KOut, VOut, ?, ?> child)
+```
+
+`addChild` adds a new `ProcessorNode` to the [children](#children) and the [childByName](#childByName) internal registries.
+
+`addChild` is used when:
+
+* `InternalTopologyBuilder` is requested to [buildSinkNode](../InternalTopologyBuilder.md#buildSinkNode) and [buildProcessorNode](../InternalTopologyBuilder.md#buildProcessorNode)
+
+### <span id="children"> children
+
+```java
+List<ProcessorNode<KOut, VOut, ?, ?>> children()
+```
+
+`children` is used when:
+
+* `GlobalProcessorContextImpl` is requested to [forward a record](GlobalProcessorContextImpl.md#forward)
+* `ProcessorContextImpl` is requested to [forward a record](ProcessorContextImpl.md#forward)
+* `ProcessorTopology` is requested for [text representation](ProcessorTopology.md#toString)
+
 ## <span id="isTerminalNode"> Terminal Node
 
-`ProcessorNode` is considered **terminal** when there are no [children](#children).
+`ProcessorNode` is **terminal** when has got no [children](#children).
