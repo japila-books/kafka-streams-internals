@@ -204,6 +204,7 @@ nav:
     - ProcessorSupplier: processor/ProcessorSupplier.md
     - ProcessorTopology: processor/ProcessorTopology.md
     - Punctuator: processor/Punctuator.md
+    - PunctuationSchedule: processor/PunctuationSchedule.md
     - SinkNode: processor/SinkNode.md
     - SinkNodeFactory: processor/SinkNodeFactory.md
     - SourceNodeFactory: processor/SourceNodeFactory.md

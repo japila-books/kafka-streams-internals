@@ -29,7 +29,9 @@ Cancellable schedule(
 
 Schedules an recurring action (`Punctuator`) to be executed every `interval` ms
 
+See [ProcessorContextImpl](ProcessorContextImpl.md#schedule)
+
 ## Implementations
 
-* `InternalProcessorContext`
 * [AbstractProcessorContext](AbstractProcessorContext.md)
+* [InternalProcessorContext](InternalProcessorContext.md)

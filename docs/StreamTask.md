@@ -59,7 +59,7 @@ Cancellable schedule(
   Punctuator punctuator)
 ```
 
-`schedule` creates a `PunctuationSchedule` (for the current [ProcessorNode](processor/ProcessorNode.md)) and requests the [stream-time](#streamTimePunctuationQueue) or [system-time](#systemTimePunctuationQueue)  `PunctuationQueue`s to [schedule the PunctuationSchedule](PunctuationQueue.md#schedule) based on the given `PunctuationType` (`STREAM_TIME` or `WALL_CLOCK_TIME`, respectively).
+`schedule` creates a [PunctuationSchedule](processor/PunctuationSchedule.md) (for the current [ProcessorNode](processor/ProcessorNode.md)) and requests the [stream-time](#streamTimePunctuationQueue) or [system-time](#systemTimePunctuationQueue)  `PunctuationQueue`s to [schedule the PunctuationSchedule](PunctuationQueue.md#schedule) based on the given `PunctuationType` (`STREAM_TIME` or `WALL_CLOCK_TIME`, respectively).
 
 `schedule` is used when:
 
