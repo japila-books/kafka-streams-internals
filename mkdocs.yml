@@ -240,6 +240,8 @@ nav:
     - WrappedStateStore: state/WrappedStateStore.md
   - Testing:
     - TopologyTestDriver: TopologyTestDriver.md
+  - Metrics:
+    - StreamsMetricsImpl: metrics/StreamsMetricsImpl.md
   - Features:
     - Global Stores: global-stores.md
     - Scala API: scala.md

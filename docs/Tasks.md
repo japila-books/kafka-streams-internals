@@ -6,7 +6,7 @@
 
 * <span id="logPrefix"> Log Prefix
 * <span id="builder"> [InternalTopologyBuilder](InternalTopologyBuilder.md)
-* <span id="streamsMetrics"> `StreamsMetricsImpl`
+* <span id="streamsMetrics"> [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md)
 * <span id="activeTaskCreator"> [ActiveTaskCreator](ActiveTaskCreator.md)
 * <span id="standbyTaskCreator"> [StandbyTaskCreator](StandbyTaskCreator.md)
 

@@ -8,7 +8,7 @@
 * <span id="changelogReader"> [ChangelogReader](ChangelogReader.md)
 * <span id="processId"> Process UUID
 * <span id="logPrefix"> Log Prefix
-* <span id="streamsMetrics"> `StreamsMetricsImpl`
+* <span id="streamsMetrics"> [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md)
 * [ActiveTaskCreator](#activeTaskCreator)
 * <span id="standbyTaskCreator"> [StandbyTaskCreator](StandbyTaskCreator.md)
 * <span id="builder"> [InternalTopologyBuilder](InternalTopologyBuilder.md)

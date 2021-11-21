@@ -1,6 +1,6 @@
 # ProcessorContextImpl
 
-`ProcessorContextImpl` is a [AbstractProcessorContext](AbstractProcessorContext.md)
+`ProcessorContextImpl` is an [AbstractProcessorContext](AbstractProcessorContext.md).
 
 ## Creating Instance
 
@@ -9,7 +9,7 @@
 * <span id="id"> [TaskId](../TaskId.md)
 * <span id="config"> [StreamsConfig](../StreamsConfig.md)
 * [ProcessorStateManager](#stateMgr)
-* <span id="metrics"> `StreamsMetricsImpl`
+* <span id="metrics"> [StreamsMetricsImpl](../metrics/StreamsMetricsImpl.md)
 * <span id="cache"> [ThreadCache](../state/ThreadCache.md)
 
 `ProcessorContextImpl` is created when:
@@ -42,9 +42,9 @@ The minimum supported scheduling interval is 1 millisecond.
 
 ## Forwarding Record Downstream
 
-`ProcessorContextImpl` is associated with a [ProcessorNode](ProcessorNode.md) known as the [current node](#currentNode).
+`ProcessorContextImpl` is associated with a [ProcessorNode](ProcessorNode.md) known as the [current node](AbstractProcessorContext.md#currentNode).
 
-[forward](#forward) (and [forwardInternal](#forwardInternal) in particular) uses the [current ProcessorNode](#currentNode) to [process a given record](ProcessorNode.md#process).
+[forward](#forward) (and [forwardInternal](#forwardInternal) in particular) uses the [current ProcessorNode](AbstractProcessorContext.md#currentNode) to [process a given record](ProcessorNode.md#process).
 
 [ProcessorNode](ProcessorNode.md)s are associated with child `ProcessorNode`s known as [children](ProcessorNode.md#children).
 
@@ -65,7 +65,7 @@ void forward(
   String childName)
 ```
 
-`forward` [forwardInternal](#forwardInternal) to the [child](ProcessorNode.md#getChild) or all the [children](ProcessorNode.md#children) nodes of the [current ProcessorNode](#currentNode).
+`forward` [forwardInternal](#forwardInternal) to the [child](ProcessorNode.md#getChild) or all the [children](ProcessorNode.md#children) nodes of the [current ProcessorNode](AbstractProcessorContext.md#currentNode).
 
 ---
 

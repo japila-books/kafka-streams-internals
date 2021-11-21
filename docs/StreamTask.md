@@ -11,7 +11,7 @@
 * <span id="topology"> [ProcessorTopology](processor/ProcessorTopology.md)
 * [Kafka Consumer](#mainConsumer)
 * <span id="config"> [StreamsConfig](StreamsConfig.md)
-* <span id="streamsMetrics"> `StreamsMetricsImpl`
+* <span id="streamsMetrics"> [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md)
 * <span id="stateDirectory"> [StateDirectory](StateDirectory.md)
 * <span id="cache"> [ThreadCache](state/ThreadCache.md)
 * <span id="time"> `Time`

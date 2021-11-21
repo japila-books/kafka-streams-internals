@@ -10,7 +10,7 @@
 * <span id="taskId"> [TaskId](TaskId.md)
 * <span id="streamsProducer"> [StreamsProducer](StreamsProducer.md)
 * <span id="productionExceptionHandler"> `ProductionExceptionHandler`
-* <span id="streamsMetrics"> `StreamsMetricsImpl`
+* <span id="streamsMetrics"> [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md)
 
 `RecordCollectorImpl` is created when:
 

@@ -10,7 +10,7 @@
 * <span id="inputPartitions"> Input `TopicPartition`s
 * <span id="topology"> [ProcessorTopology](processor/ProcessorTopology.md)
 * <span id="config"> [StreamsConfig](StreamsConfig.md)
-* <span id="streamsMetrics"> `StreamsMetricsImpl`
+* <span id="streamsMetrics"> [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md)
 * <span id="stateMgr"> [ProcessorStateManager](ProcessorStateManager.md)
 * <span id="stateDirectory"> [StateDirectory](StateDirectory.md)
 * <span id="cache"> `ThreadCache`

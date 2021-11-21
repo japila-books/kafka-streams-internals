@@ -14,7 +14,7 @@
 * <span id="changelogReader"> [ChangelogReader](ChangelogReader.md)
 * <span id="originalReset"> `originalReset`
 * <span id="taskManager"> [TaskManager](TaskManager.md)
-* <span id="streamsMetrics"> `StreamsMetricsImpl`
+* <span id="streamsMetrics"> [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md)
 * <span id="builder"> `InternalTopologyBuilder`
 * <span id="threadId"> Thread ID
 * <span id="logContext"> `LogContext`
