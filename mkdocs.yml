@@ -241,6 +241,9 @@ nav:
   - Testing:
     - TopologyTestDriver: TopologyTestDriver.md
   - Metrics:
+    - metrics/index.md
+    - ClientMetrics: metrics/ClientMetrics.md
+    - StreamsMetrics: metrics/StreamsMetrics.md
     - StreamsMetricsImpl: metrics/StreamsMetricsImpl.md
   - Features:
     - Global Stores: global-stores.md

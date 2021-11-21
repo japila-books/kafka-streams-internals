@@ -187,6 +187,73 @@ KeyQueryMetadata queryMetadataForKey(
 
 `queryMetadataForKey` requests the [StreamsMetadataState](#streamsMetadataState) to [getKeyQueryMetadataForKey](StreamsMetadataState.md#getKeyQueryMetadataForKey).
 
+## <span id="metrics"> Performance Metrics
+
+`KafkaStreams` [gets the configured metrics](#getMetrics) when [created](#creating-instance).
+
+`KafkaStreams` uses the metrics to create a [StreamsMetricsImpl](#streamsMetrics) right after.
+
+### <span id="rocksDBMetricsRecordingService"> Metrics Recording Service
+
+`KafkaStreams` [may create](#maybeCreateRocksDBMetricsRecordingService) a `rocksDBMetricsRecordingService` executor service ([ScheduledExecutorService]({{ java.api }}/java/util/concurrent/ScheduledExecutorService.html)) when [created](#creating-instance) (based on [metrics.recording.level](StreamsConfig.md#metrics.recording.level) configuration property).
+
+`KafkaStreams` uses the `ScheduledExecutorService` to submit a [RocksDBMetricsRecordingTrigger](metrics/StreamsMetricsImpl.md#rocksDBMetricsRecordingTrigger) (of the [StreamsMetricsImpl](streamsMetrics)) to be executed every 1 minute (non-configurable).
+
+The `ScheduledExecutorService` is shut down when [shutdownHelper](#shutdownHelper).
+
+#### <span id="maybeCreateRocksDBMetricsRecordingService"> maybeCreateRocksDBMetricsRecordingService
+
+```java
+ScheduledExecutorService maybeCreateRocksDBMetricsRecordingService(
+  String clientId,
+  StreamsConfig config)
+```
+
+Only with [metrics.recording.level](StreamsConfig.md#metrics.recording.level) configuration property as `DEBUG`, `maybeCreateRocksDBMetricsRecordingService` creates a single-threaded executor.
+The name of this one daemon thread is as follows:
+
+```text
+[clientId]-RocksDBMetricsRecordingTrigger
+```
+
+### <span id="streamsMetrics"> StreamsMetricsImpl
+
+`KafkaStreams` creates a [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md) when [created](#creating-instance) (based on the [configured metrics](#getMetrics) and [built.in.metrics.version](StreamsConfig.md#built.in.metrics.version) configuration property).
+
+`KafkaStreams` registers the following [ClientMetrics](metrics/ClientMetrics.md):
+
+* [addVersionMetric](metrics/ClientMetrics.md#addVersionMetric)
+* [addCommitIdMetric](metrics/ClientMetrics.md#addCommitIdMetric)
+* [addApplicationIdMetric](metrics/ClientMetrics.md#addApplicationIdMetric)
+* [addTopologyDescriptionMetric](metrics/ClientMetrics.md#addTopologyDescriptionMetric)
+* [addStateMetric](metrics/ClientMetrics.md#addStateMetric)
+* [addNumAliveStreamThreadMetric](metrics/ClientMetrics.md#addNumAliveStreamThreadMetric)
+
+`KafkaStreams` uses the `StreamsMetricsImpl` to create a [GlobalStreamThread](#globalStreamThread) and [StreamThread](#createAndAddStreamThread)s.
+
+When [started](#start), `KafkaStreams` requests the `StreamsMetricsImpl` for [rocksDBMetricsRecordingTrigger](metrics/StreamsMetricsImpl.md#rocksDBMetricsRecordingTrigger) (to schedule it at fixed rate using the [Metrics Recording Service](#rocksDBMetricsRecordingService)).
+
+#### <span id="getMetrics"> getMetrics
+
+```java
+Metrics getMetrics(
+  StreamsConfig config,
+  Time time,
+  String clientId)
+```
+
+`getMetrics` creates a `MetricConfig` ([Apache Kafka]({{ book.kafka }}/MetricConfig)) with the following:
+
+* Number of samples per [metrics.num.samples](StreamsConfig.md#METRICS_NUM_SAMPLES_CONFIG) configuration property
+* Recording level per [metrics.recording.level](StreamsConfig.md#METRICS_RECORDING_LEVEL_CONFIG) configuration property
+* Time Window per [metrics.sample.window.ms](StreamsConfig.md#METRICS_SAMPLE_WINDOW_MS_CONFIG) configuration property
+
+`getMetrics` requests the given [StreamsConfig](StreamsConfig.md) for configured `MetricsReporter`s ([Apache Kafka]({{ kafka.book }}/MetricsReporter)) per [metric.reporters](StreamsConfig.md#METRIC_REPORTER_CLASSES_CONFIG) configuration property.
+
+`getMetrics` always adds `JmxReporter` to the list of configured `MetricsReporter`s. `JmxReporter` is configured to use `kafka.streams` JMX prefix.
+
+In the end, `getMetrics` creates a `Metrics` ([Apache Kafka]({{ kafka.book }}/Metrics)) (with the `MetricConfig`, the `MetricsReporter`s, et al.)
+
 ## Logging
 
 Enable `ALL` logging level for `org.apache.kafka.streams.KafkaStreams` logger to see what happens inside.

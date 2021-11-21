@@ -8,6 +8,8 @@ A `host:port` endpoint address of the KafkaStreams instance
 
 ## <span id="BUFFERED_RECORDS_PER_PARTITION_CONFIG"><span id="buffered.records.per.partition"> buffered.records.per.partition
 
+## <span id="BUILT_IN_METRICS_VERSION_CONFIG"><span id="built.in.metrics.version"> built.in.metrics.version
+
 ## <span id="CACHE_MAX_BYTES_BUFFERING_CONFIG"><span id="cache.max.bytes.buffering"> cache.max.bytes.buffering
 
 ## <span id="CLIENT_ID_CONFIG"><span id="client.id"> client.id
@@ -29,6 +31,22 @@ Used when:
 * `GlobalStreamThread` is requested to [initialize](processor/GlobalStreamThread.md#initialize) (and create a `StateConsumer`)
 * `StoreChangelogReader` is [created](processor/StoreChangelogReader.md#updateOffsetIntervalMs)
 * `StreamThread` is [created](StreamThread.md#commitTimeMs)
+
+## <span id="METRICS_NUM_SAMPLES_CONFIG"><span id="metrics.num.samples"> metrics.num.samples
+
+Defined in `StreamsConfig` based on `CommonClientConfigs.METRICS_NUM_SAMPLES_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_NUM_SAMPLES_CONFIG))
+
+## <span id="METRICS_RECORDING_LEVEL_CONFIG"><span id="metrics.recording.level"> metrics.recording.level
+
+Defined in `StreamsConfig` based on `CommonClientConfigs.METRICS_RECORDING_LEVEL_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_RECORDING_LEVEL_CONFIG))
+
+## <span id="METRIC_REPORTER_CLASSES_CONFIG"><span id="metric.reporters"> metric.reporters
+
+Defined in `StreamsConfig` based on `CommonClientConfigs.METRIC_REPORTER_CLASSES_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRIC_REPORTER_CLASSES_CONFIG))
+
+## <span id="METRICS_SAMPLE_WINDOW_MS_CONFIG"><span id="metrics.sample.window.ms"> metrics.sample.window.ms
+
+Defined in `StreamsConfig` based on `CommonClientConfigs.METRICS_SAMPLE_WINDOW_MS_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_SAMPLE_WINDOW_MS_CONFIG))
 
 ## <span id="POLL_MS_CONFIG"><span id="poll.ms"> poll.ms
 
