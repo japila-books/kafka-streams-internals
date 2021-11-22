@@ -5,7 +5,7 @@
 `InternalTopicManager` takes the following to be created:
 
 * <span id="time"> `Time`
-* <span id="adminClient"> `Admin` ([Apache Kafka]({{ book.kafka }}/Admin))
+* <span id="adminClient"> `Admin` ([Apache Kafka]({{ book.kafka }}/clients/admin/Admin))
 * <span id="streamsConfig"> [StreamsConfig](StreamsConfig.md)
 
 `InternalTopicManager` is created when:

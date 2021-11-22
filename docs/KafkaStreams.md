@@ -235,17 +235,17 @@ Metrics getMetrics(
   String clientId)
 ```
 
-`getMetrics` creates a `MetricConfig` ([Apache Kafka]({{ book.kafka }}/MetricConfig)) with the following:
+`getMetrics` creates a `MetricConfig` ([Apache Kafka]({{ book.kafka }}/metrics/MetricConfig)) with the following:
 
 * Number of samples per [metrics.num.samples](StreamsConfig.md#METRICS_NUM_SAMPLES_CONFIG) configuration property
 * Recording level per [metrics.recording.level](StreamsConfig.md#METRICS_RECORDING_LEVEL_CONFIG) configuration property
 * Time Window per [metrics.sample.window.ms](StreamsConfig.md#METRICS_SAMPLE_WINDOW_MS_CONFIG) configuration property
 
-`getMetrics` requests the given [StreamsConfig](StreamsConfig.md) for configured `MetricsReporter`s ([Apache Kafka]({{ kafka.book }}/MetricsReporter)) per [metric.reporters](StreamsConfig.md#METRIC_REPORTER_CLASSES_CONFIG) configuration property.
+`getMetrics` requests the given [StreamsConfig](StreamsConfig.md) for configured `MetricsReporter`s ([Apache Kafka]({{ book.kafka }}/metrics/MetricsReporter)) per [metric.reporters](StreamsConfig.md#METRIC_REPORTER_CLASSES_CONFIG) configuration property.
 
 `getMetrics` always adds `JmxReporter` to the list of configured `MetricsReporter`s. `JmxReporter` is configured to use `kafka.streams` JMX prefix.
 
-In the end, `getMetrics` creates a `Metrics` ([Apache Kafka]({{ kafka.book }}/Metrics)) (with the `MetricConfig`, the `MetricsReporter`s, et al.)
+In the end, `getMetrics` creates a `Metrics` ([Apache Kafka]({{ book.kafka }}/metrics/Metrics)) (with the `MetricConfig`, the `MetricsReporter`s, et al.)
 
 ## Logging
 
