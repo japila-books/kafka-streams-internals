@@ -34,19 +34,19 @@ Used when:
 
 ## <span id="METRICS_NUM_SAMPLES_CONFIG"><span id="metrics.num.samples"> metrics.num.samples
 
-Defined in `StreamsConfig` based on `CommonClientConfigs.METRICS_NUM_SAMPLES_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_NUM_SAMPLES_CONFIG))
+(Re)Defined in `StreamsConfig` as `CommonClientConfigs.METRICS_NUM_SAMPLES_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_NUM_SAMPLES_CONFIG))
 
 ## <span id="METRICS_RECORDING_LEVEL_CONFIG"><span id="metrics.recording.level"> metrics.recording.level
 
-Defined in `StreamsConfig` based on `CommonClientConfigs.METRICS_RECORDING_LEVEL_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_RECORDING_LEVEL_CONFIG))
+(Re)Defined in `StreamsConfig` as `CommonClientConfigs.METRICS_RECORDING_LEVEL_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_RECORDING_LEVEL_CONFIG))
 
 ## <span id="METRIC_REPORTER_CLASSES_CONFIG"><span id="metric.reporters"> metric.reporters
 
-Defined in `StreamsConfig` based on `CommonClientConfigs.METRIC_REPORTER_CLASSES_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRIC_REPORTER_CLASSES_CONFIG))
+(Re)Defined in `StreamsConfig` as `CommonClientConfigs.METRIC_REPORTER_CLASSES_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRIC_REPORTER_CLASSES_CONFIG))
 
 ## <span id="METRICS_SAMPLE_WINDOW_MS_CONFIG"><span id="metrics.sample.window.ms"> metrics.sample.window.ms
 
-Defined in `StreamsConfig` based on `CommonClientConfigs.METRICS_SAMPLE_WINDOW_MS_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_SAMPLE_WINDOW_MS_CONFIG))
+(Re)Defined in `StreamsConfig` as `CommonClientConfigs.METRICS_SAMPLE_WINDOW_MS_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_SAMPLE_WINDOW_MS_CONFIG))
 
 ## <span id="POLL_MS_CONFIG"><span id="poll.ms"> poll.ms
 

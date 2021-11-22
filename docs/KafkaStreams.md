@@ -195,7 +195,7 @@ KeyQueryMetadata queryMetadataForKey(
 
 ### <span id="rocksDBMetricsRecordingService"> Metrics Recording Service
 
-`KafkaStreams` [may create](#maybeCreateRocksDBMetricsRecordingService) a `rocksDBMetricsRecordingService` executor service ([ScheduledExecutorService]({{ java.api }}/java/util/concurrent/ScheduledExecutorService.html)) when [created](#creating-instance) (based on [metrics.recording.level](StreamsConfig.md#metrics.recording.level) configuration property).
+`KafkaStreams` [may create](#maybeCreateRocksDBMetricsRecordingService) a `rocksDBMetricsRecordingService` executor service ([ScheduledExecutorService]({{ java.api }}/java/util/concurrent/ScheduledExecutorService.html)) when [created](#creating-instance) (and the value of [metrics.recording.level](StreamsConfig.md#metrics.recording.level) configuration property is `DEBUG`).
 
 `KafkaStreams` uses the `ScheduledExecutorService` to submit a [RocksDBMetricsRecordingTrigger](metrics/StreamsMetricsImpl.md#rocksDBMetricsRecordingTrigger) (of the [StreamsMetricsImpl](streamsMetrics)) to be executed every 1 minute (non-configurable).
 
@@ -216,20 +216,13 @@ The name of this one daemon thread is as follows:
 [clientId]-RocksDBMetricsRecordingTrigger
 ```
 
-### <span id="streamsMetrics"> StreamsMetricsImpl
+### <span id="streamsMetrics"><span id="ClientMetrics"> StreamsMetricsImpl
 
-`KafkaStreams` creates a [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md) when [created](#creating-instance) (based on the [configured metrics](#getMetrics) and [built.in.metrics.version](StreamsConfig.md#built.in.metrics.version) configuration property).
+When [created](#creating-instance), `KafkaStreams` creates a [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md) (based on the [configured metrics](#getMetrics) and [built.in.metrics.version](StreamsConfig.md#built.in.metrics.version) configuration property).
 
-`KafkaStreams` registers the following [ClientMetrics](metrics/ClientMetrics.md):
+`KafkaStreams` registers [ClientMetrics](metrics/ClientMetrics.md).
 
-* [addVersionMetric](metrics/ClientMetrics.md#addVersionMetric)
-* [addCommitIdMetric](metrics/ClientMetrics.md#addCommitIdMetric)
-* [addApplicationIdMetric](metrics/ClientMetrics.md#addApplicationIdMetric)
-* [addTopologyDescriptionMetric](metrics/ClientMetrics.md#addTopologyDescriptionMetric)
-* [addStateMetric](metrics/ClientMetrics.md#addStateMetric)
-* [addNumAliveStreamThreadMetric](metrics/ClientMetrics.md#addNumAliveStreamThreadMetric)
-
-`KafkaStreams` uses the `StreamsMetricsImpl` to create a [GlobalStreamThread](#globalStreamThread) and [StreamThread](#createAndAddStreamThread)s.
+`KafkaStreams` passes the `StreamsMetricsImpl` in while creating a [GlobalStreamThread](#globalStreamThread) and [StreamThread](#createAndAddStreamThread)s.
 
 When [started](#start), `KafkaStreams` requests the `StreamsMetricsImpl` for [rocksDBMetricsRecordingTrigger](metrics/StreamsMetricsImpl.md#rocksDBMetricsRecordingTrigger) (to schedule it at fixed rate using the [Metrics Recording Service](#rocksDBMetricsRecordingService)).
 
