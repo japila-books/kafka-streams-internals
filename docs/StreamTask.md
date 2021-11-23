@@ -97,14 +97,14 @@ Cancellable schedule(
 
 ### <span id="PunctuationQueue"><span id="streamTimePunctuationQueue"><span id="systemTimePunctuationQueue"> Stream- and System-Time PunctuationQueues
 
-`StreamTask` creates stream- and system-time [PunctuationQueue](PunctuationQueue.md)s when [created](#creating-instance).
+`StreamTask` creates two [PunctuationQueue](PunctuationQueue.md)s when [created](#creating-instance) for the following [Punctuator](processor/Punctuator.md)s:
 
-`StreamTask` registers a recurring action for [scheduling](#schedule) based on action type:
+1. `streamTimePunctuationQueue` queue for `STREAM_TIME`-type punctuators
+1. `systemTimePunctuationQueue` queue for `WALL_CLOCK_TIME`-type punctuators
 
-* Stream-time queue for `STREAM_TIME` type
-* System-time queue for `WALL_CLOCK_TIME` type
+`Punctuator`s are added to a corresponding `PunctuationQueue` when `StreamTask` is requested to [schedule a recurring action](#schedule).
 
-Actions are executed when [maybePunctuateStreamTime](#maybePunctuateStreamTime) or [maybePunctuateSystemTime](#maybePunctuateSystemTime) (when `TaskManager` is requested to [punctuate](TaskManager.md#punctuate)).
+The actions are executed every [maybePunctuateStreamTime](#maybePunctuateStreamTime) or [maybePunctuateSystemTime](#maybePunctuateSystemTime) (when `TaskManager` is requested to [punctuate](TaskManager.md#punctuate)).
 
 ### <span id="maybePunctuateStreamTime"> maybePunctuateStreamTime
 
@@ -112,16 +112,18 @@ Actions are executed when [maybePunctuateStreamTime](#maybePunctuateStreamTime) 
 boolean maybePunctuateStreamTime()
 ```
 
-`maybePunctuateStreamTime` returns `true` when at least one `STREAM_TIME` punctuation has been executed.
+`maybePunctuateStreamTime` returns `true` when at least one `STREAM_TIME` punctuator has been executed.
 
-`maybePunctuateSystemTime` requests the [PartitionGroup](#partitionGroup) for the [stream time](PartitionGroup.md#streamTime).
+---
+
+`maybePunctuateStreamTime` requests the [PartitionGroup](#partitionGroup) for the [stream time](PartitionGroup.md#streamTime).
 
 !!! note
-    Stream time for `STREAM_TIME` punctuations is determined using [PartitionGroup](PartitionGroup.md#streamTime).
+    Stream time for `STREAM_TIME` punctuators is determined using the [PartitionGroup](PartitionGroup.md#streamTime).
 
-`maybePunctuateSystemTime` returns `false` for the stream time as `RecordQueue.UNKNOWN` (the stream time is yet to be determined and unknown).
+`maybePunctuateStreamTime` returns `false` for the stream time as `RecordQueue.UNKNOWN` (the stream time is yet to be determined and unknown).
 
-`maybePunctuateSystemTime` requests the [stream-time PunctuationQueue](#streamTimePunctuationQueue) to [mayPunctuate](PunctuationQueue.md#mayPunctuate) (with the stream time, `STREAM_TIME` punctuation type and this `StreamTask`). If there was at least one recurring action triggered (punctuated), `maybePunctuateStreamTime` marks this `StreamTask` as [commitNeeded](#commitNeeded).
+`maybePunctuateStreamTime` requests the [stream-time PunctuationQueue](#streamTimePunctuationQueue) to [mayPunctuate](PunctuationQueue.md#mayPunctuate) (with the stream time, `STREAM_TIME` punctuation type and this `StreamTask`). If there was at least one recurring action triggered (punctuated), `maybePunctuateStreamTime` marks this `StreamTask` as [commitNeeded](#commitNeeded).
 
 `maybePunctuateStreamTime` is part of the [Task](Task.md#maybePunctuateStreamTime) abstraction.
 
@@ -131,7 +133,16 @@ boolean maybePunctuateStreamTime()
 boolean maybePunctuateSystemTime()
 ```
 
-`maybePunctuateSystemTime`...FIXME
+`maybePunctuateSystemTime` returns `true` when at least one `WALL_CLOCK_TIME` punctuator has been executed.
+
+---
+
+`maybePunctuateSystemTime` requests the [Time](#time) for the current time (in ms).
+
+!!! note
+    System time for `WALL_CLOCK_TIME` punctuators is determined using the [Time](#time).
+
+`maybePunctuateSystemTime` requests the [system-time PunctuationQueue](#systemTimePunctuationQueue) to [mayPunctuate](PunctuationQueue.md#mayPunctuate) (with the current system time, `WALL_CLOCK_TIME` punctuation type and this `StreamTask`). If there was at least one recurring action triggered (punctuated), `maybePunctuateSystemTime` marks this `StreamTask` as [commitNeeded](#commitNeeded).
 
 `maybePunctuateSystemTime` is part of the [Task](Task.md#maybePunctuateSystemTime) abstraction.
 

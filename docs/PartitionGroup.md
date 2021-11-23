@@ -19,19 +19,21 @@
 
 ### <span id="recordLatenessSensor"> recordLateness
 
-`PartitionGroup` is given a `recordLateness` metric sensor when [created](#creating-instance).
+`PartitionGroup` is given a `recordLatenessSensor` metric sensor when [created](#creating-instance).
+
+The `recordLateness` sensor is requested to record `0` value when the [event time advances](#nextRecord) (the timestamp of the next record is smaller than the current [stream time](#streamTime)) while the difference (_lateness_) between the current [stream time](#streamTime) and the timestamp of the next record otherwise.
 
 ### <span id="enforcedProcessingSensor"> enforcedProcessing
 
-`PartitionGroup` is given a `enforcedProcessing` metric sensor when [created](#creating-instance).
+`PartitionGroup` is given a `enforcedProcessingSensor` metric sensor when [created](#creating-instance).
 
 ## <span id="streamTime"> Stream Time
 
-`PartitionGroup` defines `streamTime` internal registry for a timestamp.
+`PartitionGroup` defines `streamTime` internal registry for the highest time (_event-time watermark_) across already-processed events (across all the partitions assigned to this `StreamTask`).
 
-The `streamTime` is `RecordQueue.UNKNOWN` when `PartitionGroup` is [created](#creating-instance) and [cleared](#clear).
+The `streamTime` is initially `RecordQueue.UNKNOWN` when `PartitionGroup` is [created](#creating-instance) and later when [cleared](#clear).
 
-The `streamTime` changes to a given timestamp in [setPartitionTime](#setPartitionTime) and [nextRecord](#nextRecord).
+The `streamTime` changes to a given event timestamp in [setPartitionTime](#setPartitionTime) and [nextRecord](#nextRecord).
 
 The `streamTime` is used when:
 
