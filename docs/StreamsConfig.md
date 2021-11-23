@@ -32,6 +32,8 @@ Used when:
 * `StoreChangelogReader` is [created](processor/StoreChangelogReader.md#updateOffsetIntervalMs)
 * `StreamThread` is [created](StreamThread.md#commitTimeMs)
 
+## <span id="MAX_TASK_IDLE_MS_CONFIG"><span id="max.task.idle.ms"> max.task.idle.ms
+
 ## <span id="METRICS_NUM_SAMPLES_CONFIG"><span id="metrics.num.samples"> metrics.num.samples
 
 (Re)Defined in `StreamsConfig` as `CommonClientConfigs.METRICS_NUM_SAMPLES_CONFIG` ([Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#METRICS_NUM_SAMPLES_CONFIG))

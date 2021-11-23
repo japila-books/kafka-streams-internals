@@ -18,7 +18,7 @@ Forwards a `Record` (to all or the specified child processor)
 
 See [ProcessorContextImpl](ProcessorContextImpl.md#forward)
 
-### <span id="schedule"> schedule
+### <span id="schedule"> Scheduling Recurring Action
 
 ```java
 Cancellable schedule(
@@ -27,7 +27,7 @@ Cancellable schedule(
   Punctuator callback)
 ```
 
-Schedules an recurring action (`Punctuator`) to be executed every `interval` ms
+Schedules an recurring action ([Punctuator](Punctuator.md)) to be executed every `interval` ms
 
 See [ProcessorContextImpl](ProcessorContextImpl.md#schedule)
 

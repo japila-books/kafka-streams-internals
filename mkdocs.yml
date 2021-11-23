@@ -114,6 +114,7 @@ nav:
     - InternalConfig: InternalConfig.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
+    - PartitionGroup: PartitionGroup.md
     - ProcessorStateManager: ProcessorStateManager.md
     - PunctuationQueue: PunctuationQueue.md
     - RecordCollector: RecordCollector.md
@@ -246,6 +247,7 @@ nav:
     - ClientMetrics: metrics/ClientMetrics.md
     - StreamsMetrics: metrics/StreamsMetrics.md
     - StreamsMetricsImpl: metrics/StreamsMetricsImpl.md
+    - TaskMetrics: metrics/TaskMetrics.md
   - Features:
     - Global Stores: global-stores.md
     - Scala API: scala.md

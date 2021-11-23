@@ -45,6 +45,36 @@
 
 `StreamTask` is given a [RecordCollector](RecordCollector.md) when [created](#creating-instance).
 
+## <span id="partitionGroup"> PartitionGroup
+
+When [created](#creating-instance), `StreamTask` creates a [PartitionGroup](PartitionGroup.md) with the following:
+
+* [Partition Queues](#createPartitionQueues)
+* `currentLag` function ([Apache Kafka]({{ book.kafka }}/clients/consumer/Consumer#currentLag)) of the [main Consumer](#mainConsumer)
+* [recordLatenessSensor](metrics/TaskMetrics.md#recordLatenessSensor)
+* [enforcedProcessingSensor](metrics/TaskMetrics.md#enforcedProcessingSensor)
+* [max.task.idle.ms](StreamsConfig.md#MAX_TASK_IDLE_MS_CONFIG) configuration property
+
+### <span id="createPartitionQueues"> createPartitionQueues
+
+```java
+Map<TopicPartition, RecordQueue> createPartitionQueues()
+```
+
+`createPartitionQueues` requests the [RecordQueueCreator](#recordQueueCreator) to create one `RecordQueue` per every partition in the [input partitions](AbstractTask.md#inputPartitions).
+
+## <span id="streamTime"> streamTime
+
+```java
+long streamTime()
+```
+
+`streamTime` requests the [PartitionGroup](#partitionGroup) for the [streamTime](PartitionGroup.md#streamTime)
+
+`streamTime` is used when:
+
+* `ProcessorContextImpl` is requested for the [current stream time](processor/ProcessorContextImpl.md#currentStreamTimeMs)
+
 ## <span id="schedule"> Scheduling Recurring Action
 
 ```java
@@ -82,7 +112,16 @@ Actions are executed when [maybePunctuateStreamTime](#maybePunctuateStreamTime) 
 boolean maybePunctuateStreamTime()
 ```
 
-`maybePunctuateStreamTime`...FIXME
+`maybePunctuateStreamTime` returns `true` when at least one `STREAM_TIME` punctuation has been executed.
+
+`maybePunctuateSystemTime` requests the [PartitionGroup](#partitionGroup) for the [stream time](PartitionGroup.md#streamTime).
+
+!!! note
+    Stream time for `STREAM_TIME` punctuations is determined using [PartitionGroup](PartitionGroup.md#streamTime).
+
+`maybePunctuateSystemTime` returns `false` for the stream time as `RecordQueue.UNKNOWN` (the stream time is yet to be determined and unknown).
+
+`maybePunctuateSystemTime` requests the [stream-time PunctuationQueue](#streamTimePunctuationQueue) to [mayPunctuate](PunctuationQueue.md#mayPunctuate) (with the stream time, `STREAM_TIME` punctuation type and this `StreamTask`). If there was at least one recurring action triggered (punctuated), `maybePunctuateStreamTime` marks this `StreamTask` as [commitNeeded](#commitNeeded).
 
 `maybePunctuateStreamTime` is part of the [Task](Task.md#maybePunctuateStreamTime) abstraction.
 
