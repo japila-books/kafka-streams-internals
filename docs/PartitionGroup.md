@@ -25,7 +25,7 @@ The `recordLateness` sensor is requested to record `0` value when the [event tim
 
 ### <span id="enforcedProcessingSensor"> enforcedProcessing
 
-`PartitionGroup` is given a `enforcedProcessingSensor` metric sensor when [created](#creating-instance).
+`PartitionGroup` is given an `enforcedProcessingSensor` metric sensor when [created](#creating-instance).
 
 ## <span id="streamTime"> Stream Time
 
@@ -66,3 +66,17 @@ StampedRecord nextRecord(
 `nextRecord` is used when:
 
 * `StreamTask` is requested to [process one record](StreamTask.md#process)
+
+## <span id="addRawRecords"> Adding Raw Records (ConsumerRecords)
+
+```java
+int addRawRecords(
+  TopicPartition partition,
+  Iterable<ConsumerRecord<byte[], byte[]>> rawRecords)
+```
+
+`addRawRecords`...FIXME
+
+`addRawRecords` is used when:
+
+* `StreamTask` is requested to [add records](StreamTask.md#addRecords)

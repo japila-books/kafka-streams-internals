@@ -172,7 +172,16 @@ void addRecords(
   Iterable<ConsumerRecord<byte[], byte[]>> records)
 ```
 
-`addRecords`...FIXME
+`addRecords` requests the [PartitionGroup](#partitionGroup) to [add the given ConsumerRecords](PartitionGroup.md#addRawRecords) (for the given `TopicPartition`).
+
+`addRecords` prints out the following TRACE message to the logs:
+
+```text
+Added records into the buffered queue of partition [partition],
+new queue size is [newQueueSize]
+```
+
+`addRecords` can request the [main Consumer](#mainConsumer) to pause (_suspend_) fetching and consuming records from the partition if the queue size for the partition (after adding the new raw records) crossed the [buffered.records.per.partition](#maxBufferedSize) threshold.
 
 `addRecords` is part of the [Task](Task.md#addRecords) abstraction.
 
@@ -217,3 +226,15 @@ void resetOffsetsIfNeededAndInitializeMetadata(
 ```
 
 `resetOffsetsIfNeededAndInitializeMetadata`...FIXME
+
+## Logging
+
+Enable `ALL` logging level for `org.apache.kafka.streams.processor.internals.StreamTask` logger to see what happens inside.
+
+Add the following line to `conf/log4j.properties`:
+
+```text
+log4j.logger.org.apache.kafka.streams.processor.internals.StreamTask=ALL
+```
+
+Refer to [Logging](logging.md).

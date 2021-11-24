@@ -4,7 +4,7 @@
 
 ## Contract
 
-### <span id="addRecords"> addRecords
+### <span id="addRecords"> Adding Records (to Active StreamTasks)
 
 ```java
 void addRecords(
@@ -12,9 +12,11 @@ void addRecords(
   Iterable<ConsumerRecord<byte[], byte[]>> records)
 ```
 
+Adds records to [StreamTask](StreamTask.md#addRecords)s (while [StandbyTask](StandbyTask.md#addRecords)s throw an `IllegalStateException`)
+
 Used when:
 
-* `TaskManager` is requested to [addRecordsToTasks](TaskManager.md#addRecordsToTasks)
+* `TaskManager` is requested to [add records to active tasks](TaskManager.md#addRecordsToTasks)
 * `TopologyTestDriver` is requested to [enqueueTaskRecord](TopologyTestDriver.md#enqueueTaskRecord)
 
 ### <span id="changelogOffsets"> changelogOffsets
@@ -186,7 +188,7 @@ Used when:
 * `TaskManager` is requested to [process records](TaskManager.md#process)
 * `TopologyTestDriver` is requested to [completeAllProcessableWork](TopologyTestDriver.md#completeAllProcessableWork)
 
-### <span id="resume"> resume
+### <span id="resume"> Resuming
 
 ```java
 void resume()

@@ -8,6 +8,10 @@ A `host:port` endpoint address of the KafkaStreams instance
 
 ## <span id="BUFFERED_RECORDS_PER_PARTITION_CONFIG"><span id="buffered.records.per.partition"> buffered.records.per.partition
 
+Maximum number of records to buffer per partition (that `StreamTask` uses for [pausing and resuming record fetching](StreamTask.md#maxBufferedSize))
+
+Default: `1000`
+
 ## <span id="BUILT_IN_METRICS_VERSION_CONFIG"><span id="built.in.metrics.version"> built.in.metrics.version
 
 ## <span id="CACHE_MAX_BYTES_BUFFERING_CONFIG"><span id="cache.max.bytes.buffering"> cache.max.bytes.buffering

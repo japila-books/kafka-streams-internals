@@ -212,6 +212,22 @@ int process(
 
 * `StreamThread` is requested to [runOnce](StreamThread.md#runOnce) ([every iteration](StreamThread.md#runOnce-processing-tasks))
 
+## <span id="addRecordsToTasks"> Adding Records to Active StreamTasks
+
+```java
+void addRecordsToTasks(
+  ConsumerRecords<byte[], byte[]> records)
+```
+
+For every partition (in the given `records` registry of `ConsumerRecord`s), `addRecordsToTasks` [finds the active StreamTask that handles records of this partition](Tasks.md#activeTasksForInputPartition) and [passes the records](Task.md#addRecords) (for the partition).
+
+!!! note
+    A single active [Task](Task.md) is responsible for a single `TopicPartition`.
+
+`addRecordsToTasks` is used when:
+
+* `StreamThread` is requested to [poll for records](StreamThread.md#pollPhase)
+
 ## Logging
 
 Enable `ALL` logging level for `org.apache.kafka.streams.processor.internals.TaskManager` logger to see what happens inside.

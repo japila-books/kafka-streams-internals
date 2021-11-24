@@ -63,3 +63,30 @@ void convertStandbyToActive(
 `convertStandbyToActive` is used when:
 
 * `TaskManager` is requested to [handleCloseAndRecycle](TaskManager.md#handleCloseAndRecycle)
+
+## <span id="activeTasksPerPartition"> activeTasksPerPartition
+
+```java
+Map<TopicPartition, Task> activeTasksPerPartition
+```
+
+`Tasks` defines an `activeTasksPerPartition` registry of [Task](Task.md)s that handle (records of) a `TopicPartition`.
+
+A new `Task` can be added in [createTasks](#createTasks), [convertStandbyToActive](#convertStandbyToActive), [updateInputPartitionsAndResume](#updateInputPartitionsAndResume)
+
+One or more `Task`s can be removed in [convertActiveToStandby](#convertActiveToStandby), [updateInputPartitionsAndResume](#updateInputPartitionsAndResume), [removeTaskBeforeClosing](#removeTaskBeforeClosing) and [clear](#clear).
+
+A `Task` can be looked up using [activeTasksForInputPartition](#activeTasksForInputPartition).
+
+### <span id="activeTasksForInputPartition"> activeTasksForInputPartition
+
+```java
+Task activeTasksForInputPartition(
+  TopicPartition partition)
+```
+
+`activeTasksForInputPartition` looks up the [Task](Task.md) for the given `TopicPartition` in the [activeTasksPerPartition](#activeTasksPerPartition) registry.
+
+`activeTasksForInputPartition` is used when:
+
+* `TaskManager` is requested to [add records to active tasks](TaskManager.md#addRecordsToTasks)
