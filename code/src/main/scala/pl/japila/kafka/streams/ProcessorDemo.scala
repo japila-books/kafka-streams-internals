@@ -5,7 +5,7 @@ import org.apache.kafka.streams.{KafkaStreams, StreamsConfig, Topology}
 
 import java.util.Properties
 
-object Main {
+object ProcessorDemo {
 
   def main(args: Array[String]): Unit = {
     println(">>> Creating a Topology")
@@ -24,12 +24,12 @@ object Main {
     val processorName = "my-processor-forward"
     topology.addProcessor(
       processorName,
-      () => new MyProcessor[String, String, String, String](forward = true),
+      () => new DemoProcessor[String, String, String, String](forward = true),
       sourceName)
 
     topology.addProcessor(
       "foreach",
-      () => new MyProcessor[String, String, String, String](forward = false),
+      () => new DemoProcessor[String, String, String, String](forward = false),
       processorName)
 
     println(topology.describe())
