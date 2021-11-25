@@ -89,7 +89,7 @@ Cancellable schedule(
   Punctuator punctuator)
 ```
 
-`schedule` creates a [PunctuationSchedule](processor/PunctuationSchedule.md) (for the current [ProcessorNode](processor/ProcessorNode.md)) and requests the [stream-time](#streamTimePunctuationQueue) or [system-time](#systemTimePunctuationQueue)  `PunctuationQueue`s to [schedule the PunctuationSchedule](PunctuationQueue.md#schedule) based on the given `PunctuationType` (`STREAM_TIME` or `WALL_CLOCK_TIME`, respectively).
+`schedule` creates a [PunctuationSchedule](PunctuationSchedule.md) (for the current [ProcessorNode](processor/ProcessorNode.md)) and requests the [stream-time](#streamTimePunctuationQueue) or [system-time](#systemTimePunctuationQueue)  `PunctuationQueue`s to [schedule the PunctuationSchedule](PunctuationQueue.md#schedule) based on the given `PunctuationType` (`STREAM_TIME` or `WALL_CLOCK_TIME`, respectively).
 
 `schedule` is used when:
 
@@ -206,6 +206,20 @@ boolean process(
 `process`...FIXME
 
 `process` is part of the [Task](Task.md#process) abstraction.
+
+## <span id="punctuate"> punctuate
+
+```java
+void punctuate(
+  ProcessorNode<?, ?, ?, ?> node,
+  long timestamp,
+  PunctuationType type,
+  Punctuator punctuator)
+```
+
+`punctuate`...FIXME
+
+`punctuate` is part of the [ProcessorNodePunctuator](processor/ProcessorNodePunctuator.md#completeRestoration) abstraction.
 
 ## <span id="completeRestoration"> completeRestoration
 

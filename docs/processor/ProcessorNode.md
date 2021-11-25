@@ -54,3 +54,17 @@ List<ProcessorNode<KOut, VOut, ?, ?>> children()
 ## <span id="isTerminalNode"> Terminal Node
 
 `ProcessorNode` is **terminal** when has got no [children](#children).
+
+## <span id="punctuate"> punctuate
+
+```java
+void punctuate(
+  long timestamp, 
+  Punctuator punctuator)
+```
+
+`punctuate` requests the given [Punctuator](Punctuator.md) to [punctuate](Punctuator.md#punctuate) (with the given `timestamp`).
+
+`punctuate` is used when:
+
+* `StreamTask` is requested to [punctuate](../StreamTask.md#punctuate)
