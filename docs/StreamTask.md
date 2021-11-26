@@ -51,7 +51,7 @@ When [created](#creating-instance), `StreamTask` creates a [PartitionGroup](Part
 
 * [Partition Queues](#createPartitionQueues)
 * `currentLag` function ([Apache Kafka]({{ book.kafka }}/clients/consumer/Consumer#currentLag)) of the [main Consumer](#mainConsumer)
-* [recordLatenessSensor](metrics/TaskMetrics.md#recordLatenessSensor)
+* <span id="recordLatenessSensor"> [recordLatenessSensor](metrics/TaskMetrics.md#recordLatenessSensor)
 * [enforcedProcessingSensor](metrics/TaskMetrics.md#enforcedProcessingSensor)
 * [max.task.idle.ms](StreamsConfig.md#MAX_TASK_IDLE_MS_CONFIG) configuration property
 

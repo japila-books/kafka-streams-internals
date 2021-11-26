@@ -19,9 +19,13 @@
 
 ### <span id="recordLatenessSensor"> recordLateness
 
-`PartitionGroup` is given a `recordLatenessSensor` metric sensor when [created](#creating-instance).
+`PartitionGroup` is given a `recordLateness` metric sensor when [created](#creating-instance) (via [TaskMetrics](metrics/TaskMetrics.md#recordLatenessSensor)).
 
-The `recordLateness` sensor is requested to record `0` value when the [event time advances](#nextRecord) (the timestamp of the next record is smaller than the current [stream time](#streamTime)) while the difference (_lateness_) between the current [stream time](#streamTime) and the timestamp of the next record otherwise.
+The `recordLateness` sensor is requested to record the following values:
+
+* `0` when the [event time advances](#nextRecord) (the timestamp of the next record is smaller than the current [stream time](#streamTime))
+
+* the difference (_lateness_) between the current [stream time](#streamTime) and the timestamp of the next record otherwise
 
 ### <span id="enforcedProcessingSensor"> enforcedProcessing
 

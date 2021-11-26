@@ -246,9 +246,11 @@ nav:
   - Metrics:
     - metrics/index.md
     - ClientMetrics: metrics/ClientMetrics.md
+    - StateStoreMetrics: metrics/StateStoreMetrics.md
     - StreamsMetrics: metrics/StreamsMetrics.md
     - StreamsMetricsImpl: metrics/StreamsMetricsImpl.md
     - TaskMetrics: metrics/TaskMetrics.md
+    - ThreadMetrics: metrics/ThreadMetrics.md
   - Features:
     - Global Stores: global-stores.md
     - Scala API: scala.md
