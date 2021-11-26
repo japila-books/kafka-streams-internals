@@ -235,11 +235,11 @@ Metrics getMetrics(
   String clientId)
 ```
 
-`getMetrics` creates a `MetricConfig` ([Apache Kafka]({{ book.kafka }}/metrics/MetricConfig)) with the following:
+`getMetrics` creates a `MetricConfig` ([Apache Kafka]({{ book.kafka }}/metrics/MetricConfig)) based on the following configuration properties:
 
-* Number of samples per [metrics.num.samples](StreamsConfig.md#METRICS_NUM_SAMPLES_CONFIG) configuration property
-* Recording level per [metrics.recording.level](StreamsConfig.md#METRICS_RECORDING_LEVEL_CONFIG) configuration property
-* Time Window per [metrics.sample.window.ms](StreamsConfig.md#METRICS_SAMPLE_WINDOW_MS_CONFIG) configuration property
+* [metrics.num.samples](StreamsConfig.md#METRICS_NUM_SAMPLES_CONFIG)
+* [metrics.recording.level](StreamsConfig.md#METRICS_RECORDING_LEVEL_CONFIG)
+* [metrics.sample.window.ms](StreamsConfig.md#METRICS_SAMPLE_WINDOW_MS_CONFIG)
 
 `getMetrics` requests the given [StreamsConfig](StreamsConfig.md) for configured `MetricsReporter`s ([Apache Kafka]({{ book.kafka }}/metrics/MetricsReporter)) per [metric.reporters](StreamsConfig.md#METRIC_REPORTER_CLASSES_CONFIG) configuration property.
 

@@ -1,11 +1,10 @@
 package pl.japila.kafka.streams
 
-import org.apache.kafka.common.serialization.Serdes.StringSerde
 import org.apache.kafka.streams.{KafkaStreams, StreamsConfig, Topology}
 
 import java.util.Properties
 
-object ProcessorDemo {
+object ProcessorApp {
 
   def main(args: Array[String]): Unit = {
     println(">>> Creating a Topology")
@@ -37,8 +36,11 @@ object ProcessorDemo {
     val props = new Properties()
     props.put(StreamsConfig.APPLICATION_ID_CONFIG, "processor-demo")
     props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, ":9092")
+    import org.apache.kafka.common.serialization.Serdes.StringSerde
     props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, classOf[StringSerde].getName)
     props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, classOf[StringSerde].getName)
+    import org.apache.kafka.common.metrics.Sensor.RecordingLevel
+    props.put(StreamsConfig.METRICS_RECORDING_LEVEL_CONFIG, RecordingLevel.DEBUG.name)
     val config = new StreamsConfig(props)
     val ks = new KafkaStreams(topology, config)
     ks.start()

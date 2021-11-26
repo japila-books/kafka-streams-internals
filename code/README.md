@@ -25,6 +25,14 @@ $KAFKA_HOME/bin/kafka-console-producer.sh \
   --topic input-topic
 ```
 
+Sending `stop` message to partition `0` (`-p 0`) to stop a punctuator.
+
 ```text
 echo stop | kcat -P -b :9092 -t input-topic -p 0
+```
+
+Sending a record with a key and a value (`-K ,`):
+
+```text
+echo 1,one | kcat -P -b :9092 -K , -t input-topic -p 2
 ```
