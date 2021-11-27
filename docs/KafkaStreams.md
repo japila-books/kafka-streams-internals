@@ -218,7 +218,7 @@ The name of this one daemon thread is as follows:
 
 ### <span id="streamsMetrics"><span id="ClientMetrics"> StreamsMetricsImpl
 
-When [created](#creating-instance), `KafkaStreams` creates a [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md) (based on the [configured metrics](#getMetrics) and [built.in.metrics.version](StreamsConfig.md#built.in.metrics.version) configuration property).
+When [created](#creating-instance), `KafkaStreams` creates a [StreamsMetricsImpl](metrics/StreamsMetricsImpl.md) (with the [Metrics](#getMetrics), the [clientId](#clientId) and [built.in.metrics.version](StreamsConfig.md#built.in.metrics.version) configuration property).
 
 `KafkaStreams` registers [ClientMetrics](metrics/ClientMetrics.md).
 

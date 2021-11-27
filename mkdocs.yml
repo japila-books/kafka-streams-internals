@@ -120,6 +120,8 @@ nav:
     - PunctuationSchedule: PunctuationSchedule.md
     - RecordCollector: RecordCollector.md
     - RecordCollectorImpl: RecordCollectorImpl.md
+    - RecordQueue: RecordQueue.md
+    - RecordQueueCreator: RecordQueueCreator.md
     - ReferenceContainer: ReferenceContainer.md
     - StandbyTask: StandbyTask.md
     - StandbyTaskCreator: StandbyTaskCreator.md
@@ -191,6 +193,7 @@ nav:
     - AbstractProcessor: processor/AbstractProcessor.md
     - AbstractProcessorContext: processor/AbstractProcessorContext.md
     - ConnectedStoreProvider: processor/ConnectedStoreProvider.md
+    - ExtractRecordMetadataTimestamp: processor/ExtractRecordMetadataTimestamp.md
     - GlobalProcessorContextImpl: processor/GlobalProcessorContextImpl.md
     - GlobalStateManager: processor/GlobalStateManager.md
     - GlobalStateManagerImpl: processor/GlobalStateManagerImpl.md

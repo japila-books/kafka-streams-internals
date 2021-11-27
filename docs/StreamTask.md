@@ -61,7 +61,21 @@ When [created](#creating-instance), `StreamTask` creates a [PartitionGroup](Part
 Map<TopicPartition, RecordQueue> createPartitionQueues()
 ```
 
-`createPartitionQueues` requests the [RecordQueueCreator](#recordQueueCreator) to create one `RecordQueue` per every partition in the [input partitions](AbstractTask.md#inputPartitions).
+`createPartitionQueues` requests the [RecordQueueCreator](#recordQueueCreator) to create one [RecordQueue](RecordQueue.md) per every partition in the [input partitions](AbstractTask.md#inputPartitions).
+
+## <span id="updateInputPartitions"> updateInputPartitions
+
+```java
+void updateInputPartitions(
+  Set<TopicPartition> topicPartitions,
+  Map<String, List<String>> allTopologyNodesToSourceTopics)
+```
+
+`updateInputPartitions` [updateInputPartitions](AbstractTask.md#updateInputPartitions).
+
+In the end, `updateInputPartitions` requests the [PartitionGroup](#partitionGroup) to [updatePartitions](PartitionGroup.md#updatePartitions) (with the given `TopicPartition`s and [createQueue](RecordQueueCreator.md#createQueue) factory).
+
+`updateInputPartitions` is part of the [Task](Task.md#updateInputPartitions) abstraction.
 
 ## <span id="streamTime"> streamTime
 

@@ -9,7 +9,7 @@ Sensor recordLatenessSensor(
   StreamsMetricsImpl streamsMetrics)
 ```
 
-`recordLatenessSensor` creates an [avg and max metric sensors](#avgAndMaxSensor) with the following:
+`recordLatenessSensor` creates [avg and max metric sensors](#avgAndMaxSensor) (to measure record lateness)   with the following:
 
 Metric Name | Avg Description | Max Description | RecordingLevel
 ------------|-----------------|-----------------|---------------
@@ -39,7 +39,7 @@ Sensor avgAndMaxSensor(
 
 `avgAndMaxSensor` is used when:
 
-* `TaskMetrics` is requested to [processLatencySensor](#processLatencySensor) and [recordLatenessSensor](#recordLatenessSensor)
+* `TaskMetrics` is requested for [processLatency](#processLatencySensor) and [recordLateness](#recordLatenessSensor) sensors
 
 ## <span id="addAvgAndMaxToSensor"> addAvgAndMaxToSensor
 
