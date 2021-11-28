@@ -1,10 +1,10 @@
 # ExtractRecordMetadataTimestamp
 
-`ExtractRecordMetadataTimestamp` is an [extension](#contract) of the [TimestampExtractor](TimestampExtractor.md) abstraction for [timestamp extractors](#implementations) that can handle [invalid timestamps](#onInvalidTimestamp).
+`ExtractRecordMetadataTimestamp` is an [extension](#contract) of the [TimestampExtractor](TimestampExtractor.md) abstraction for [timestamp extractors](#implementations) that use [ConsumerRecords for timestamps](#extract) and can handle [invalid (negative) timestamps](#onInvalidTimestamp).
 
 ## Contract
 
-### <span id="onInvalidTimestamp"> Handling Invalid Timestamp
+### <span id="onInvalidTimestamp"> Handling Invalid (Negative) Timestamp
 
 ```java
 long onInvalidTimestamp(

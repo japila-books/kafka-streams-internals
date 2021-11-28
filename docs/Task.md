@@ -74,6 +74,11 @@ void completeRestoration(
   java.util.function.Consumer<Set<TopicPartition>> offsetResetter)
 ```
 
+Used when:
+
+* `TaskManager` is requested to [tryToCompleteRestoration](TaskManager.md#tryToCompleteRestoration)
+* `TopologyTestDriver` is requested to [setupTask](TopologyTestDriver.md#setupTask)
+
 ### <span id="getStore"> getStore
 
 ```java
@@ -155,6 +160,18 @@ Used when:
 
 * `TaskManager` is requested to [punctuate](TaskManager.md#punctuate)
 * `TopologyTestDriver` is requested to [advanceWallClockTime](TopologyTestDriver.md#advanceWallClockTime)
+
+### <span id="needsInitializationOrRestoration"> needsInitializationOrRestoration
+
+```java
+boolean needsInitializationOrRestoration()
+```
+
+Default: Whether this task is in `CREATED` or `RESTORING` [state](#state)
+
+Used when:
+
+* `TaskManager` is requested for [needsInitializationOrRestoration](TaskManager.md#needsInitializationOrRestoration)
 
 ### <span id="postCommit"> postCommit
 

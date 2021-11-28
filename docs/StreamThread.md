@@ -107,9 +107,9 @@ void runLoop()
 void runOnce()
 ```
 
-`runOnce` records the start time and poll latency while [pollPhase](#pollPhase).
+`runOnce` records the start time and poll latency of the [poll phase](#pollPhase).
 
-`runOnce` continues work only when [isRunning](#isRunning). Otherwise, `runOnce` prints out the following DEBUG message to the logs and returns:
+`runOnce` continues work only while in [running state](#isRunning). Otherwise, `runOnce` prints out the following DEBUG message to the logs and returns:
 
 ```text
 Thread state is already [state], skipping the run once call after poll request
@@ -146,6 +146,26 @@ When in `RUNNING` state, `runOnce` executes the following steps the [maximum num
 `runOnce` requests the [TaskManager](#taskManager) to [punctuate](TaskManager.md#punctuate).
 
 `runOnce`...FIXME
+
+### <span id="initializeAndRestorePhase"> initializeAndRestorePhase
+
+```java
+void initializeAndRestorePhase()
+```
+
+`initializeAndRestorePhase`...FIXME
+
+`initializeAndRestorePhase` prints out the following DEBUG message to the logs:
+
+```text
+Idempotently invoking restoration logic in state [state]
+```
+
+In the end, `initializeAndRestorePhase` requests the [ChangelogReader](#changelogReader) to [restore state stores](ChangelogReader.md#restore) and prints out the following DEBUG message to the logs:
+
+```text
+Idempotent restore call done. Thread state has not changed.
+```
 
 ### <span id="maybeCommit"> maybeCommit
 

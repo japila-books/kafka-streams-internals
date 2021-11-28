@@ -120,6 +120,7 @@ nav:
     - PunctuationSchedule: PunctuationSchedule.md
     - RecordCollector: RecordCollector.md
     - RecordCollectorImpl: RecordCollectorImpl.md
+    - RecordDeserializer: RecordDeserializer.md
     - RecordQueue: RecordQueue.md
     - RecordQueueCreator: RecordQueueCreator.md
     - ReferenceContainer: ReferenceContainer.md
@@ -194,6 +195,7 @@ nav:
     - AbstractProcessorContext: processor/AbstractProcessorContext.md
     - ConnectedStoreProvider: processor/ConnectedStoreProvider.md
     - ExtractRecordMetadataTimestamp: processor/ExtractRecordMetadataTimestamp.md
+    - FailOnInvalidTimestamp: processor/FailOnInvalidTimestamp.md
     - GlobalProcessorContextImpl: processor/GlobalProcessorContextImpl.md
     - GlobalStateManager: processor/GlobalStateManager.md
     - GlobalStateManagerImpl: processor/GlobalStateManagerImpl.md

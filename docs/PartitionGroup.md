@@ -37,11 +37,11 @@ The `recordLateness` sensor is requested to record the following values:
 
 The `streamTime` is initially `RecordQueue.UNKNOWN` when `PartitionGroup` is [created](#creating-instance) and later when [cleared](#clear).
 
-The `streamTime` changes to a given event timestamp in [setPartitionTime](#setPartitionTime) and [nextRecord](#nextRecord).
+The `streamTime` changes to the given timestamp in [setPartitionTime](#setPartitionTime) and [next record](#nextRecord).
 
 The `streamTime` is used when:
 
-* `StreamTask` is requested to [maybePunctuateStreamTime](StreamTask.md#maybePunctuateStreamTime) and [streamTime](StreamTask.md#streamTime)
+* `StreamTask` is requested to [maybePunctuateStreamTime](StreamTask.md#maybePunctuateStreamTime) and [stream time](StreamTask.md#streamTime)
 
 ## <span id="setPartitionTime"> setPartitionTime
 

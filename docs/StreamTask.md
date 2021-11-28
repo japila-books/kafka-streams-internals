@@ -2,6 +2,8 @@
 
 `StreamTask` is a concrete [AbstractTask](AbstractTask.md).
 
+`StreamTask` creates exactly one [PartitionGroup](#partitionGroup) to handle all the [input partitions](#inputPartitions).
+
 ## Creating Instance
 
 `StreamTask` takes the following to be created:
@@ -17,13 +19,25 @@
 * <span id="time"> `Time`
 * <span id="stateMgr"> [ProcessorStateManager](ProcessorStateManager.md)
 * [RecordCollector](#recordCollector)
-* <span id="processorContext"> `InternalProcessorContext`
+* <span id="processorContext"> [InternalProcessorContext](processor/InternalProcessorContext.md)
 * <span id="logContext"> `LogContext`
 
 `StreamTask` is created when:
 
 * `ActiveTaskCreator` is requested to [create an active task](ActiveTaskCreator.md#createActiveTask)
 * `TopologyTestDriver` is requested to [setup a task](TopologyTestDriver.md#setupTask)
+
+## <span id="recordQueueCreator"> RecordQueueCreator
+
+When [created](#creating-instance), `StreamTask` creates a [RecordQueueCreator](RecordQueueCreator.md) based on the following configuration properties:
+
+* [default.timestamp.extractor](StreamsConfig.md#defaultTimestampExtractor)
+* [default.deserialization.exception.handler](StreamsConfig.md#defaultDeserializationExceptionHandler)
+
+`StreamTask` uses the `RecordQueueCreator` when:
+
+* [createPartitionQueues](#createPartitionQueues)
+* [updateInputPartitions](#updateInputPartitions)
 
 ## <span id="maxBufferedSize"><span id="buffered.records.per.partition"> buffered.records.per.partition
 
@@ -83,7 +97,7 @@ In the end, `updateInputPartitions` requests the [PartitionGroup](#partitionGrou
 long streamTime()
 ```
 
-`streamTime` requests the [PartitionGroup](#partitionGroup) for the [streamTime](PartitionGroup.md#streamTime)
+`streamTime` requests the [PartitionGroup](#partitionGroup) for the [streamTime](PartitionGroup.md#streamTime).
 
 `streamTime` is used when:
 

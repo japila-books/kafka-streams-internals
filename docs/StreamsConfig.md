@@ -36,6 +36,18 @@ Used when:
 * `StoreChangelogReader` is [created](processor/StoreChangelogReader.md#updateOffsetIntervalMs)
 * `StreamThread` is [created](StreamThread.md#commitTimeMs)
 
+## <span id="DEFAULT_DESERIALIZATION_EXCEPTION_HANDLER_CLASS_CONFIG"><span id="defaultDeserializationExceptionHandler"><span id="default.deserialization.exception.handler"> default.deserialization.exception.handler
+
+The default `DeserializationExceptionHandler`
+
+Default: `LogAndFailExceptionHandler`
+
+## <span id="DEFAULT_TIMESTAMP_EXTRACTOR_CLASS_CONFIG"><span id="defaultTimestampExtractor"><span id="default.timestamp.extractor"> default.timestamp.extractor
+
+The default [TimestampExtractor](processor/TimestampExtractor.md)
+
+Default: [FailOnInvalidTimestamp](processor/FailOnInvalidTimestamp.md)
+
 ## <span id="MAX_TASK_IDLE_MS_CONFIG"><span id="max.task.idle.ms"> max.task.idle.ms
 
 ## <span id="METRICS_NUM_SAMPLES_CONFIG"><span id="metrics.num.samples"> metrics.num.samples

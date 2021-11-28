@@ -212,6 +212,20 @@ int process(
 
 * `StreamThread` is requested to [runOnce](StreamThread.md#runOnce) ([every iteration](StreamThread.md#runOnce-processing-tasks))
 
+## <span id="tryToCompleteRestoration"> tryToCompleteRestoration
+
+```java
+boolean tryToCompleteRestoration(
+  long now,
+  java.util.function.Consumer<Set<TopicPartition>> offsetResetter)
+```
+
+`tryToCompleteRestoration`...FIXME
+
+`tryToCompleteRestoration` is used when:
+
+* `StreamThread` is requested to [initializeAndRestorePhase](StreamThread.md#initializeAndRestorePhase)
+
 ## <span id="addRecordsToTasks"> Adding Records to Active StreamTasks
 
 ```java
@@ -227,6 +241,18 @@ For every partition (in the given `records` registry of `ConsumerRecord`s), `add
 `addRecordsToTasks` is used when:
 
 * `StreamThread` is requested to [poll for records](StreamThread.md#pollPhase)
+
+## <span id="needsInitializationOrRestoration"> needsInitializationOrRestoration
+
+```java
+boolean needsInitializationOrRestoration()
+```
+
+`needsInitializationOrRestoration` is `true` if any of the [Tasks](#tasks) require [initialization or restoration](Task.md#needsInitializationOrRestoration).
+
+`needsInitializationOrRestoration` is used when:
+
+* `StreamThread` is requested to [initializeAndRestorePhase](StreamThread.md#initializeAndRestorePhase)
 
 ## Logging
 
