@@ -20,14 +20,6 @@
 <KIn, VIn> Topology addGlobalStore(
   StoreBuilder<?> storeBuilder,
   String sourceName,
-  Deserializer<KIn> keyDeserializer,
-  Deserializer<VIn> valueDeserializer,
-  String topic,
-  String processorName,
-  ProcessorSupplier<KIn, VIn, Void, Void> stateUpdateSupplier) // (1)
-<KIn, VIn> Topology addGlobalStore(
-  StoreBuilder<?> storeBuilder,
-  String sourceName,
   TimestampExtractor timestampExtractor,
   Deserializer<KIn> keyDeserializer,
   Deserializer<VIn> valueDeserializer,
@@ -35,8 +27,6 @@
   String processorName,
   ProcessorSupplier<KIn, VIn, Void, Void> stateUpdateSupplier)
 ```
-
-1. Uses no [TimestampExtractor](processor/TimestampExtractor.md)
 
 `addGlobalStore` requests the [InternalTopologyBuilder](#internalTopologyBuilder) to [add a global store](InternalTopologyBuilder.md#addGlobalStore).
 

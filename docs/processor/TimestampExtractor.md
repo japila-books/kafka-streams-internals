@@ -2,7 +2,10 @@
 
 `TimestampExtractor` is an [abstraction](#contract) of [time extractors](#implementations) that Kafka Streams uses to [extract a timestamp from a record](#extract).
 
-`TimestampExtractor` can be explicitly assigned with a [SourceNode](SourceNode.md#timestampExtractor) or configured application-wide using [default.timestamp.extractor](../StreamsConfig.md#defaultTimestampExtractor) configuration property.
+`TimestampExtractor` can be configured as follows:
+
+1. For [SourceNode](SourceNode.md#timestampExtractor)s using [Topology.addSource](../Topology.md#addSource) and [Topology.addGlobalStore](../Topology.md#addGlobalStore)
+1. Application-wide using [default.timestamp.extractor](../StreamsConfig.md#defaultTimestampExtractor) configuration property
 
 ## Contract
 
