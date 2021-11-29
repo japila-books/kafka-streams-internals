@@ -173,6 +173,7 @@ nav:
     - KStreamAggProcessorSupplier: kstream/KStreamAggProcessorSupplier.md
     - KStreamAggregate: kstream/KStreamAggregate.md
     - KStreamAggregateProcessor: kstream/KStreamAggregateProcessor.md
+    - KStreamFilter: kstream/KStreamFilter.md
     - KStreamImpl: kstream/KStreamImpl.md
     - KStreamImplJoin: kstream/KStreamImplJoin.md
     - KStreamSlidingWindowAggregateProcessor: kstream/KStreamSlidingWindowAggregateProcessor.md
@@ -194,6 +195,7 @@ nav:
     - AbstractProcessor: processor/AbstractProcessor.md
     - AbstractProcessorContext: processor/AbstractProcessorContext.md
     - ConnectedStoreProvider: processor/ConnectedStoreProvider.md
+    - ContextualProcessor: processor/ContextualProcessor.md
     - ExtractRecordMetadataTimestamp: processor/ExtractRecordMetadataTimestamp.md
     - FailOnInvalidTimestamp: processor/FailOnInvalidTimestamp.md
     - GlobalProcessorContextImpl: processor/GlobalProcessorContextImpl.md
