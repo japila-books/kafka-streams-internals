@@ -35,6 +35,32 @@ When [created](#creating-instance), `ProcessorStateManager` requests the given [
 * [Checkpoint](#checkpoint)
 * [deleteCheckPointFileIfEOSEnabled](#deleteCheckPointFileIfEOSEnabled)
 
+## <span id="flush"> Flushing State Stores
+
+```java
+void flush()
+```
+
+`flush` does nothing (_noop_) when there are no [state stores](#stores) registered.
+
+---
+
+`flush` prints out the following DEBUG message to the logs:
+
+```text
+Flushing all stores registered in the state manager: [stores]
+```
+
+For every [state store](#stores), `flush` prints out the following TRACE message to the logs and requests the `StateStore` to [flush cached data](processor/StateStore.md#flush):
+
+```text
+Flushing store [name]
+```
+
+---
+
+`flush` is part of the [StateManager](StateManager.md#flush) abstraction.
+
 ## <span id="flushCache"> Flushing Store Caches
 
 ```java

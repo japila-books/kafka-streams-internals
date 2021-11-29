@@ -16,6 +16,18 @@ Default: `1000`
 
 ## <span id="CACHE_MAX_BYTES_BUFFERING_CONFIG"><span id="cache.max.bytes.buffering"> cache.max.bytes.buffering
 
+Maximum number of memory bytes for buffering across all threads (that [KafkaStreams](KafkaStreams.md#totalCacheSize) uses to indirectly create [ThreadCache](state/ThreadCache.md)s).
+
+Default: `10MB` (`10 * 1024 * 1024L`)
+
+Must be at least `0`
+
+Used when:
+
+* `KafkaStreams` is [created](KafkaStreams.md#totalCacheSize)
+* `InternalTopologyBuilder` is requested to [rewriteTopology](InternalTopologyBuilder.md#rewriteTopology) (and disable caching for local and global state stores)
+* `TopologyTestDriver` is [created](TopologyTestDriver.md#creating-instance)
+
 ## <span id="CLIENT_ID_CONFIG"><span id="client.id"> client.id
 
 See [Apache Kafka]({{ book.kafka }}/clients/CommonClientConfigs#client.id)

@@ -247,6 +247,23 @@ Metrics getMetrics(
 
 In the end, `getMetrics` creates a `Metrics` ([Apache Kafka]({{ book.kafka }}/metrics/Metrics)) (with the `MetricConfig`, the `MetricsReporter`s, et al.)
 
+## <span id="totalCacheSize"> cache.max.bytes.buffering
+
+`KafkaStreams` reads [cache.max.bytes.buffering](StreamsConfig.md#CACHE_MAX_BYTES_BUFFERING_CONFIG) when [created](#creating-instance) for [getCacheSizePerThread](#getCacheSizePerThread).
+
+### <span id="getCacheSizePerThread"> getCacheSizePerThread
+
+```java
+long getCacheSizePerThread(
+  int numStreamThreads)
+```
+
+`getCacheSizePerThread` returns the [totalCacheSize](#totalCacheSize) when the given `numStreamThreads` is `0`. Otherwise, `getCacheSizePerThread` is the [totalCacheSize](#totalCacheSize) divided by the given `numStreamThreads` with an extra `1` for the [globalTaskTopology](#globalTaskTopology) thread (if used).
+
+`getCacheSizePerThread` is used when:
+
+* `KafkaStreams` is [created](#creating-instance), is requested to [addStreamThread](#addStreamThread) and [removeStreamThread](#removeStreamThread).
+
 ## Logging
 
 Enable `ALL` logging level for `org.apache.kafka.streams.KafkaStreams` logger to see what happens inside.

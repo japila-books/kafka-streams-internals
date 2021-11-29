@@ -67,7 +67,7 @@ Creating restore consumer client
 
 `create` creates a [StoreChangelogReader](processor/StoreChangelogReader.md).
 
-`create` creates a [ThreadCache](state/ThreadCache.md).
+`create` creates a [ThreadCache](state/ThreadCache.md) (with the given `cacheSizeBytes` and [StreamsMetricsImpl](KafkaStreams.md#streamsMetrics) of the parent `KafkaStreams`).
 
 `create` creates a [ActiveTaskCreator](ActiveTaskCreator.md), a [StandbyTaskCreator](StandbyTaskCreator.md) and a [TaskManager](TaskManager.md).
 

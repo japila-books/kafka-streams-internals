@@ -10,11 +10,18 @@
 void close()
 ```
 
-### <span id="flush"> Flushing
+### <span id="flush"> Flushing Cached Data
 
 ```java
 void flush()
 ```
+
+Flushing cached data of this `StateStore`
+
+Used when:
+
+* `GlobalStateManagerImpl` is requested to [flush all global state stores](GlobalStateManagerImpl.md#flush)
+* `ProcessorStateManager` is requested to [flush all state stores](../ProcessorStateManager.md#flush) and [flushCache](../ProcessorStateManager.md#flushCache)
 
 ### <span id="init"> Initializing
 
