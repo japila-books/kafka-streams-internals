@@ -14,7 +14,29 @@ object ProcessorApp {
     // Registers a SourceNodeFactory to handle the given topic(s)
     // No relation to other nodes thus far
     val sourceName = "my-source"
-    topology.addSource(sourceName, "input-topic")
+    import org.apache.kafka.clients.consumer.ConsumerRecord
+    import org.apache.kafka.streams.processor.FailOnInvalidTimestamp
+    object timestampExtractor extends FailOnInvalidTimestamp {
+      override def extract(record: ConsumerRecord[Object, Object], partitionTime: Long): Long = {
+        val timestamp = super.extract(record, partitionTime)
+        val key = record.key()
+        val value = record.value()
+        println(s">>> extract(key=$key, value=$value, partitionTime=$partitionTime): $timestamp")
+        value match {
+          case back: String =>
+            val timeChange = back.toIntOption.getOrElse(0)
+            println(s">>> [extract] timeChange = $timeChange")
+            timestamp - timeChange
+          case _ =>
+            println(s">>> [extract] No timeChange")
+            timestamp
+        }
+      }
+    }
+    topology.addSource(
+      timestampExtractor,
+      sourceName,
+      "input-topic")
 
     // Registers a ProcessorNodeFactory
     // Supplier can come with StateStores (StoreBuilders)
