@@ -41,6 +41,23 @@ The `repartitionRequired` flag is used in the following operators to add an extr
 * [toTable](#toTable)
 * [doJoin](#doJoin), [join](#join) and [leftJoin](#leftJoin) (to [repartitionForJoin](#repartitionForJoin))
 
+## <span id="merge"> merge
+
+```java
+KStream<K, V> merge(
+  InternalStreamsBuilder builder,
+  KStream<K, V> stream,
+  NamedInternal named)
+```
+
+`merge` creates a [ProcessorGraphNode](ProcessorGraphNode.md) and turns [mergeNode](GraphNode.md#setMergeNode) flag on.
+
+`merge` requests the [InternalStreamsBuilder](AbstractStream.md#builder) to [add the new ProcessorGraphNode](InternalStreamsBuilder.md#addGraphNode) (with this and the given `KStream`'s [GraphNode](AbstractStream.md#graphNode)s as the parents).
+
+In the end, `merge` creates a new [KStreamImpl](#creating-instance) for the new `ProcessorGraphNode`.
+
+`merge` is part of the [KStream](KStream.md#merge) abstraction.
+
 ## <span id="join"> join
 
 ```java

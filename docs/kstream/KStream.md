@@ -107,15 +107,18 @@ KStream<K, VR> join(
   Joined<K, V, VT> joined)
 ```
 
-### <span id="merge"> merge
+### <span id="merge"> Merging KStreams
 
 ```java
 KStream<K, V> merge(
-  KStream<K, V> stream)
-KStream<K, V> merge(
   KStream<K, V> stream,
   Named named)
+... // (1)
 ```
+
+1. There are others. Let's focus on the most important parts.
+
+See [KStreamImpl.merge](KStreamImpl.md#merge)
 
 ### <span id="peek"> peek
 

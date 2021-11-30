@@ -77,6 +77,14 @@ void maybeOptimizeRepartitionOperations()
 
 `maybeOptimizeRepartitionOperations`...FIXME
 
+### <span id="maybeUpdateKeyChangingRepartitionNodeMap"> maybeUpdateKeyChangingRepartitionNodeMap
+
+```java
+void maybeUpdateKeyChangingRepartitionNodeMap()
+```
+
+`maybeUpdateKeyChangingRepartitionNodeMap`...FIXME
+
 ### <span id="createRepartitionNode"> createRepartitionNode
 
 ```java
@@ -118,3 +126,37 @@ KStream<K, V> stream(
 `stream` is used when:
 
 * `StreamsBuilder` is requested to [stream](StreamsBuilder.md#stream)
+
+## <span id="addGraphNode"> Adding GraphNode
+
+```java
+void addGraphNode(
+  Collection<GraphNode> parents,
+  GraphNode child)
+```
+
+`addGraphNode` adds the given child [GraphNode](GraphNode.md) to the [children](GraphNode.md#addChild) of the given parent `GraphNode`s.
+
+In the end, `addGraphNode` [maybeAddNodeForOptimizationMetadata](#maybeAddNodeForOptimizationMetadata) (with the `child` node).
+
+### <span id="maybeAddNodeForOptimizationMetadata"> maybeAddNodeForOptimizationMetadata
+
+```java
+void maybeAddNodeForOptimizationMetadata(
+  GraphNode node)
+```
+
+`maybeAddNodeForOptimizationMetadata` [setBuildPriority](GraphNode.md#setBuildPriority) of the given [GraphNode](GraphNode.md) to the current [buildPriorityIndex](#buildPriorityIndex) (and increments it).
+
+`maybeAddNodeForOptimizationMetadata` adds the given `GraphNode` to the following internal registries:
+
+* [keyChangingOperationsToOptimizableRepartitionNodes](#keyChangingOperationsToOptimizableRepartitionNodes) when [isKeyChangingOperation](GraphNode.md#isKeyChangingOperation)
+* `OptimizableRepartitionNode` (FIXME)
+* [mergeNodes](#mergeNodes) when [isMergeNode](GraphNode.md#isMergeNode)
+* [tableSourceNodes](#tableSourceNodes) when `TableSourceNode`
+
+## <span id="mergeNodes"> Merge GraphNodes
+
+`InternalStreamsBuilder` defines `mergeNodes` internal registry of [GraphNode](GraphNode.md)s that are [merge nodes](GraphNode.md#isMergeNode) (that are found in [maybeAddNodeForOptimizationMetadata](#maybeAddNodeForOptimizationMetadata) while [adding a new GraphNode](#addGraphNode)).
+
+`mergeNodes` is used for [maybeUpdateKeyChangingRepartitionNodeMap](#maybeUpdateKeyChangingRepartitionNodeMap).

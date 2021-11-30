@@ -20,7 +20,7 @@ Used when:
 
 * BaseJoinProcessorNode
 * [BaseRepartitionNode](BaseRepartitionNode.md)
-* ProcessorGraphNode
+* [ProcessorGraphNode](ProcessorGraphNode.md)
 * [SourceGraphNode](SourceGraphNode.md)
 * [StateStoreNode](StateStoreNode.md)
 * StreamSinkNode
@@ -36,6 +36,33 @@ Used when:
 
 !!! note "Abstract Class"
     `GraphNode` is an abstract class and cannot be created directly. It is created indirectly for the [concrete GraphNodes](#implementations).
+
+## <span id="mergeNode"> mergeNode
+
+### <span id="isMergeNode"> isMergeNode
+
+```java
+boolean isMergeNode()
+```
+
+`isMergeNode` returns the [mergeNode](#mergeNode) flag.
+
+`isMergeNode` is used when:
+
+* `InternalStreamsBuilder` is requested to [maybeAddNodeForOptimizationMetadata](InternalStreamsBuilder.md#maybeAddNodeForOptimizationMetadata)
+
+### <span id="setMergeNode"> setMergeNode
+
+```java
+void setMergeNode(
+  boolean mergeNode)
+```
+
+`setMergeNode` sets the [mergeNode](#mergeNode) flag to the given `mergeNode`.
+
+`setMergeNode` is used when:
+
+* `KStreamImpl` is requested to [merge](KStreamImpl.md#merge)
 
 ## Demo
 
