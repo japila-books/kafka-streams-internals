@@ -160,13 +160,17 @@ TaskAssignor createTaskAssignor(
 
 `createTaskAssignor` creates a [TaskAssignor](TaskAssignor.md) (using the [taskAssignorSupplier](#taskAssignorSupplier) function).
 
-## <span id="onAssignment"> onAssignment
+## <span id="onAssignment"> Handling Task and Partition Assignment
 
 ```java
 void onAssignment(
   Assignment assignment,
   ConsumerGroupMetadata metadata)
 ```
+
+`onAssignment` is part of the `ConsumerPartitionAssignor` ([Apache Kafka]({{ book.kafka }}/clients/consumer/ConsumerPartitionAssignor#onAssignment)) abstraction.
+
+---
 
 `onAssignment` [validateActiveTaskEncoding](#validateActiveTaskEncoding).
 
@@ -176,9 +180,7 @@ void onAssignment(
 
 `onAssignment` creates an empty (fake) `Cluster` metadata (with the partitions by host, i.e. `Map<HostInfo, Set<TopicPartition>>`) and requests the [StreamsMetadataState](#streamsMetadataState) to [handle the assignment change](StreamsMetadataState.md#onChange).
 
-In the end, `onAssignment` requests the [TaskManager](#taskManager) to [handleAssignment](TaskManager.md#handleAssignment) (with the active tasks).
-
-`onAssignment` is part of the `ConsumerPartitionAssignor` ([Apache Kafka]({{ book.kafka }}/clients/consumer/ConsumerPartitionAssignor#onAssignment)) abstraction.
+In the end, `onAssignment` requests the [TaskManager](#taskManager) to [handle the task and partition assignment](TaskManager.md#handleAssignment) (with the active and standby tasks).
 
 ### <span id="validateActiveTaskEncoding"> validateActiveTaskEncoding
 
@@ -204,7 +206,11 @@ Map<TaskId, Set<TopicPartition>> getActiveTasks(
   AssignmentInfo info)
 ```
 
-`getActiveTasks`...FIXME
+`getActiveTasks` returns [TaskId](TaskId.md)s and the associated `TopicPartition`s (from the `partitions`).
+
+`getActiveTasks` finds the [TaskId](TaskId.md)s among the `activeTasks` in the given `AssignmentInfo`.
+
+`getActiveTasks` assumes that the position of the `TopicPartition` in the given `partitions` is the position of the corresponding `TaskId` in the `activeTasks` in the given `AssignmentInfo`.
 
 ### <span id="maybeScheduleFollowupRebalance"> maybeScheduleFollowupRebalance
 

@@ -58,7 +58,7 @@ In the end, `commit` returns consumed offsets and metadata per every committed t
 * `StreamThread` is requested to [maybeCommit](StreamThread.md#maybeCommit)
 * `TaskManager` is requested to [maybeCommitActiveTasksPerUserRequested](#maybeCommitActiveTasksPerUserRequested)
 
-## <span id="handleAssignment"> handleAssignment
+## <span id="handleAssignment"> Handling Active and Standby Task Assignment
 
 ```java
 void handleAssignment(
@@ -76,11 +76,13 @@ Handle new assignment with:
   Existing standby tasks: [standbyTaskIds]
 ```
 
-`handleAssignment` requests the [InternalTopologyBuilder](#builder) to [addSubscribedTopicsFromAssignment](InternalTopologyBuilder.md#addSubscribedTopicsFromAssignment) (with the `TopicPartition`s from the given `activeTasks`).
+`handleAssignment` requests the [TopologyMetadata](#topologyMetadata) to [addSubscribedTopicsFromAssignment](TopologyMetadata.md#addSubscribedTopicsFromAssignment) (with the `TopicPartition`s from the given `activeTasks`).
+
+`handleAssignment` rectifies all the existing [tasks](#tasks).
 
 `handleAssignment` determines which [existing tasks](#tasks) to close (and remove) or recycle and [handleCloseAndRecycle](#handleCloseAndRecycle) them.
 
-In the end, `handleAssignment` requests the [Tasks](#tasks) to [create active and standby tasks](Tasks.md#createTasks).
+In the end, `handleAssignment` requests the [Tasks](#tasks) to [handle the new assignment and create active and standby tasks](Tasks.md#handleNewAssignmentAndCreateTasks).
 
 `handleAssignment` is used when:
 

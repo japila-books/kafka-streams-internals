@@ -34,6 +34,26 @@ void setMainConsumer(
 
 * `TaskManager` is requested to [setMainConsumer](TaskManager.md#setMainConsumer) (when `StreamThread` utility is used to [create a StreamThread](StreamThread.md#))
 
+## <span id="handleNewAssignmentAndCreateTasks"> handleNewAssignmentAndCreateTasks
+
+```java
+void handleNewAssignmentAndCreateTasks(
+  Map<TaskId, Set<TopicPartition>> activeTasksToCreate,
+  Map<TaskId, Set<TopicPartition>> standbyTasksToCreate,
+  Set<TaskId> assignedActiveTasks,
+  Set<TaskId> assignedStandbyTasks)
+```
+
+`handleNewAssignmentAndCreateTasks` requests the [ActiveTaskCreator](#activeTaskCreator) to [removeRevokedUnknownTasks](ActiveTaskCreator.md#removeRevokedUnknownTasks) (from the `assignedActiveTasks`).
+
+`handleNewAssignmentAndCreateTasks` requests the [StandbyTaskCreator](#standbyTaskCreator) to [removeRevokedUnknownTasks](StandbyTaskCreator.md#removeRevokedUnknownTasks) (from the `assignedStandbyTasks`).
+
+In the end, `handleNewAssignmentAndCreateTasks` [createTasks](#createTasks) (with the `activeTasksToCreate` and `standbyTasksToCreate`).
+
+`handleNewAssignmentAndCreateTasks` is used when:
+
+* `TaskManager` is requested to [handle active and standby task assignment](TaskManager.md#handleAssignment)
+
 ## <span id="createTasks"> createTasks
 
 ```java
@@ -48,7 +68,21 @@ void createTasks(
 
 `createTasks` is used when:
 
-* `TaskManager` is requested to [handleAssignment](TaskManager.md#handleAssignment)
+* `Tasks` is requested to [handleNewAssignmentAndCreateTasks](#handleNewAssignmentAndCreateTasks) and [maybeCreateTasksFromNewTopologies](#maybeCreateTasksFromNewTopologies)
+
+## <span id="maybeCreateTasksFromNewTopologies"> maybeCreateTasksFromNewTopologies
+
+```java
+void maybeCreateTasksFromNewTopologies()
+```
+
+`maybeCreateTasksFromNewTopologies` requests the [TopologyMetadata](#topologyMetadata) for the [names of the named topologies](TopologyMetadata.md#namedTopologiesView).
+
+In the end, `maybeCreateTasksFromNewTopologies` [createTasks](#createTasks) with the active and standby tasks (and their assigned partitions from the [ActiveTaskCreator](#activeTaskCreator) and [StandbyTaskCreator](#standbyTaskCreator)).
+
+`maybeCreateTasksFromNewTopologies` is used when:
+
+* `TaskManager` is requested to [handleTopologyUpdates](TaskManager.md#handleTopologyUpdates)
 
 ## <span id="convertStandbyToActive"> convertStandbyToActive
 

@@ -150,6 +150,7 @@ nav:
     - Tasks: Tasks.md
     - TopicsInfo: TopicsInfo.md
     - Topology: Topology.md
+    - TopologyMetadata: TopologyMetadata.md
   - Streams DSL:
     - kstream/index.md
     - AbstractStream: kstream/AbstractStream.md
