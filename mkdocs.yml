@@ -7,7 +7,7 @@ repo_name: kafka-streams-internals
 repo_url: https://github.com/japila-books/kafka-streams-internals
 edit_uri: edit/main/docs/
 
-copyright: Copyright &copy; 2021 Jacek Laskowski
+copyright: Copyright &copy; 2022 Jacek Laskowski
 
 theme:
   name: material
@@ -86,11 +86,11 @@ extra:
   java:
     api: https://docs.oracle.com/en/java/javase/11/docs/api/java.base
   kafka:
-    version: 3.0.0
-    github: https://github.com/apache/kafka/tree/3.0.0
+    version: 3.1.0
+    github: https://github.com/apache/kafka/tree/3.1.0
   scala:
     short_version: 2.13
-    api: https://www.scala-lang.org/api/2.13.6
+    api: https://www.scala-lang.org/api/2.13.x
     docs: https://docs.scala-lang.org/
     spec: https://www.scala-lang.org/files/archive/spec/2.13
   social:
