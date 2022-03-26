@@ -28,6 +28,31 @@ This root node is used to [addGraphNode](#addGraphNode) in the following high-le
 
 This root node is then used to [build and optimize a topology](#buildAndOptimizeTopology) (for [StreamsBuilder](StreamsBuilder.md#build)).
 
+## <span id="globalTable"> globalTable
+
+```java
+GlobalKTable<K, V> globalTable(
+  String topic,
+  ConsumedInternal<K, V> consumed,
+  MaterializedInternal<K, V, KeyValueStore<Bytes, byte[]>> materialized)
+```
+
+`globalTable` requests the given `MaterializedInternal` to disable logging (`withLoggingDisabled`).
+
+`globalTable` requests the given `ConsumedInternal` for the `name` and creates a `NamedInternal`.
+
+`globalTable` requests the `NamedInternal` for source and processor names.
+
+`globalTable` requests the given `MaterializedInternal` for the queryable store name and creates a [KTableSource](KTableSource.md).
+
+`globalTable` builds a [TableSourceNode](TableSourceNode.md) and [addGraphNode](#addGraphNode) it to the [root node](#root).
+
+In the end, `globalTable` creates a [GlobalKTableImpl](GlobalKTableImpl.md) (with a `KTableSourceValueGetterSupplier` with the store name and the queryable store name from the given `MaterializedInternal`).
+
+`globalTable` is used when:
+
+* `StreamsBuilder` is requested to [globalTable](StreamsBuilder.md#globalTable)
+
 ## <span id="buildAndOptimizeTopology"> buildAndOptimizeTopology
 
 ```java
@@ -153,7 +178,7 @@ void maybeAddNodeForOptimizationMetadata(
 * [keyChangingOperationsToOptimizableRepartitionNodes](#keyChangingOperationsToOptimizableRepartitionNodes) when [isKeyChangingOperation](GraphNode.md#isKeyChangingOperation)
 * `OptimizableRepartitionNode` (FIXME)
 * [mergeNodes](#mergeNodes) when [isMergeNode](GraphNode.md#isMergeNode)
-* [tableSourceNodes](#tableSourceNodes) when `TableSourceNode`
+* [tableSourceNodes](#tableSourceNodes) when the [GraphNode](GraphNode.md) is [TableSourceNode](TableSourceNode.md)
 
 ## <span id="mergeNodes"> Merge GraphNodes
 

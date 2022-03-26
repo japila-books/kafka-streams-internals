@@ -129,6 +129,17 @@ If so, `describe` [describeGlobalStore](#describeGlobalStore). Otherwise, `descr
 
 * `Topology` is requested to [describe](Topology.md#describe)
 
+### <span id="describeGlobalStore"> describeGlobalStore
+
+```java
+void describeGlobalStore(
+  TopologyDescription description,
+  Set<String> nodes,
+  int id)
+```
+
+`describeGlobalStore`...FIXME
+
 ## <span id="copartitionSourceGroups"> copartitionSourceGroups
 
 ```java
@@ -243,6 +254,27 @@ Set<String> globalTopics
 
 A new topic name is added in [addGlobalStore](#addGlobalStore).
 
+`globalTopics` is used when:
+
+* [validateTopicNotAlreadyRegistered](#validateTopicNotAlreadyRegistered)
+* [topicGroups](#topicGroups)
+* [isGlobalSource](#isGlobalSource)
+
+### <span id="isGlobalSource"> isGlobalSource
+
+```java
+boolean isGlobalSource(
+  String nodeName)
+```
+
+`isGlobalSource` finds a [NodeFactory](processor/NodeFactory.md) (by given `nodeName`) in [nodeFactories](#nodeFactories) registry.
+
+`isGlobalSource` is positive (`true`) when the `NodeFactory` is a [SourceNodeFactory](processor/SourceNodeFactory.md) with one [topic](processor/SourceNodeFactory.md#topics) only that is [global](#globalTopics). Otherwise, `isGlobalSource` is negative (`false`).
+
+`isGlobalSource` is used when:
+
+* `InternalTopologyBuilder` is requested to [globalNodeGroups](#globalNodeGroups), [describeGlobalStore](#describeGlobalStore) and [nodeGroupContainsGlobalSourceNode](#nodeGroupContainsGlobalSourceNode)
+
 ## <span id="build"> Building Processor Topology
 
 ```java
@@ -351,7 +383,7 @@ topology has not completed optimization
 
 `buildGlobalStateTopology` is used when:
 
-* `KafkaStreams` is [created](KafkaStreams.md#creating-instance)
+* `TopologyMetadata` is requested to [buildAndVerifyTopology](TopologyMetadata.md#buildAndVerifyTopology)
 * `TopologyTestDriver` is requested to [setupTopology](TopologyTestDriver.md#setupTopology)
 
 ## <span id="rewriteTopology"> Rewriting Topology
@@ -386,22 +418,7 @@ Set<String> globalNodeGroups()
 
 * `InternalTopologyBuilder` is requested to build a [local](#buildTopology) (excluding global state nodes) and [global state](#buildGlobalStateTopology) topologies
 
-## <span id="isGlobalSource"> isGlobalSource
-
-```java
-boolean isGlobalSource(
-  String nodeName)
-```
-
-`isGlobalSource` finds a [NodeFactory](processor/NodeFactory.md) (by given `nodeName`) in [nodeFactories](#nodeFactories) registry.
-
-`isGlobalSource` is positive (`true`) when the `NodeFactory` is a [SourceNodeFactory](processor/SourceNodeFactory.md) with one [topic](processor/SourceNodeFactory.md#topics) only that is [global](#globalTopics). Otherwise, `isGlobalSource` is negative (`false`).
-
-`isGlobalSource` is used when:
-
-* `InternalTopologyBuilder` is requested to [globalNodeGroups](#globalNodeGroups), [describeGlobalStore](#describeGlobalStore) and [nodeGroupContainsGlobalSourceNode](#nodeGroupContainsGlobalSourceNode)
-
-## <span id="addGlobalStore"> Registering Global Store
+## <span id="addGlobalStore"> Registering Global State Store
 
 ```java
 <KIn, VIn> void addGlobalStore(
@@ -415,13 +432,19 @@ boolean isGlobalSource(
   ProcessorSupplier<KIn, VIn, Void, Void> stateUpdateSupplier)
 ```
 
+`addGlobalStore` creates a [ProcessorNodeFactory](processor/ProcessorNodeFactory.md).
+
+`addGlobalStore` adds the given topic name to [globalTopics](#globalTopics).
+
+`addGlobalStore` creates a [SourceNodeFactory](processor/SourceNodeFactory.md) and registers it in the [nodeFactories](#nodeFactories) under the `sourceName`.
+
 `addGlobalStore`...FIXME
 
 `addGlobalStore` is used when:
 
 * `Topology` is requested to [addGlobalStore](Topology.md#addGlobalStore)
 * `GlobalStoreNode` is requested to `writeToTopology`
-* `TableSourceNode` is requested to `writeToTopology`
+* `TableSourceNode` is requested to [writeToTopology](TableSourceNode.md#writeToTopology)
 
 ## <span id="addProcessor"> Registering Processor
 
@@ -466,7 +489,7 @@ void addStateStore(
 * `StreamStreamJoinNode` is requested to `writeToTopology`
 * `StreamToTableNode` is requested to `writeToTopology`
 * `TableProcessorNode` is requested to `writeToTopology`
-* `TableSourceNode` is requested to `writeToTopology`
+* `TableSourceNode` is requested to [writeToTopology](TableSourceNode.md#writeToTopology)
 
 ## <span id="topicGroups"> topicGroups
 
@@ -513,6 +536,35 @@ void addSource(
 * `GroupedTableOperationRepartitionNode` is requested to `writeToTopology`
 * `OptimizableRepartitionNode` is requested to `writeToTopology`
 * `StreamSourceNode` is requested to [writeToTopology](kstream/StreamSourceNode.md#writeToTopology)
-* `TableSourceNode` is requested to `writeToTopology`
+* `TableSourceNode` is requested to [writeToTopology](TableSourceNode.md#writeToTopology)
 * `Topology` is requested to [addSource](Topology.md#addSource)
 * `UnoptimizableRepartitionNode` is requested to `writeToTopology`
+
+## <span id="topologyName"> topologyName
+
+`topologyName` is specified using [setNamedTopology](#setNamedTopology).
+
+### <span id="setNamedTopology"> setNamedTopology
+
+```java
+void setNamedTopology(
+  NamedTopology topology)
+```
+
+`setNamedTopology`...FIXME
+
+`setNamedTopology` is used when:
+
+* `NamedTopology` is requested to [setTopologyName](NamedTopology.md#setTopologyName)
+
+## Logging
+
+Enable `ALL` logging level for `org.apache.kafka.streams.processor.internals.InternalTopologyBuilder` logger to see what happens inside.
+
+Add the following line to `log4j.properties`:
+
+```text
+log4j.logger.org.apache.kafka.streams.processor.internals.InternalTopologyBuilder=ALL
+```
+
+Refer to [Logging](logging.md).

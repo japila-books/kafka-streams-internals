@@ -114,6 +114,7 @@ nav:
     - InternalConfig: InternalConfig.md
     - KafkaClientSupplier: KafkaClientSupplier.md
     - KafkaStreams: KafkaStreams.md
+    - NamedTopology: NamedTopology.md
     - PartitionGroup: PartitionGroup.md
     - ProcessorStateManager: ProcessorStateManager.md
     - PunctuationQueue: PunctuationQueue.md
@@ -157,6 +158,7 @@ nav:
     - Aggregator: kstream/Aggregator.md
     - Consumed: kstream/Consumed.md
     - GlobalKTable: kstream/GlobalKTable.md
+    - GlobalKTableImpl: kstream/GlobalKTableImpl.md
     - GraphNodes:
       - BaseRepartitionNode: kstream/BaseRepartitionNode.md
       - GraphNode: kstream/GraphNode.md
@@ -164,6 +166,7 @@ nav:
       - ProcessorGraphNode: kstream/ProcessorGraphNode.md
       - SourceGraphNode: kstream/SourceGraphNode.md
       - StatefulProcessorNode: kstream/StatefulProcessorNode.md
+      - TableSourceNode: kstream/TableSourceNode.md
     - GroupedStreamAggregateBuilder: kstream/GroupedStreamAggregateBuilder.md
     - GroupedTableOperationRepartitionNode: kstream/GroupedTableOperationRepartitionNode.md
     - Initializer: kstream/Initializer.md
@@ -262,6 +265,7 @@ nav:
   - Features:
     - Global Stores: global-stores.md
     - Scala API: scala.md
+    - Interactive Queries: interactive-queries.md
   - Misc:
     - Logging: logging.md
   - Demos:
